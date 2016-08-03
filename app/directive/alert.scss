@@ -1,0 +1,25 @@
+.alert{
+  position: fixed;
+  right: 0;
+  left: 0;
+  top:0;
+  z-index: 1030;
+  border-radius:0;
+  padding:10px;
+  margin:0;
+  text-align:center;
+  opacity:0.9;
+  border:0;
+}
+.close{
+  opacity:inherit;
+}
+.alert-dismissable .close{
+  top:inherit;
+  right:inherit;
+  color:#ffffff;
+}
+.alert-danger{
+  background-color:#7d3334;
+  color:#ffffff;
+}

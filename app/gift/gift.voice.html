@@ -1,0 +1,51 @@
+<div class="tape-margin">
+  <div class="text-center tape-logo-wai">
+     <div class="tape-logo" ng-bind-html="gift.info.poetry | nl2br"></div>
+  </div>
+
+  <div class="text-center tape-down">
+    <div class="tape-bar">
+      <timer interval="1000" countdown="60" autostart="false">
+        <div class="progress gift-progress">
+          <div class="progress-bar progress-bar-danger progress-bar-striped {{displayProgressActive}}" role="progressbar" aria-valuenow="{{countdown}}" aria-valuemin="0" aria-valuemax="60" style="width: {{progressBar}}%">
+          </div>
+        </div>
+        <div class="center gift-second">{{countdown === 60?'&nbsp;':(60-countdown)+'S'}}</div>
+      </timer>
+    </div>
+    <div class="tape-ok">
+      <dl ng-if="status.stop">
+        <dd class="tape-dd-big-star">
+          <img src="assets/images/record.png" ng-click="record()" class="gift-voice-big">
+        </dd>
+        <dd class="tape-dd-big-font">读诗/表白</dd>
+      </dl>
+      <dl ng-if="status.start">
+        <dd class="tape-dd-big-star">
+          <img src="assets/images/stop.png" ng-click="stop()" class="gift-voice-big">
+        </dd>
+        <dd class="tape-dd-big-font">结束录音</dd>
+      </dl>
+      <div class="tape-poa-btn" ng-if="status.record">
+        <dl class="tape-poa-left">
+          <dd class="tape-dd-small">
+            <img src="assets/images/play.png" ng-click="playVoice()" class="gift-voice-small">
+          </dd>
+          <dd class="tape-dd-big-font">播放</dd>
+        </dl>
+        <dl class="tape-next tape-poa-left">
+          <dd class="tape-dd-big-over">
+            <img src="assets/images/next.png" ng-click="save()" class="gift-voice-big">
+          </dd>
+          <dd class="tape-dd-big-font">下一步</dd>
+        </dl>
+        <dl class="tape-poa-left">
+          <dd class="tape-dd-small">
+            <img src="assets/images/rerecord.png" ng-click="record()" class="gift-voice-small">
+          </dd>
+          <dd class="tape-dd-big-font">重录</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>

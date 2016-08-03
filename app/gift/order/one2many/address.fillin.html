@@ -1,0 +1,20 @@
+<div class="address-from-friend">
+    <div class="container-status">
+        <div class="head">
+            <img class="icon-img" src="assets/v2/images/i.png" />
+            <br>
+            <p class="center-mini-text">
+                写下您的收货地址,礼物将送到这里~
+            </p>
+        </div>
+        <div class="content">
+            <input type="text" ng-model="data.consignee" class="form-text" name="name" required="required" placeholder="您的姓名" />
+            <input type="tel" ng-model="data.telephone" class="form-text" name="tel" required="required" placeholder="手机号码" />
+            <textarea ng-model="data.address" class="form-textarea address" name="address" required="required" rows="6" placeholder="填写详细收货地址 如:街道名/门牌号/楼层/房间号等信息"></textarea>
+            <div class="submit-btn">
+                <button type="submit" ng-click="saveAddr()" class="button button-action ">提交</button>
+            </div>
+        </div>
+        <!--content-->
+    </div>
+</div>

@@ -1,0 +1,7 @@
+  <h3>长按列表</h3>
+  <p ng-repeat="item in list" on-long-press="itemOnLongPress(item)" on-touch-end="itemOnTouchEnd(item)">
+    [{{ item }}]
+  </p>
+  
+  <h3>长按结果</h3>
+  <p ng-repeat="msg in messages">{{msg}}</p>

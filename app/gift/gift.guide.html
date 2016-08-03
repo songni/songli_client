@@ -1,0 +1,28 @@
+<div ng-swipe-up="swipe('up')" ng-swipe-down="swipe('down')" ng-style="{height:innerHeight}">
+  <div class="animate-switch" ng-switch on="selection">
+    <div class="animate-switch" ng-switch-when="2">
+      <img src="assets/images/page3.png"/>
+    </div>
+    <div class="animate-switch" ng-switch-when="1">
+      <img src="assets/images/page2.png"/>
+    </div>
+    <div class="animate-switch" ng-switch-default>
+      <img src="assets/images/page1.png"/>
+    </div>
+  </div>
+</div>
+
+
+
+<div ng-if="false">
+  <select ng-model="selection" ng-options="item for item in items">
+  </select>
+  <code>selection={{selection}}</code>
+  <hr/>
+  <div class="switch-container" ng-switch on="selection">
+      <div class="switch" ng-switch-when="1">Settings Div</div>
+      <div class="switch" ng-switch-when="2">Home Span</div>
+      <div class="switch" ng-switch-default>default</div>
+  </div>
+</div>
+

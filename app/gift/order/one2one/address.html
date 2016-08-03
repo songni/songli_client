@@ -1,0 +1,18 @@
+<div class="head">
+    <img class="icon-img" src="assets/v2/images/i.png">
+    <div style="height:24px;"></div>
+    <p class="center-mini-text">支付成功,请填写收货人信息</p>
+</div>
+<div class="message-block content">
+  <form class="form-horizontal" name="giftAddrForm" novalidate ng-submit="saveAddr()" >
+      <input class="input-msg form-text" type="text" name="consignee" placeholder="收货人姓名" ng-model="address.consignee" ng-maxlength="20" required>
+      <p ng-show="giftAddrForm.consignee.$error.maxlength && submitted" class="help-block">* 收货人字数太多.</p>
+      <input class="input-msg form-text" type="tel" name="telephone" placeholder="收货人电话" ng-model="address.telephone" required phone>
+      <p ng-show="giftAddrForm.telephone.$invalid && submitted" class="help-block">* 请输入有效的手机号码.</p>
+      <textarea rows="2" name="address" style="height:6em" class="input-msg form-textarea" placeholder="填写详细收货地址，例如：街道名称/门牌号/楼层/房间号等信息" ng-model="address.address" ng-maxlength="500" required></textarea>
+      <p ng-show="giftAddrForm.address.$error.required && submitted" class="help-block">* 请输入收货人的详细地址.</p>
+      <p ng-show="giftAddrForm.address.$error.maxlength && submitted" class="help-block">* 配送地址字数太多.</p>
+      <button type="submit" class="button button-action btn-green" style="margin-top: 8px;">完成</button>
+  </form>
+   <button class="button button-highlight btn-yellow" style="margin-top: 8px;" ng-click="share()">不知道?发给好友填写</button>
+</div>

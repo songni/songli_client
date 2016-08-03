@@ -1,0 +1,8 @@
+.container{
+  max-width:640px;
+  margin: auto;
+}
+// injector
+@import 'directive/alert.scss';
+@import 'gift/nosy.scss';
+// endinjector

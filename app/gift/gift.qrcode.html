@@ -1,0 +1,24 @@
+<div class="col-md-12 code-margin">
+
+  <div class="code-you">亲爱的{{order.receiver.name}}:</div>
+  <br/>  
+
+  <div class="text-center code-logo-wai">
+     <div class="text-center code-logo-font">微信扫一扫,听Ta对你说</div>
+     <div class="code-logo">
+        <h2>此处是二维码</h2>
+        <br/><br/>
+    </div>
+  </div>
+
+  <div class="text-center">
+
+    <div class="text-right code-me">
+      <dl>
+        <dd class="">{{order.sender.info.nickname}}</dd>
+        <dd class="">{{order.time.add | amCalendar}}</dd>
+      </dl>
+    </div>
+
+  </div>
+</div>

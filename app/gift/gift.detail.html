@@ -1,0 +1,39 @@
+<div ui-view="">
+    <div class="present-detail" style="margin-top:15px; ">
+        <div class="present-detail-img">
+            <img ng-src="{{'http://' + apiCfg.imgUri + gift.info.cover}}" ng-if="gift.info.cover">
+            <img ng-src="assets/v2/images/present_sent_demo.png" ng-if="!gift.info.cover">
+        </div>
+        <div class="card-group">
+            <div class="card present-detail-summary">
+                <p ng-bind="gift.info.name"></p>
+                <article>
+                    <p ng-bind="gift.info.lead"></p>
+                </article>
+                <div class="separate-box present-summary-bottom">
+                    <div class="separate-left">
+                        <span ng-bind="gift.info.price"></span>元/份
+                    </div>
+                    <div class="separate-right trade-status-green">
+                        已送出 <span ng-bind="gift.num.receivers">0</span>份
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+        </div>
+        <div style="height:50px;"></div>
+        <div class="gift-detail">
+            <hr>
+            <img src="assets/v2/images/word_gift_detail.png" />
+            <hr style="top: -1px;right:0;">
+            <div ng-bind-html="gift.info.detail"></div>
+        </div>
+        <div style="height:60px;"></div>
+    </div>
+    <div class="bottom-btn double-col">
+        <!-- type=1代表一送一 -->
+        <a class="button button-action" ui-sref="gift.detail.one2one-record({id:gift.id})">送一人</a>
+        <!-- type=2代表一送多 -->
+        <a class="button button-highlight" ui-sref="gift.detail.one2many-record({id:gift.id})">送多人</a>
+    </div>
+</div>

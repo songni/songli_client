@@ -1,0 +1,27 @@
+<div infinite-scroll='gifts.nextPage()' infinite-scroll-disabled='gifts.busy'  infinite-scroll-distance='1'>
+    <div class="trade-list" ng-repeat="gift in gifts.items" ng-click="link()">
+        <div class="empty-canvas title">
+                <b>
+                    <span>送给 </span>
+                    <span class="trade-name" ng-bind="gift.receiver.name"></span>
+                </b>
+                <span class="trade-date" ng-bind="gift.time.add | date:'yyyy-MM-dd'"></span>
+        </div>
+
+        <div class="empty-canvas trade-content">
+            <img class="trade-img" src="./assets/images/trade_demo.png">
+            <div class="content">
+                <span  ng-bind="gift.gift.info.name"></span><br>
+                <span>RMB {{gift.gift.info.price}}</span>
+            </div>
+        </div>
+
+        <div class="empty-canvas trade-content">
+            <b>
+              <span class="order-state" ng-if="!gift.status.read" ng-bind="gift.status.shipping?'已发货':'未发货'"></span>
+              <span class="order-state" ng-if="gift.status.read">已收货</span>
+            </b>
+            <span class="num" ng-if="gift.express">快递单号:<span style="color:#FFC125;" ng-bind="gift.express"></span></span>
+        </div>
+    </div>
+</div>

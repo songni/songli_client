@@ -1,0 +1,43 @@
+<div class="listen-container">
+  <div class="empty-line"></div>
+  <div class="message-block listen-message-block" style="padding: 0;min-height:{{innerHeight*94/100}}px;">
+    <div class="listen-greet">
+        <p>{{order.receiver.name}}:</p>
+        <img style="width:100%;margin-top:10px;" src="./assets/images/word_receive.png"/>
+        <p style="text-align: right">{{order.sender.name}}</p>
+        <span style="color:#B5B5B6;font-size:15px;text-align: right;margin-top:-6px;display: block">
+          {{order.time.add | date:'yyyy年MM月dd日 hh:ss'}}
+        </span>
+    </div>
+
+    <div style="background-color:#F7F7F7;padding: 20px">
+      <timer interval="1000" countdown="60" autostart="false">
+      <div class="v">
+        <div class="dialog-bg">
+            <div class="progress">
+                <div class="progress-active" id="pro" aria-valuenow="{{countdown}}" aria-valuemin="0" aria-valuemax="60" style="width: {{progressBar?progressBar:0}}%;">
+                </div>
+            </div>
+        </div>
+        <img class="head" ng-src="{{order.sender.headimgurl.replace('/0','/46')}}"/>
+        <label ng-bind="(60-countdown)+'s'"></label>
+      </div>
+      </timer>
+      <div id="play-button" ng-if="media.media_id&&!localId" style="width:28%;margin:20px auto 0;">
+        <img src="./assets/images/play.png" ng-click="play()" style="width:100%;margin:0;">
+      </div>
+      <div ng-if="localId">
+        <div id="pause-button" ng-click="pause()" ng-if="status.play">
+          <img src="./assets/images/pause.png"/>
+        </div>
+        <div id="play-button" ng-click="resume()" ng-if="status.pause">
+          <img src="./assets/images/play.png"/>
+        </div>
+      </div>
+
+      <div id="finish-listen" ng-if="status.stop" ng-click="link()">
+        <img src="./assets/images/down.png" alt="礼物详情" />
+      </div>
+    </div>
+  </div>
+</div>

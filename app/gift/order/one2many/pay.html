@@ -1,0 +1,39 @@
+<div style="height:8px"></div>
+<div class="empty-canvas" ng-controller="GiftPayOne2ManyCtrl">
+    <div class="pay">
+        <div class="card-group">
+            <div class="card present-detail-summary">
+                <p><b>{{gift.info.name}}</b></p>
+                <article>
+                    {{gift.info.lead}}
+                </article>
+                <div class="separate-box pay-bottom">
+                    <div class="separate-left">
+                        {{gift.info.price}} 元/份
+                    </div>
+                    <div class="separate-right">
+                        <span>数量:</span>{{capacity}}份
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="card-group total-pay">
+            <div class="card">
+                <div class="separate-box">
+                    <div class="separate-left">
+                        总 计
+                    </div>
+                    <div class="separate-right">
+                        ￥{{gift.info.price * capacity}}
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+        </div>
+        <!--/total-pay-->
+        <div class="pay-now">
+            <a class="button button-action btn-green" ng-click="wxPay()" ng-disabled="submiting" ng-bind="submiting?'支付中...':'支付'"></a>
+        </div>
+    </div>
+</div>

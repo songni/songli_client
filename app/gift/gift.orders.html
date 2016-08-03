@@ -1,0 +1,30 @@
+<div id="last-container">
+  <div class="go-end-page">
+    <div class="go-header">
+        <img src="./assets/images/unknown.png"/>
+        <br>
+        <img style="width:55%;margin-top: 12px;" src="./assets/images/word_guide.png"/>
+    </div>
+    <a class="button button-action" ui-sref="gift.detail({id:gift.id})" target="_blank">让礼物帮你说</a>
+    <h4 class="go-head-message" >已有<span ng-bind="gift.num.pay">0</span>个朋友在用这个特殊礼物表达心声</h4>
+    <div class="message-block" id="marquee">
+      <div id="marquee_content">
+        <ul class="show-box">
+          <li ng-repeat="order in orders">
+            <img src="{{order.sender.info.headimgurl.replace('/0','/46')}}"/>
+            <span>{{order.sender.info.nickname}}</span> 对 
+            <span>{{order.receiver.name}}</span> 说
+            <span>...</span>
+          </li>
+          <li ng-repeat="line in empty_line">&nbsp;</li>
+        </ul>
+      </div>
+      <div id="em"></div>
+    </div>
+    <p class="go-footer"><img src="./assets/images/word_guide_footer.png"/></p>
+  </div>
+  <div style="background-color:#5D5D5D;min-height:70px; "></div>
+</div>
+<script>
+    marquee("marquee","marquee_content","em",60);
+</script>

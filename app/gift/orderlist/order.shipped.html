@@ -1,0 +1,20 @@
+<div class="present_received_list">
+    <div class="card-group">
+        <div class="card" ng-repeat="receiver in receivers">
+            <div class="present-rl-item">
+                <img src="http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png" ng-src="{{receiver.headimgurl}}" />
+                <div class="ite-summary">
+                    <div class="clear"></div>
+                    <div class="ite-content">
+                        <span class="ite-name">{{receiver.consignee}}</span>
+                        <span class="ite-status">
+                            <span>{{receiver.status.shipping_date|date:'MM.dd HH:mm'}}</span>
+                        <span class="trade-status-green">已发货</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
