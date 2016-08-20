@@ -1,0 +1,27 @@
+<div class="section section-last">
+    <div class="show-box">
+        <img class="i" src="assets/v2/images/i.png" />
+        <div class="white-box">已有<span>{{gift.num.pay}}</span>人用这份礼物送出了祝福</div>
+        <div class="marquee">
+            <ul class="scroll-box" id="marquee_content">
+                <li ng-repeat="order in orders">
+                    <img src="{{order.sender.info.headimgurl.replace('/0','/46')}}" />
+                    <span><span>{{order.sender.info.nickname}}</span> 祝福 <span> {{order.receivers[0].consignee}}</span>
+                    </span>
+                </li>
+                <li ng-repeat="order in preorders" ng-if="gift.num.pay<4">
+                    <img src="{{order.sender.info.headimgurl.replace('/0','/46')}}" />
+                    <span><span>{{order.sender.info.nickname}}</span> 祝福<span>{{order.receivers[0].consignee}}</span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--/show-box-->
+    <div class="guide-bottom">
+        <div class="bottom-btn double-col">
+            <a class="button button-action" ui-sref="gift.list">我也要送</a>
+            <!--<a class="button button-highlight" ng-click="share()">分享</a>-->
+        </div>
+    </div>
+</div>

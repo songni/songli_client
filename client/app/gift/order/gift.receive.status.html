@@ -1,0 +1,157 @@
+<!-- 送一个人 -->
+<div class="address-from-friend" ng-if="order.capacity == 1">
+    <div class="container-status">
+        <div class="head">
+            <img class="icon-img" src="assets/v2/images/i.png" />
+            <img class="head-top" ng-src="{{order.sender.info.headimgurl}}" />
+        </div>
+        <div class="content">
+            <p class="center-mini-text fill-out-describe">
+                {{order.sender.name}}用心为你准备了一份礼物,写下你的收货地址,礼物和惊喜将送到这里~
+            </p>
+            <form name="giftAddrForm" novalidate ng-submit="saveAddr()">
+                <input type="text" name="consignee" placeholder="{{giftAddrForm.consignee.$invalid && submitted?'姓名未填写':' 姓名:'}}" ng-model="address.consignee" ng-maxlength="20" required class="form-text" ng-class="{'error':giftAddrForm.consignee.$invalid && submitted}">
+                <p ng-show="giftAddrForm.consignee.$error.maxlength && submitted" class="help-block">* 收货人字数太多.</p>
+                <input type="tel" name="telephone" placeholder="{{giftAddrForm.telephone.$invalid && submitted?'手机号未填写':'手机号码'}}" ng-model="address.telephone" required phone class="form-text" ng-class="{'error':giftAddrForm.telephone.$invalid && submitted}">
+                <p ng-show="giftAddrForm.telephone.$error.phone && submitted" class="help-block">* 不是有效的手机号码.</p>
+                <textarea rows="4" name="address" placeholder="{{giftAddrForm.address.$invalid && submitted?'收货地址未填写':'填写详细收货地址，例如：街道名称/门牌号/楼层/房间号等信息'}}" ng-model="address.address" ng-maxlength="300" required class="form-textarea address" ng-class="{'error':giftAddrForm.address.$invalid && submitted}"></textarea>
+                <p ng-show="giftAddrForm.address.$error.maxlength" class="help-block">* 配送地址字数太多.</p>
+                <div class="submit-btn">
+                    <button type="submit" class="button button-action ">提交</button>
+                </div>
+            </form>
+        </div>
+        <!--content-->
+    </div>
+</div>
+<!-- 送多个人 -->
+<div ng-if="order.capacity > 1">
+    <!-- 收礼者:还没有收礼，而且有余 -->
+    <div class="receive-present" ng-if="orderStatus == 1">
+        <div class="container-status">
+            <div class="head">
+                <img class="icon-img" src="assets/v2/images/i.png" />
+                <img class="head-top" ng-src="{{order.sender.info.headimgurl}}" />
+            </div>
+            <div class="content">
+                <br>
+                <p class="center-name">{{order.sender.info.nickname}}</p>
+                <p class="receive-present-text">
+                    为你准备了一份礼物,不止礼物还有惊喜哟,点此收下心意吧~
+                </p>
+                <p class="head-send-status">
+                    {{orderReserved}}人已领取礼物
+                    <span class="left-count">还有<b>{{orderSurplus}}</b>份</span>
+                </p>
+            </div>
+            <!--content-->
+            <div class="receive-btn">
+                <a href="#" class="button button-action" ng-click="fill()">收礼</a>
+            </div>
+        </div>
+    </div>
+    <!-- 收礼者：已经收礼品了  -->
+    <div class="open-link-end" ng-if="(orderStatus == 10) || (orderStatus == 11)">
+        <div class="container-status">
+            <div class="head">
+                <img class="icon-img" src="assets/v2/images/i.png" />
+                <img class="head-top" ng-src="{{order.sender.info.headimgurl}}" />
+            </div>
+            <div class="content">
+                <br>
+                <p class="center-name">{{order.sender.info.nickname}}</p>
+                <p class="receive-present-text">
+                    为你准备了一份礼物,不止礼物还有惊喜哟,点此收下心意吧~
+                </p>
+                <p class="head-send-status">
+                    {{orderReserved}}人已领取礼物
+                    <span class="left-count">还有<b>{{orderSurplus}}</b>份</span>
+                </p>
+            </div>
+            <!--content-->
+            <div class="receive-btn">
+                <a href="javascript: void(0)" class="button button-done">已收礼</a>
+            </div>
+        </div>
+        <div class="footer-btn">
+            <a ui-sref="gift.list" class="button">我也要送礼</a>
+        </div>
+    </div>
+    <!-- 送礼人:打开链接，还有礼物 -->
+    <div class="open-link" ng-if="(orderStatus == 101) || (orderStatus == 111)">
+        <div class="container-status">
+            <div class="head">
+                <img class="icon-img" src="assets/v2/images/i.png" />
+                <p class="head-send-status">
+                    {{order.capacity - orderSurplus}}人已领取礼物
+                    <span class="left-count">还有<b>{{orderSurplus}}</b>份</span>
+                </p>
+            </div>
+            <div class="content">
+                <div class="head-center">
+                    <img ng-src="{{order.sender.info.headimgurl}}" />
+                    <br>
+                    <span>{{order.sender.info.nickname}}</span>
+                </div>
+                <p class="send-gift-text">
+                    已有{{order.capacity - orderSurplus}}人领取你的礼物,还有{{orderSurplus}}份礼物,继续送礼吧~
+                </p>
+                <div style="height:20px;"></div>
+                <a ng-click="shareAsSender()" id="start-send-present" class="button button-action">继续发礼物</a>
+            </div>
+            <!--content-->
+        </div>
+    </div>
+    <!-- 送礼人:打开链接，已经送光了 -->
+    <div class="open-link-end" ng-if="(orderStatus == 100) || (orderStatus == 110)">
+        <div class="container-status">
+            <div class="head">
+                <img class="icon-img" src="assets/v2/images/i.png" />
+                <div style="height:46px"></div>
+            </div>
+            <div class="content">
+                <div class="head-center">
+                    <img ng-src="{{order.sender.info.headimgurl}}" />
+                    <br>
+                    <span>{{order.sender.info.nickname}}</span>
+                </div>
+                <p class="send-gift-text">
+                    {{order.capacity}}份礼物已全部送出!
+                </p>
+                <div style="height:20px;"></div>
+                <a href="javascript: void(0)" class="button button-done">礼物已被抢光</a>
+            </div>
+            <!--content-->
+        </div>
+        <div class="footer-btn">
+            <a ui-sref="gift.list" class="button">继续送礼</a>
+        </div>
+    </div>
+    <!-- 收礼人:还没有收礼，但是礼物已经没有了 -->
+    <div class="open-link-end" ng-if="orderStatus == 0">
+        <div class="container-status">
+            <div class="head">
+                <img class="icon-img" src="assets/v2/images/i.png" />
+                <img class="head-top" ng-src="{{order.sender.info.headimgurl}}" />
+            </div>
+            <div class="content">
+                <br>
+                <p class="center-name">{{order.sender.info.nickname}}</p>
+                <p class="receive-present-text">
+                    为你准备了一份礼物,不止礼物还有惊喜哟,点此收下心意吧~
+                </p>
+                <p class="head-send-status">
+                    {{order.capacity}}人已领取礼物
+                    <span class="left-count">还有<b>0</b>份</span>
+                </p>
+            </div>
+            <!--content-->
+            <div class="receive-btn">
+                <a href="javascript: void(0)" style="background: rgba(0, 0, 0, 0.4) !important" class="button button-action">手慢了,礼物被抢完了</a>
+            </div>
+        </div>
+        <div class="footer-btn">
+            <a ui-sref="gift.list" class="button">我也要送礼</a>
+        </div>
+    </div>
+</div>

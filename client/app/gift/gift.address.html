@@ -1,0 +1,46 @@
+<div class="gift-address">
+  <div>222</div>
+  <table class="gift-top" width="100%">
+    <tr>
+      <td align="center" width="34%"><img src="{{merchant.pubno.head_img}}" class="img-responsive img-circle"></td>
+      <td valign="middle" width="66%"><div class="title">{{gift.info.name}}</div></td>
+    </tr>
+  </table>
+  <form class="form-horizontal" name="giftAddrForm" novalidate ng-submit="saveAddr()" >
+    <div class="form-group details-input" ng-class="{ 'gift-success': giftAddrForm['name'].$valid && submitted,
+                                      'has-error' : giftAddrForm['name'].$invalid && submitted }">
+      <label for="name" class="col-xs-4 control-label">送　　给</label>
+      <div class="col-xs-8">
+        <input type="text" name="name" placeholder="{{giftAddrForm.name.$invalid && submitted?'昵称未填写':'TA的名字'}}" ng-model="address.name" ng-maxlength="20" required>
+        <p ng-show="giftAddrForm.name.$error.maxlength && submitted" class="help-block">昵称字数太多.</p>
+      </div>
+    </div>
+
+    <div class="form-group details-input" ng-class="{ 'gift-success': giftAddrForm['address'].$valid && submitted,
+                                      'has-error' : giftAddrForm['address'].$invalid && submitted }">
+      <label for="address" class="col-xs-4 control-label">配送地址</label>
+      <div class="col-xs-8">
+        <textarea type="address" rows="2"  name="address" placeholder="{{giftAddrForm.address.$invalid && submitted?'配送地址未填写':'[送你]盒子飞奔到这里'}}" ng-model="address.address" class="msd-elastic" required></textarea>
+        <p ng-show="giftAddrForm.address.$error.maxlength" class="help-block">配送地址字数太多.</p>
+      </div>
+    </div>
+
+    <div class="form-group details-input" ng-class="{ 'gift-success': giftAddrForm['telephone'].$valid && submitted,
+                                      'has-error' : giftAddrForm['telephone'].$invalid && submitted }">
+      <label for="telephone" class="col-xs-4 control-label">Ta的电话</label>
+      <div class="col-xs-8">
+        <input type="number" name="telephone" placeholder="{{giftAddrForm.telephone.$invalid && submitted?'手机号未填写':'TA的手机号'}}" ng-model="address.telephone" required phone>
+        <p ng-show="giftAddrForm.telephone.$error.phone" class="help-block">不是有效的手机号码.</p>
+      </div>
+    </div>
+    <div class="form-group details-input" ng-class="{'gift-success':giftAddrForm['name'].$valid&&giftAddrForm['address'].$valid&&giftAddrForm['telephone'].$valid}">
+      <label for="telephone" class="col-xs-4 control-label">对TA说</label>
+      <div class="col-xs-8 text-right">
+        <button type="submit" style="border: 0;background-color: transparent;text-align:right;width:100%">
+        <i class="fa fa-microphone"></i> <i class="fa fa-angle-right"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
