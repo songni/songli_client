@@ -8,8 +8,8 @@
 /.tmp	
 /node_modules
 .idea
-/public
 **/.DS_Store
 .DS_Store?
 .DS_Store
 /client/bower_components
+/e2e

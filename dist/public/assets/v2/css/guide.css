@@ -1,0 +1,50 @@
+html body{margin:0;padding: 0}
+.section{
+    background-size: cover;
+}
+/* Defining each section background and styles
+* --------------------------------------- */
+.section0{
+    background-image: url(../images/guide/bg1.jpg);
+    background-size:100% 100%;
+}
+.section1{
+    background-image: url(../images/guide/bg2.jpg);
+    background-size:100% 100%;
+}
+.section2{
+    background-image: url(../images/guide/bg3.jpg);
+    background-size:100% 100%;
+}
+.section3{
+    background-image: url(../images/guide/bg4.jpg);
+    background-size:100% 100%;
+}
+
+/**最后一页*/
+.section-last{
+    background-color: #FFFFFF;
+    padding: 14% 6% 0 6%;
+}
+.show-box{
+    background-color:#F2F8E4;
+    border-radius: 4px;
+    padding:5px;
+    position:relative;
+    text-align:center;
+}
+.i{position: relative;top: 25px;width:50px;}
+.white-box{background-color: #FFF;color:#373535;padding: 40px 5% 8% 5%;font-size:14px;}
+
+.scroll-box{list-style-type: none;padding-left:4px;text-align:left;margin-left:10px;}
+.scroll-box li{line-height:50px;}
+.scroll-box img{width:25px;border-radius: 100%;vertical-align:middle;}
+.scroll-box span{font-size:14px;margin-left:10px;color:#7C7C7C;}
+
+.marquee{height:200px;overflow: hidden;margin-top: 20px;margin-bottom:20px;}
+#marquee_content{position: relative;top: 0;}
+.guide-bottom p{text-align:center;font-size:14px;color:#ABABAB;}
+
+.double-col .button{width:80%;}
+.double-col .button-action{margin:30px auto 10px auto;display: block;}
+.double-col .button-highlight{margin:10px auto;display: block;}

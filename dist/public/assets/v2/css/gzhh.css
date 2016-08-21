@@ -1,0 +1,101 @@
+body {background-color: #F2F2F2;padding: 0 4% 2% 4%;margin: 0; font-size:16px;}
+
+.card-group{background-color: #FFFFFF;padding: 14px 0 14px 0;}
+.card{padding:0 14px 0 14px;}
+.card-group hr{border-width:0 0 1px 0; }
+ul{list-style: none;}
+.clear{clear:both}
+
+/*礼物列表*/
+.present{margin-top: 20px;}
+.present a{text-decoration: none;}
+.present-img {  background-color: #FFFFFF;padding: 6px;}
+.present-img img {  width: 100%;  display: block;}
+.present-summary{opacity: 0.6;height:12px;margin-top: -46px;padding:17px;background-color: black;z-index:10;}
+.present-summary-name{color:#FFFFFF;font-size: 15px;font-weight: bold;}
+.present-summary-price{float:right;color:#FFFFFF;font-size: 20px !important;}
+
+
+/*我送出的礼物列表 送一个人*/
+.present-sent-list .card-group{margin-top: 16px;}
+.trade-name{color:#9acf40;font-weight: 600;}
+.trade-date{color:#B5B5B6;font-weight: 500;float:right;display: block;}
+.success-msg p{color:gray;font-size:18px;}
+
+.trade-content{margin-top: 1px;}
+.trade-img{width:33%;}
+.trade-content .order-content{float:right;width:65%;line-height:22px;padding-top:12px;color:#B5B5B6;font-weight: 600;}
+.order-content span{margin-left:5px;}
+
+.order-state{color:#B5B5B6;font-size:14px;}
+.trade-content .num{float:right;color:#B5B5B6;font-size:14px;}
+.trade-content .num span{font-weight: 600;}
+
+/*我送出的礼物详情 一个人*/
+.present-sent-detail{margin-top:16px;}
+.present-sent-detail .card-group{margin-top:6px;}
+.detail-title img{width:30%;}
+.detail-title-content{float:right;width:68%;padding-top: 12px;font-weight: 600;}
+.detail-title-content p{color: #000000;margin-left:8px;margin-top: 0;font-size:18px;}
+
+.detail-content,.detail-status{margin-top: 4px;margin-bottom: 4px;}
+.detail-content li,.detail-status li{clear:both;line-height: 24px;}
+.detail-content .name,.detail-status .name{clear: right;color:#898989;font-size:14px;}
+.detail-content .value,.status-deliver,.status-listen{margin-top:2px;font-size:17px;float: right;}
+.status-deliver{font-size:14px;color:#F39800;}
+.status-listen{font-size:14px;color:#8FC31F;}
+
+/*我送出的礼物列表 多人*/
+.trade-status-green{color:#9acf40;}
+.trade-status-yellow{color:#F39800;}
+
+/*我送出的礼物详情 多人*/
+.card-well{background-color:#F2F2F2;font-size:14px;margin-top:4px;padding:12px 5px 0 8px;min-height:38px;}
+.card-well span{float: right;margin-right:5px;}
+
+/*已收听,已收礼列表*/
+.present_received_list,.present_listened_list{margin-top:16px;}
+.present-rl-item{clear:both;min-height:40px;color:#595757;}
+.present-rl-item img{width:16%;}
+.present-rl-item span{vertical-align: middle;}
+.ite-summary{width:83%;float:right;}
+.ite-content{padding:10px 0 0 8px;}
+.ite-status{float:right;font-size:14px;}
+
+
+/*产品 礼物详情*/
+.present-detail-img{background-color: #FFFFFF;padding: 6px;margin-top: 16px;margin-bottom:8px;}
+.present-detail-img img{width:100%;}
+.present-detail-summary > p{font-size:20px;margin:10px 0 6px 0 ;}
+.present-detail-summary article{color:#898989;font-size:14px}
+.gift-detail p > img {width: 100%;}
+
+.present-price{font-size:18px;margin-top: 10px;}
+.separate-left{float:left;}
+.separate-right{float:right;}
+
+.present-summary-bottom{margin-top:10px; }
+.present-summary-bottom .separate-left{font-size:18px;font-weight:bold;}
+.present-summary-bottom .separate-right{font-size:14px;}
+
+.bottom-btn{position: fixed;bottom:0;background-color: #FFF;
+    padding:4%;width:100%;margin-left:-4%;}
+.double-col .button{width:45%;}
+
+.gift-detail{text-align:center;position: relative;}
+.gift-detail hr{border-top: none;border-bottom:1px solid  #999999;
+    position:absolute;height:0;width:30%}
+.gift-detail > img{width:33%;}
+.gift-detail p{text-align:left;color:#939393;font-size:14px;line-height:24px;}
+
+/*支付*/
+.pay{margin-top:16px;}
+.pay-bottom{margin-top:10px; }
+.pay-bottom .separate-left{font-size:18px;font-weight:bold;}
+.pay-bottom .separate-right{font-size:16px;}
+.pay-bottom .separate-right span{color:#A6A6A7;}
+
+.total-pay{margin-top: 6px;}
+.total-pay .separate-left{color:#A6A6A7;padding-top:6px; }
+.total-pay .separate-right{font-size:26px;font-weight:bold;}
+.pay-now{padding: 0 10px;margin-top: 12px;}

@@ -1,0 +1,149 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #F2F2F2;
+    padding: 6% 6% 4% 6%;
+    margin: 0;
+    font-size: 16px;
+}
+
+.sound-record {
+    border: red solid;
+    min-height: 90%;
+    /*position: relative;*/
+    border-image: url(../images/border.png) 18 17 round;
+    -moz-border-image: url(../images/border.png) 17 17 round;
+    -webkit-border-image: url(../images/border.png) 17 17 round;
+    -o-border-image: url(../images/border.png) 17 17 round;
+}
+
+.to-who {
+    padding: 64px 5% 20px 5%;
+    background-color: #FFFFFF;
+}
+
+.to-who img {
+    height: 18px;
+}
+
+.input-msg {
+    height: 45px;
+    background-image: url(../images/input-box.png);
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+    display: block;
+}
+
+.to-who-count {
+    background-color: #F7F8F8;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.voice-box {
+    padding: 14px 5% 54px 5%;
+}
+
+.voice-process img {
+    height: 18px;
+    margin-bottom: 6px;
+}
+
+.progress-active,
+.progress {
+    height: 42px !important;
+}
+
+.voice-process .label {
+    color: #B5B5B5;
+    font-size: 18px;
+}
+
+#record-before {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#record-before img {
+    width: 30%;
+}
+
+#record-after {
+    margin-top: 30px;
+}
+
+.left-button {
+    /*vertical-align: middle;*/
+    margin-right: 10px;
+    display: inline-block;
+    text-align: center;
+    width: 24%;
+}
+
+.left-button img,
+.right-button img {
+    width: 100%;
+}
+
+.right-button {
+    float: right;
+    margin-top: -14px;
+    text-align: center;
+    display: inline-block;
+    width: 30%;
+}
+
+.hint {
+    display: inline;
+    font-size: 12px;
+    color: #DCDDDD;
+}
+
+
+/*progress bar*/
+
+.progress {
+    width: 100%;
+    height: 36px;
+    -webkit-background-size: 3px 3px;
+    -moz-background-size: 3px 3px;
+    background-size: 3px 3px;
+    background-color: #FFFFFF;
+    background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(.5, #DCDDDD), color-stop(.5, transparent), to(transparent));
+    background-image: -moz-linear-gradient(0deg, #DCDDDD 50%, transparent 50%, transparent));
+    background-image: -o-linear-gradient(0deg, #DCDDDD 50%, transparent 50%, transparent));
+    background-image: linear-gradient(0deg, #DCDDDD 50%, transparent 50%, transparent));
+}
+
+.progress-active {
+    height: 36px;
+    -webkit-background-size: 3px 3px;
+    -moz-background-size: 3px 3px;
+    background-size: 3px 3px;
+    background-color: #FFFFFF;
+    background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(.5, #ECA1A9), color-stop(.6, transparent), to(transparent));
+    background-image: -moz-linear-gradient(0deg, #ECA1A9 60%, transparent 60%, transparent));
+    background-image: -o-linear-gradient(0deg, #ECA1A9 60%, transparent 60%, transparent));
+    background-image: linear-gradient(0deg, #ECA1A9 60%, transparent 60%, transparent));
+}
+
+.progress,
+.progress-active {
+    height: 42px !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}

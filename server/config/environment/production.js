@@ -3,12 +3,12 @@
 module.exports = {
   port: 9158,
   api: {
-    uri: 'http://slapidev.91pintuan.com/api',
-    component:'57a1c27a60c9c4a909f916a7',
+    uri: 'http://slapi.91pintuan.com/api',
+    component:'57b93f37b62d333f2da3f00d',
     from:'client',
-    imgUri: 'imgs.wx.songni.cc'
+    imgUri: 'img.91pintuan.com'
   },
   debug: {
-    wechat:true
+    wechat: false
   }
 };
