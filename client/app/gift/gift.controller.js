@@ -50,6 +50,15 @@ angular.module('clientApp')
                 id: $scope.gift.id
             });
         }
+        var options = {
+          imgUrl: 'http://' + $scope.apiCfg.imgUri + gift.info.cover 
+        };
+        wx.ready(function(){
+            wx.onMenuShareTimeline(options);
+            wx.onMenuShareAppMessage(options);
+            wx.onMenuShareQQ(options);
+            wx.onMenuShareWeibo(options);
+        })
     })
 
 
