@@ -6,7 +6,7 @@ module.exports = {
     uri: 'http://slapi.91pintuan.com/api',
     component:'57b93f37b62d333f2da3f00d',
     from:'client',
-    imgUri: 'img.91pintuan.com'
+    imgUri: 'photo.91pintuan.com'
   },
   debug: {
     wechat: false

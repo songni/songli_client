@@ -3,12 +3,12 @@
         <div class="head">
             <img class="icon-img" src="assets/v2/images/i.png" />
             <p ng-if="!order.receivers || !order.receivers.length" class="head-title-green">{{order.capacity}}<small>份礼物已备好</small></p>
-            <p ng-if="order.receivers && order.receivers.length" class="head-title-green">
+            <div ng-if="order.receivers && order.receivers.length" class="head-title-green">
                 <p class="head-send-status">
                     {{ order.receivers.length }}人已领取礼物
                     <span class="left-count">还有<b>{{ order.capacity - order.receivers.length }}</b>份</span>
                 </p>
-            </p>
+            </div>
         </div>
         <div class="content">
             <div class="head-center">
