@@ -24,6 +24,21 @@ angular.module('clientApp')
                 id: id
             });
         };
+        wx.ready(function(){
+            var leanOptions = {
+                title: 'xxx的礼物货架',
+                imgUrl: 'http://' + $scope.apiCfg.imgUri + gift.info.cover 
+            };
+            var options = {
+                title: '一种有新意又有心意的送礼方式',
+                desc: 'xxx的礼物货架',
+                imgUrl: 'http://' + $scope.apiCfg.imgUri + gift.info.cover 
+            };
+            wx.onMenuShareTimeline(leanOptions);
+            wx.onMenuShareAppMessage(options);
+            wx.onMenuShareQQ(options);
+            wx.onMenuShareWeibo(options);
+        })
     })
     .controller('GiftDetailCtrl', function($scope, $rootScope, $state, gift, Alert) {
         //$rootScope.title = "大礼包";
@@ -50,16 +65,17 @@ angular.module('clientApp')
                 id: $scope.gift.id
             });
         }
-        var leanOptions = {
-            title: gift.info.name,
-            imgUrl: 'http://' + $scope.apiCfg.imgUri + gift.info.cover 
-        };
-        var options = {
-            title: '让送礼有新意更有心意',
-            desc: gift.info.name,
-            imgUrl: 'http://' + $scope.apiCfg.imgUri + gift.info.cover 
-        };
         wx.ready(function(){
+            var iconLiImgUrl = 'http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png';
+            var leanOptions = {
+                title: gift.info.name,
+                imgUrl: iconLiImgUrl 
+            };
+            var options = {
+                title: '让送礼有新意更有心意',
+                desc: gift.info.name,
+                imgUrl: iconLiImgUrl 
+            };
             wx.onMenuShareTimeline(leanOptions);
             wx.onMenuShareAppMessage(options);
             wx.onMenuShareQQ(options);
