@@ -50,11 +50,17 @@ angular.module('clientApp')
                 id: $scope.gift.id
             });
         }
+        var leanOptions = {
+            title: gift.info.name,
+            imgUrl: 'http://' + $scope.apiCfg.imgUri + gift.info.cover 
+        };
         var options = {
-          imgUrl: 'http://' + $scope.apiCfg.imgUri + gift.info.cover 
+            title: '让送礼有新意更有心意',
+            desc: gift.info.name,
+            imgUrl: 'http://' + $scope.apiCfg.imgUri + gift.info.cover 
         };
         wx.ready(function(){
-            wx.onMenuShareTimeline(options);
+            wx.onMenuShareTimeline(leanOptions);
             wx.onMenuShareAppMessage(options);
             wx.onMenuShareQQ(options);
             wx.onMenuShareWeibo(options);
