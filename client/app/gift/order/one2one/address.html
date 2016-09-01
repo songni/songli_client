@@ -29,8 +29,8 @@
 	</div>
 </div>
 
-<div ng-if="order.receivers.length == 1 && !order.receivers[0].telephone" class="message-block content content1">
-  <form class="form-horizontal" name="giftAddrForm" novalidate ng-submit="saveAddr()" >
+<form class="form-horizontal" name="giftAddrForm" novalidate ng-submit="saveAddr()" >
+    <div ng-if="order && order.receivers && order.receivers.length && !order.receivers[0].telephone" class="message-block content content1">
       <input class="input-msg form-text" type="text" name="consignee" placeholder="收礼人姓名" ng-model="address.consignee" ng-maxlength="20" required>
       <p ng-show="giftAddrForm.consignee.$error.maxlength && submitted" class="help-block">* 收货人字数太多.</p>
       
@@ -42,6 +42,6 @@
       <p ng-show="giftAddrForm.address.$error.maxlength && submitted" class="help-block">* 配送地址字数太多.</p>
       
       <button type="submit" class="button btn-comm btn-wc btn-green">完成</button>
-  </form>
-   <button class="button btn-comm btn-share btn-yellow"  ng-click="share()">不知道地址，发给好友填写</button>
-</div>
+      <button class="button btn-comm btn-share btn-yellow"  ng-click="share()">不知道地址，发给好友填写</button>
+    </div>
+</form>
