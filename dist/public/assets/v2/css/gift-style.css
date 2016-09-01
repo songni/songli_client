@@ -1,35 +1,64 @@
-body{background-color: #8FC31F;padding: 0;margin: 0;font-size:16px;}
-textarea{resize:none}
+body{background-color: #8FC31F;padding: 0;margin: 0;font-size:16px;font-family: Helvetica !important;}
+textarea{resize:none;-webkit-appearance:none;-webkit-tap-highlight-color:#FFFFFF;	}
+input{-webkit-appearance:none;-webkit-tap-highlight-color:#FFFFFF;}
 .clear{clear:both;}
-
-.container{margin:8% 6% 8% 6%;padding:2% 1%;border-radius: 4px;
-    position:relative;background-color: #FFFFFF;}
-.content{background-color:#F7F7F7;padding:2% 6%;}
+.container{
+	/*margin:8% 6% 8% 6%;*/
+	margin: 26px 24px;
+	padding:2% 1%;
+	border-radius: 4px;
+    position:relative;
+    background-color: #FFFFFF;
+}
+.content{
+	background-color:#F7F7F7;
+	padding:0 4%;
+	padding-bottom: 30px;
+}
 
 #shade{width:100%;position:fixed;top:0;left:0;z-index:100;
     filter:alpha(opacity=50);-moz-opacity:0.5;opacity:0.5;
     height:100%;background-color: #000000;display: none;}
 
-.center-mini-text{font-size:14px;margin-bottom:8px;color:#7B7B7B;text-align:center;}
 .fill-out-describe{margin-top: 25px;text-align:left;}
-.head-title-green{color:#8FC31F;text-align:center;margin-bottom:0;font-size: 32px;font-weight: bold;}
-.head-title-green small{font-size: 16px;}
-.send-gift-text{color:#646464;font-size: 15px;}
-.head-send-status{margin-left:20px;font-size:14px;margin-top:30px;margin-bottom: 0;color:#7B7B7B;}
-.left-count{color:#8FC31F;position: absolute;right: 20px;margin-right:20px;margin-top: -20px;}
-.left-count b{font-size:32px;font-family: Helvetica !important;}
+
+
+
+.container-status{background: #F7F7F7;}
+
 .receive-present-text{margin-top: 30px;font-size: 14px;color:#646464;}
 
 .icon-img{position: absolute;right:-17px;top: -17px;width:34px;}
 .head-top{border-radius: 100%;border:solid #FFF 2px;margin-left:-25px;width:50px;
     position: relative;left:50%;top: 25px;}
-.head-center{text-align:center;margin-top: 30px;}
-.center-name,.head-center span{font-size: 14px;text-align:center;}
-.head-center img{border-radius: 100%;border:solid #FFF 2px;width:50px;}
+    
+	/*头像*/
+.head-center{text-align:center;margin-top: 80px;height: 55px;background: #F7F7F7;}
+.center-name{font-size: 14px;text-align:center;}
+.head-center span{font-size: 15px;text-align: center;color: #B5B5B6;margin-top: 9px;display: block;}
+.head-center img{border-radius: 100%;width:67px;height: 67px;border: 2px solid #FFFFFF;margin-top: -45px;}
+	/*礼物个数*/
+.head-title-green{text-align:center;height: 90px;}
+.left-count{color: #231815;font-size: 22px;}
+.left-all{font-size: 23px;margin-bottom: 0;}
+.head-send-status{color: #8FC31F;font-size: 15px;margin-top: -12px;}
+.send-gift-text,.receive-present-text{color:#919191;font-size: 16px;line-height: 20px;padding-left: 5px;margin-top: 0;margin-bottom: 0;}
+	/*按钮*/
+.btn-bg{
+	width: 286px !important;
+    height: 45px !important;
+    background: #8FC31F;
+    color: #FFFFFF;
+    border-radius: 4px;
+    display: block !important;
+    margin: 0 auto !important;
+    margin-top: 45px !important;
+}
+.btn-no{background: #B5B5B6;}
 
 .address{margin-top: 12px !important;}
-.submit-btn{margin-top: 16px;margin-bottom: 12px;}
-.submit-btn .button{margin-top: 6px;}
+/*.submit-btn{margin-top: 16px;margin-bottom: 12px;}
+.submit-btn .button{margin-top: 6px;}*/
 #start-send-present{margin-bottom: 16px}
 
 .receive-btn{background-color: #FFFFFF;padding: 30px 6%;}
@@ -43,8 +72,87 @@ textarea{resize:none}
     -webkit-transition: height 1s;
     -o-transition: height 1s;}
 /*form*/
-.form-text,.form-textarea{background-color:#FFFFFF;  border:none; font-size:15px;
-    box-sizing: border-box;  width:100%;  margin-top: 8px;  padding:8px;  display: block;}
+.form-text,.form-textarea{
+	background-color:#FFFFFF;  
+	border:1px solid #E5E6E6; 
+	font-size:14px;
+    box-sizing: border-box;  
+    width:100%;  
+    margin-top: 9px;  
+    padding:8px;  
+    display: block;
+}
 .form-text{height:45px; text-align:center;}
-.footer-btn{position: fixed;left: 0px;bottom:30px;width:100%;}
-.footer-btn .button{width:74% !important;background-color:#A5CF4C;color: #FFF;margin: 0 13%;border:0;}
+.footer-btn{position: fixed;left: 0px;bottom:20px;width:100%;}
+.footer-btn .button{
+	width:286px !important;
+	background-color:#B0D562;
+	color: #FFF;
+	margin: 0 auto;
+	display: block;
+	border:0;
+	border-radius: 4px;
+}
+
+
+/*[送一人] - 地址填写页面*/
+.head-logo{
+	background: #F7F7F7;
+    margin-top: -15px;
+    padding: 0 8%;
+    padding-bottom: 15px;
+}
+.head-logo .center-mini-text,.head-fillin .center-mini-text{
+	font-size:14px;
+	margin-bottom:8px;
+	color:#231815;
+	line-height: 20px;
+	text-align:left;
+}
+.content1{
+	padding: 0 8%;
+	padding-bottom: 30px;
+	margin-top: -10px;
+}
+.content-top{padding-top: 28px;}
+.cont-onetop{margin-top: -15px;}
+.btn-comm{
+    border: none;
+    color: #FFFFFF;
+    border-radius: 4px;
+    margin-top: 12px !important;
+}
+.btn-wc {
+    background: #8FC31F;
+}
+.btn-share {
+    background: #F39800;
+}
+.head-fillin{
+	padding: 0 8%;
+	background: #FFFFFF;
+	margin-top: 50px;
+	padding-bottom: 16px;
+}
+.text-color{color: #898989 !important;}
+	/*已领取礼物按钮*/
+.button-done{
+	background: #B5B5B6 !important;
+	border-radius: 4px;
+	width: 286px !important;
+    height: 45px !important;
+    display: block !important;
+    margin: 0 auto !important;
+    margin-top: 45px !important;
+}
+
+
+
+
+
+
+
+
+
+
+

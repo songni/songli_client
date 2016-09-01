@@ -224,7 +224,6 @@ angular.module('clientApp')
     $rootScope.hideBar = true;
     $scope.order = order;
     $scope.address = {};
-    console.warn($rootScope.user.plain())
     $scope.user = $rootScope.user;
 
 
@@ -272,7 +271,7 @@ angular.module('clientApp')
             window.location.href = link.link;
         });
     if($rootScope.user.id === (order.sender.id || order.sender._id)){
-        $state.go('order.detail.one2many-address')
+        $state.go('order.detail.one2many-address', null, {location: "replace"})
         return;
     };
 
@@ -394,8 +393,9 @@ angular.module('clientApp')
         if (_.some($scope.data, function(val, key) {
                 return $scope.data[key] ? false : true;
             })) {
-            Alert.add('warning', '姓名，手机和地址为必填信息，不能为空', 2000);
+            Alert.add('warning', '收礼人信息不能为空！', 2000);
         } else {
+        	 Alert.add('success', '领取成功等待收礼吧！', 2000);
             // post request to save receiver info
             // post(subElement, elementToPost, [queryParams, headers])
             RestGiftOrder.one(order.id).one('address').post('', $scope.data)

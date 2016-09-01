@@ -1,26 +1,29 @@
 <div class="sound-record" ng-style="{height:innerHeight-54+'px'}">
-    <div class="to-who">
-        <img src="assets/v2/images/gift_copies.png" />
+    <div class="to-who to-more">
+        <img class="img" src="assets/v2/images/gift_copies-more.png" />
         <br>
         <div class="to-who-count">
             <div class="input-group">
+            	<!--左减-->
                 <span class="input-group-btn">
-              <button type="button" ng-click="reduCapacity()" class="btn btn-success btn-number" >
-                  <span class="glyphicon glyphicon-minus"></span>
-                </button>
+	              <button type="button" ng-click="reduCapacity()" class="btn btn-success btn-number" >
+	                <span class="glyphicon glyphicon-minus"></span>
+	              </button>
                 </span>
-                <input type="number" ng-model="giftOrderCapacity" pattern="\d*" class="form-control input-number" style="text-align: center;border-bottom: 1px dashed #8FC31F;border-top: 1px dashed #8FC31F;" placeholder="2 份" min="2">
+                <!--输入框-->
+                <input type="number" ng-model="giftOrderCapacity" pattern="\d*" class="form-control input-number" placeholder="2" min="2">
+                <!--右加-->
                 <span class="input-group-btn">
-              <button type="button" ng-click="incrCapacity()" class="btn btn-success btn-number" data-type="plus" >
-                  <span class="glyphicon glyphicon-plus"></span>
-                </button>
+	              <button type="button" ng-click="incrCapacity()" class="btn btn-success btn-number" data-type="plus" >
+	                <span class="glyphicon glyphicon-plus"></span>
+	              </button>
                 </span>
             </div>
         </div>
     </div>
     <div class="voice-box">
         <div class="voice-process">
-            <img src="assets/v2/images/blessing.png" />
+            <img src="assets/v2/images/word-zhufu.png" />
             <timer interval="1000" countdown="60" autostart="false">
                 <div class="progress">
                     <div class="progress-active" id="pro" aria-valuenow="{{countdown}}" aria-valuemin="0" aria-valuemax="60" style="width: {{progressBar?progressBar:0}}%;">

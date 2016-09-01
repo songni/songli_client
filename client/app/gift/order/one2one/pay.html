@@ -1,24 +1,22 @@
 <div style="height:8px"></div>
 <div class="empty-canvas" ng-controller="GiftPayOne2OneCtrl">
     <div class="pay">
-        <div class="card-group">
-            <div class="card present-detail-summary">
-                <p><b>{{gift.info.name}}</b></p>
-                <article>
-                    {{gift.info.lead}}
-                </article>
+        <div class="card-pay">
+            <div class="present-detail-summary">
+                <p class="name">{{gift.info.name}}</p>
+                <p class="lead">{{gift.info.lead}}</p>
                 <div class="separate-box pay-bottom">
                     <div class="separate-left">
-                        {{gift.info.price}} 元/份
+                        {{gift.info.price | currency}}
                     </div>
-                    <div class="separate-right">
-                        <span>数量:</span>1份
+                    <div class="separate-right trade-status-h">
+                        <span>1份</span>
                     </div>
-                    <div style="clear:both;"></div>
+                    <div class="clear"></div>
                 </div>
             </div>
         </div>
-        <div class="card-group total-pay">
+        <div class="card-pay total-pay">
             <div class="card">
                 <div class="separate-box">
                     <div class="separate-left">
@@ -27,13 +25,13 @@
                     <div class="separate-right">
                         {{ gift.info.price | currency }}
                     </div>
-                    <div style="clear:both;"></div>
+                    <div class="clear"></div>
                 </div>
             </div>
         </div>
         <!--/total-pay-->
         <div class="pay-now">
-            <a class="button button-action btn-green" ng-click="wxPay()" ng-disabled="submiting" ng-bind="submiting?'支付中...':'支付'"></a>
+            <a class="button btn-pay btn-green" ng-click="wxPay()" ng-disabled="submiting" ng-bind="submiting?'支付中...':'支付'"></a>
         </div>
     </div>
 </div>

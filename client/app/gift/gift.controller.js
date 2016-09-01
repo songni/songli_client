@@ -7,7 +7,6 @@ angular.module('clientApp')
         $rootScope.hideBar = true;
     })
     .controller('GiftListCtrl', function($scope, $rootScope, $state, Gift) {
-        //$rootScope.title = "大礼包列表";
         $rootScope.bg2 = false;
         /**
          * #FIXME
@@ -25,14 +24,17 @@ angular.module('clientApp')
             });
         };
         wx.ready(function(){
+            var iconLiImgUrl = 'http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png';
             var leanOptions = {
-                title: 'xxx的礼物货架',
-                imgUrl: 'http://' + $scope.apiCfg.imgUri + gift.info.cover 
+                title: $rootScope.merchant.info.name + '的礼物货架',
+                link: window.location.href,
+                imgUrl: iconLiImgUrl 
             };
             var options = {
                 title: '一种有新意又有心意的送礼方式',
-                desc: 'xxx的礼物货架',
-                imgUrl: 'http://' + $scope.apiCfg.imgUri + gift.info.cover 
+                desc: $rootScope.merchant.info.name + '的礼物货架',
+                link: window.location.href,
+                imgUrl: iconLiImgUrl
             };
             wx.onMenuShareTimeline(leanOptions);
             wx.onMenuShareAppMessage(options);
@@ -40,7 +42,7 @@ angular.module('clientApp')
             wx.onMenuShareWeibo(options);
         })
     })
-    .controller('GiftDetailCtrl', function($scope, $rootScope, $state, gift, Alert) {
+    .controller('GiftDetailCtrl', function($scope, $rootScope, $state, $sce, gift, Alert) {
         //$rootScope.title = "大礼包";
         $scope.appid = hostname[0];
         /**
@@ -52,11 +54,12 @@ angular.module('clientApp')
          */
         $scope.apiCfg = window.SONGNI_CFG_API;
         if (gift.info.name) {
-            //$rootScope.title = gift.info.name;
+            $rootScope.title = gift.info.name;
         }
         $rootScope.bg2 = false;
         $scope.gift = gift;
         $scope.tab = 'gift-card';
+        
         $scope.tabTap = function(tab) {
             $scope.tab = tab;
         };
@@ -64,6 +67,9 @@ angular.module('clientApp')
             $state.go('gift.detail.record', {
                 id: $scope.gift.id
             });
+        }
+        $scope.trustAsHtml = function(html){
+            return $sce.trustAsHtml(html);
         }
         wx.ready(function(){
             var iconLiImgUrl = 'http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png';
@@ -95,63 +101,61 @@ angular.module('clientApp')
 // Gift Share 
 .controller('GiftShareCtrl', function($state, $scope, $rootScope, $stateParams, $uibModal, RestGiftOrder, $timeout) {
     //$rootScope.title = "分享大礼包";
-    //
     $rootScope.bg2 = false;
-    $scope.preorders = [{
-            sender: {
-                info: {
-                    headimgurl: '/assets/images/user1.png',
-                    nickname: '李辛'
-                }
-            },
-            receiver: {
-                name: '刘静'
-            }
-        },
+    // $scope.preorders = [{
+    //         sender: {
+    //             info: {
+    //                 headimgurl: '/assets/images/user1.png',
+    //                 nickname: '李辛'
+    //             }
+    //         },
+    //         receiver: {
+    //             name: '刘静'
+    //         }
+    //     },
 
-        {
-            sender: {
-                info: {
-                    headimgurl: '/assets/images/user2.png',
-                    nickname: '贺函'
-                }
-            },
-            receiver: {
-                name: '朱益达'
-            }
-        }, {
-            sender: {
-                info: {
-                    headimgurl: '/assets/images/user3.png',
-                    nickname: '樊星'
-                }
-            },
-            receiver: {
-                name: '壮壮'
-            }
-        }, {
-            sender: {
-                info: {
-                    headimgurl: '/assets/images/user4.png',
-                    nickname: '至尊宝'
-                }
-            },
-            receiver: {
-                name: '紫霞仙子'
-            }
-        },
-    ];
+    //     {
+    //         sender: {
+    //             info: {
+    //                 headimgurl: '/assets/images/user2.png',
+    //                 nickname: '贺函'
+    //             }
+    //         },
+    //         receiver: {
+    //             name: '朱益达'
+    //         }
+    //     }, {
+    //         sender: {
+    //             info: {
+    //                 headimgurl: '/assets/images/user3.png',
+    //                 nickname: '樊星'
+    //             }
+    //         },
+    //         receiver: {
+    //             name: '壮壮'
+    //         }
+    //     }, {
+    //         sender: {
+    //             info: {
+    //                 headimgurl: '/assets/images/user4.png',
+    //                 nickname: '至尊宝'
+    //             }
+    //         },
+    //         receiver: {
+    //             name: '紫霞仙子'
+    //         }
+    //     },
+    // ];
     RestGiftOrder.one('list').one('s').getList('', {
-        limit: 6,
+        limit: 20,
         gift: $stateParams.id
     }).then(function(orders) {
         if (orders[1].length) {
             $scope.orders = [];
             _.each(orders[1], function(val) {
-                if (val.receivers[0].consignee) {
-                    return $scope.orders.push(val);
-                }
+                $scope.orders.push(val);
             });
+            marquee("marquee_content", "#marquee_content", 40, 40);
         }
     });
     $scope.shareSrc = 'assets/v2/images/gift_share.png';
@@ -165,9 +169,9 @@ angular.module('clientApp')
         });
     };
 
-    $scope.$on('$viewContentLoaded', function() {
-        marquee("marquee_content", "#marquee_content", 40, 50);
-    });
+    // $scope.$on('$viewContentLoaded', function() {
+    //     marquee("marquee_content", "#marquee_content", 40, $scope.orders.length * 8);
+    // });
 })
 
 // Gift Orders
@@ -210,7 +214,6 @@ angular.module('clientApp')
     RestGiftOrder.one($stateParams.id).one('media').get({
         from: $stateParams.from
     }).then(function(media) {
-        console.warn(media)
         $scope.media = media;
     }).catch(function(e){
         console.error(e);
@@ -309,7 +312,6 @@ angular.module('clientApp')
         if (direct === 'down' && $scope.selection > 0) {
             $scope.selection--;
         }
-        console.log($scope.selection);
     };
     $scope.items = [0, 1, 2];
     $scope.selection = $scope.items[0];

@@ -1,7 +1,5 @@
 html body{margin:0;padding: 0}
-.section{
-    background-size: cover;
-}
+.section{background-size: cover;}
 /* Defining each section background and styles
 * --------------------------------------- */
 .section0{
@@ -20,31 +18,49 @@ html body{margin:0;padding: 0}
     background-image: url(../images/guide/bg4.jpg);
     background-size:100% 100%;
 }
-
 /**最后一页*/
-.section-last{
-    background-color: #FFFFFF;
-    padding: 14% 6% 0 6%;
-}
-.show-box{
-    background-color:#F2F8E4;
-    border-radius: 4px;
-    padding:5px;
-    position:relative;
-    text-align:center;
-}
-.i{position: relative;top: 25px;width:50px;}
-.white-box{background-color: #FFF;color:#373535;padding: 40px 5% 8% 5%;font-size:14px;}
-
+.section-last{background-color: #8FC31F;padding: 23px 9px 0 9px;}
+.show-head{text-align: center;margin-bottom: -80px;}
+.gift-img{width: 169px;height: 167px;border: 2px solid #FFFFFF;border-radius: 10px;}
+.gift-name{width: 245px;color: #B8B8B9;display: block;font-size: 14px;margin: 0 auto;margin-top: 15px;}
+.show-box{background-color:#FFFFFF;border-radius: 4px 4px 0 0;padding:5px;text-align:center;margin-top: -30px;}
+.white-box{background-color: #FFF;color:#373535;font-size:14px;height: 40px;line-height: 40px;margin-left: 42px;margin-bottom: -15px;}
+.box-img{width: 40px;height: 40px;display: block;float: left;margin-right: 11px;}
+.box-img img{width: 22px;height: 22px;display: block;margin-top: 9px;margin-left: 15px;}
+.box-r{display: block;float: left;color: #231815;font-size: 16px !important;margin-left: -10px;}
 .scroll-box{list-style-type: none;padding-left:4px;text-align:left;margin-left:10px;}
-.scroll-box li{line-height:50px;}
+.scroll-box li{line-height:40px;padding-left: 10px;}
 .scroll-box img{width:25px;border-radius: 100%;vertical-align:middle;}
 .scroll-box span{font-size:14px;margin-left:10px;color:#7C7C7C;}
-
-.marquee{height:200px;overflow: hidden;margin-top: 20px;margin-bottom:20px;}
+.marquee{height:200px;overflow: hidden;margin: 20px 35px;background: #F7F8F8;}
 #marquee_content{position: relative;top: 0;}
 .guide-bottom p{text-align:center;font-size:14px;color:#ABABAB;}
-
 .double-col .button{width:80%;}
 .double-col .button-action{margin:30px auto 10px auto;display: block;}
 .double-col .button-highlight{margin:10px auto;display: block;}
+.btn-giftlist{
+	width: 286px !important;
+    height: 45px !important;
+    background: #8FC31F;
+    color: #FFFFFF;
+    border-radius: 4px;
+    display: block !important;
+    margin: 30px auto !important;
+}
+.btn-gift {
+    background: #fff;
+    padding: 20px 0;
+    padding-top: 80px;
+    border-radius: 4px 4px 0 0;
+}
+
+
+
+
+
+
+
+
+
+
+

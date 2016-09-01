@@ -1,10 +1,9 @@
-body {background-color: #F2F2F2;padding: 0 4% 2% 4%;margin: 0; font-size:16px;}
-
-.card-group{background-color: #FFFFFF;padding: 14px 0 14px 0;}
-.card{padding:0 14px 0 14px;}
-.card-group hr{border-width:0 0 1px 0; }
-ul{list-style: none;}
+body {background-color: #F2F2F2;margin: 0; padding: 0 3% 2% 3%;font-size:16px;font-family: Helvetica !important;}
+.card-group{background-color: #FFFFFF;margin: 0 -3%;}
+.card{padding:0 10px;}
 .clear{clear:both}
+ul{list-style: none;}
+a,a:hover{text-decoration: none;}
 
 /*礼物列表*/
 .present{margin-top: 20px;}
@@ -15,43 +14,90 @@ ul{list-style: none;}
 .present-summary-name{color:#FFFFFF;font-size: 15px;font-weight: bold;}
 .present-summary-price{float:right;color:#FFFFFF;font-size: 20px !important;}
 
-
-/*我送出的礼物列表 送一个人*/
-.present-sent-list .card-group{margin-top: 16px;}
-.trade-name{color:#9acf40;font-weight: 600;}
-.trade-date{color:#B5B5B6;font-weight: 500;float:right;display: block;}
-.success-msg p{color:gray;font-size:18px;}
-
-.trade-content{margin-top: 1px;}
-.trade-img{width:33%;}
-.trade-content .order-content{float:right;width:65%;line-height:22px;padding-top:12px;color:#B5B5B6;font-weight: 600;}
-.order-content span{margin-left:5px;}
-
-.order-state{color:#B5B5B6;font-size:14px;}
-.trade-content .num{float:right;color:#B5B5B6;font-size:14px;}
-.trade-content .num span{font-weight: 600;}
-
-/*我送出的礼物详情 一个人*/
-.present-sent-detail{margin-top:16px;}
-.present-sent-detail .card-group{margin-top:6px;}
-.detail-title img{width:30%;}
-.detail-title-content{float:right;width:68%;padding-top: 12px;font-weight: 600;}
-.detail-title-content p{color: #000000;margin-left:8px;margin-top: 0;font-size:18px;}
-
-.detail-content,.detail-status{margin-top: 4px;margin-bottom: 4px;}
-.detail-content li,.detail-status li{clear:both;line-height: 24px;}
-.detail-content .name,.detail-status .name{clear: right;color:#898989;font-size:14px;}
-.detail-content .value,.status-deliver,.status-listen{margin-top:2px;font-size:17px;float: right;}
-.status-deliver{font-size:14px;color:#F39800;}
-.status-listen{font-size:14px;color:#8FC31F;}
-
-/*我送出的礼物列表 多人*/
-.trade-status-green{color:#9acf40;}
+/*我送出的礼物---列表---*/
+	/*头部*/
+.trade-group{background: #FFFFFF;}
+.order-header{height: 80px;border-bottom: 1px solid #F2F2F2;}
+.order-header .header-left{width: 23%;height: 65px;float: left;margin-top: 7px;}
+.order-header .header-left img{width: 65px;height: 65px;}
+.order-header .header-right{width: 77%;height: 65px;float: left;margin-top: 7px;}
+.order-header .header-right span{color: #231815;padding-left: 8px;padding-top: 5px;display: block;}
+	/*列表*/
+.order-content{font-size: 14px;margin-top: -15px;}
+.order-content .orderlist{padding: 0;}
+.order-content .orderlist .list-li{padding-top: 17px;padding-left: 5px;}
+.order-content .orderlist li:last-child{padding-bottom: 20px;border-bottom: 1px solid #F1F1F1;}
+.order-content .orderlist .listname{display: block;float: left;width: 23%;color: #B5B5B6;}
+.order-content .orderlist .listnum{display: block;float: left;width: 70%;color: #898989;}
+.order-content .orderlist .num{color: #B5B5B6;}
+.order-code{padding-bottom: 21px;padding-left: 5px;}
+.order-code .code{color: #8FC31F;width: 93%;display: block;float: left;font-size: 14px;}
+	
+/*我送出的礼物---详情---*/
+	/*头部*/
+.present-sent-detail{margin-top:10px;}
+.detail-title{height: 80px;margin-bottom: 10px;}
+.detail-title-img{width: 22%;height: 65px;float: left;margin-top: 7px;}
+.detail-title-img img{width: 65px;height: 65px;padding-left: 16px;}
+.detail-title-content{width: 78%;height: 65px;float: left;margin-top: 7px;}
+.detail-title-content .giftname{padding-left: 15px;margin-top: 6px;line-height: 20px;font-size: 15px;color: #9E9E9E;}
+	/*内容*/
+.card-group2{background: #FFFFFF;padding-bottom: 17px;margin-bottom: 5px;}
+.detail-content,.detail-status{margin-top: 0px;margin-bottom: 0px;}
+.detail-content{font-size: 14px;}
+.detail-content .card-li{padding-top: 17px;padding-left: 5px;}
+.detail-content .listInfo{display: block;float: left;width: 23%;color: #B5B5B6;}
+.detail-content .listorder{display: block;float: left;width: 70%;color: #231815;}
+.detail-content .listorder2{padding-left: 9px;}
+	/*礼物状态*/
+.card-group3{background: #FFFFFF;font-size: 14px;}
+.card-group3 .state{display: block;width: 100%;height: 43px;font-size: 14px;color: #B5B5B6;padding-top: 23px;border-bottom: 1px solid #EFEFEF;}
+.card-group3 .detail-status{padding-left: 10px;padding-right: 2px;}
+.card-group3 .detail-status li:last-child{border: none;}
+.card-group3 .receiver {height: 50px;line-height: 50px;color: #231815;border-bottom: 1px solid #EFEFEF;}
+.card-group3 .status{float: right;padding-right: 15px;}
+.card-group3 .status-listen{color: #F39800;}
+.card-group3 .status-deliver{color: #8FC31F;}
+.trade-status-green{color:#9FCB48;}
 .trade-status-yellow{color:#F39800;}
+.spanimg{width: 7px;padding-left: 10px;}
+.trade-time{float: left;}
+.trade-num{float: right;padding-right: 15px;}
+	/*二级页面*/
+.card-received{border-bottom: 1px solid #F4F4F4;padding-top: 10px;padding-bottom: 5px;}
+.card-ship{padding-top: 10px;padding-bottom: 5px;border-bottom: 5px solid #F0EEF7;}
+.express{padding-top: 20px;padding-bottom: 10px;margin-top: 5px;border-top: 1px solid #F4F4F4;}
+.express .span1{color: #B5B5B6;font-size: 14px;}
+.express .span2{color: #2F2522;font-size: 14px;display: block;float: right;}
 
-/*我送出的礼物详情 多人*/
-.card-well{background-color:#F2F2F2;font-size:14px;margin-top:4px;padding:12px 5px 0 8px;min-height:38px;}
-.card-well span{float: right;margin-right:5px;}
+/*产品 礼物详情*/
+.present-group{background: #FFFFFF;margin-top: -5px;padding: 29px 10px 23px 23px;}
+.present-detail-img{background-color: #FFFFFF;padding: 6px;margin-top: 16px;margin-bottom:8px;}
+.present-detail-img img{width:100%;}
+.present-detail-summary .name{font-size:20px;margin:0;color: #231815;}
+.present-detail-summary .lead{font-size:14px;margin-top:11px;color: #898989;}
+.present-price{font-size:18px;margin-top: 10px;}
+.separate-left{float:left;}
+.separate-right{float:right;}
+.present-summary-bottom{margin-top:10px; }
+.present-summary-bottom .separate-left{font-size:20px;font-weight:bolder;}
+.present-summary-bottom .separate-right{font-size:14px;}
+.trade-status-h{color: #898989;}
+
+.height-50{height: 30px;}
+.gift-detail{text-align:center;position: relative;}
+.gift-detail hr{border-top: none;border-bottom:1px solid  #999999;position:absolute;height:0;width:30%}
+.gift-detail .hr{top: -1px;right:0;}
+.gift-detail  img{width:33%;}
+.gift-detail p{text-align:left;font-size:14px;line-height:24px;}
+.gift-detail p > img {width: 100%;}
+.height-60{height: 60px;}
+	/*按钮*/
+.bottom-btn{position: fixed;bottom:0;background-color: #FFF;padding:0 4%;width:100%;height: 65px;margin-left:-4%;}
+.double-col .button{width:45%;margin-top: 10px;border-radius: 4px;}
+.bottom-btn .btn-one{background: #8FC31F;color: #FFFFFF;}
+.bottom-btn .btn-more{background: #F8B62D;color: #FFFFFF;}
+.bottom-btn .btn-ml{width: 93%;background: #8FC31F;color: #FFFFFF;}
 
 /*已收听,已收礼列表*/
 .present_received_list,.present_listened_list{margin-top:16px;}
@@ -63,39 +109,27 @@ ul{list-style: none;}
 .ite-status{float:right;font-size:14px;}
 
 
-/*产品 礼物详情*/
-.present-detail-img{background-color: #FFFFFF;padding: 6px;margin-top: 16px;margin-bottom:8px;}
-.present-detail-img img{width:100%;}
-.present-detail-summary > p{font-size:20px;margin:10px 0 6px 0 ;}
-.present-detail-summary article{color:#898989;font-size:14px}
-.gift-detail p > img {width: 100%;}
-
-.present-price{font-size:18px;margin-top: 10px;}
-.separate-left{float:left;}
-.separate-right{float:right;}
-
-.present-summary-bottom{margin-top:10px; }
-.present-summary-bottom .separate-left{font-size:18px;font-weight:bold;}
-.present-summary-bottom .separate-right{font-size:14px;}
-
-.bottom-btn{position: fixed;bottom:0;background-color: #FFF;
-    padding:4%;width:100%;margin-left:-4%;}
-.double-col .button{width:45%;}
-
-.gift-detail{text-align:center;position: relative;}
-.gift-detail hr{border-top: none;border-bottom:1px solid  #999999;
-    position:absolute;height:0;width:30%}
-.gift-detail > img{width:33%;}
-.gift-detail p{text-align:left;color:#939393;font-size:14px;line-height:24px;}
 
 /*支付*/
+.card-pay{background: #FFFFFF;padding: 29px 11px 15px 23px;}
 .pay{margin-top:16px;}
 .pay-bottom{margin-top:10px; }
 .pay-bottom .separate-left{font-size:18px;font-weight:bold;}
 .pay-bottom .separate-right{font-size:16px;}
 .pay-bottom .separate-right span{color:#A6A6A7;}
 
-.total-pay{margin-top: 6px;}
-.total-pay .separate-left{color:#A6A6A7;padding-top:6px; }
-.total-pay .separate-right{font-size:26px;font-weight:bold;}
+.total-pay{margin-top: 5px;background: #FFFFFF;}
+.total-pay .separate-left{color:#A6A6A7;padding-top:6px; font-size: 15px;}
+.total-pay .separate-right{font-size:28px;font-weight:normal;}
 .pay-now{padding: 0 10px;margin-top: 12px;}
+.btn-pay{background: #8FC31F;color: #FFFFFF;border-radius: 4px;}
+
+
+
+
+
+
+
+
+
+

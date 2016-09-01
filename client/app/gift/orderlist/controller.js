@@ -10,7 +10,6 @@ angular.module('clientApp')
     $scope.gifts = new GiftOrder({
         my: true
     });
-
     $scope.link = function(id) {
         $state.go('order.detail.info', {
             id: id
@@ -33,27 +32,56 @@ angular.module('clientApp')
 
     $scope.receiver = order.receivers[0];
 
-    var receive_num = 0;
-    var listen_num = 0;
-    var ship_num = 0;
+    $scope.receive_num = order.receivers && order.receivers.length || 0;
+    $scope.ship_num = order.receivers && order.receivers.filter(function(r){
+        return r.status.shipping;
+    }).length || 0;
+    $scope.listen_num = order.receivers && order.receivers.filter(function(r){
+        return r.status.read;
+    }).length || 0;
 
-    angular.forEach(order.receivers, function (receiver) {
-        var status = receiver.status;
-
-        if (status && status.shipping && !status.read)
-            ship_num++;
-
-        if (status && status.shipping && status.read)
-            listen_num++;
-
-        if (!(status && status.shipping && status.read))
-            receive_num++;
-    });
-    
-    $scope.receive_num = receive_num;
-    $scope.listen_num = listen_num;
-    $scope.ship_num = ship_num;
-    
+    var receivedTime = order.receivers.reduce(function(acc, curr){
+        if(curr.fillinDate){
+            if(acc && acc.fillinDate){
+                if(moment(curr.fillinDate).isAfter(acc.fillinDate)){
+                    return curr;
+                }else{
+                    return acc;
+                }
+            }
+            return curr;
+        }
+        return acc;
+    }, undefined);
+    $scope.receivedTime = receivedTime && receivedTime.fillinDate || "";
+    var shippedTime = order.receivers.reduce(function(acc, curr){
+        if(curr.status && curr.status.shipping_date){
+            if(acc && acc.status && acc.status.shipping_date){
+                if(moment(curr.status.shipping_date).isAfter(acc.status.shipping_date)){
+                    return curr;
+                }else{
+                    return acc;
+                }
+            }
+            return curr;
+        }
+        return acc;
+    }, undefined);
+    $scope.shippedTime = shippedTime && shippedTime.status.shipping_date || ""
+    var readTime = order.receivers.reduce(function(acc, curr){
+        if(curr.status && curr.status.read_date){
+            if(acc && acc.status && acc.status.read_date){
+                if(moment(curr.status.read_date).isAfter(acc.status.read_date)){
+                    return curr;
+                }else{
+                    return acc;
+                }
+            }
+            return curr;
+        }
+        return acc;
+    }, undefined);
+    $scope.readTime = readTime && readTime.status.read_date || "";
     $scope.link = function() {
         $state.go('gift.detail.share', {
             id: order.gift.id
@@ -68,18 +96,25 @@ angular.module('clientApp')
     };
 
     $scope.listened = function () {
-        if (listen_num > 0)
+        if ($scope.listen_num > 0)
             $state.go('order.detail.listened', {
                 id: order.id
             });
     };
     
     $scope.shipped = function () {
-        if (ship_num > 0)
+        if ($scope.ship_num > 0){
             $state.go('order.detail.shipped', {
                 id: order.id
             });
+        }
     };
+
+    $scope.jumpToAddressCard = function(){
+        $state.go('order.detail.fillin', {
+            id: order.id
+        })
+    }
 })
 
 .controller('GiftShippedCtrl', function ($scope, order) {
@@ -87,20 +122,21 @@ angular.module('clientApp')
     
     angular.forEach(order.receivers, function (receiver) {
         var status = receiver.status;
-        if (status && status.shipping && !status.read)
+        if (status && status.shipping){
             receivers.push(receiver);
+        }
     });
-    
+    alert(JSON.stringify(receivers[1]));
     $scope.receivers = receivers;
 })
 
 .controller('GiftListenedCtrl', function ($scope, order) {
     var receivers = [];
-    
     angular.forEach(order.receivers, function (receiver) {
         var status = receiver.status;
-        if (status && status.shipping && status.read)
+        if(status && status.shipping && status.read){
             receivers.push(receiver);
+        }
     });
     
     $scope.receivers = receivers;
@@ -109,10 +145,9 @@ angular.module('clientApp')
 .controller('GiftReceivedCtrl', function ($scope, order) {
     var receivers = [];
     angular.forEach(order.receivers, function (receiver) {
-        var status = receiver.status;
-        console.warn(status && status.shipping && status.read);
-        if (!(status && status.shipping && status.read))
-            receivers.push(receiver);
+        // var status = receiver.status;
+        // if (!(status && status.shipping && status.read))
+        receivers.push(receiver);
     });
     
     $scope.receivers = receivers;

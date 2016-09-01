@@ -195,7 +195,18 @@ angular.module('clientApp')
                 }]
             })
 
-
+        .state('order.detail.one2one-received', { //1送1已收货
+                url: '/one2one-received',
+                templateUrl: 'app/gift/order/one2one/received.html',
+                controller: 'OrderReceivedOne2OneCtrl',
+                authenticate: true,
+                css: [{
+                    href: 'assets/v2/css/gift-style.css',
+                }, {
+                    href: 'assets/v2/css/button.css',
+                }]
+            })
+            
         .state('order.detail.guide', {
                 url: '/guide',
                 templateUrl: 'app/gift/address.guide.html',
@@ -248,7 +259,7 @@ angular.module('clientApp')
                 }]
             })
              .state('order.detail.shipped', {
-                url: '/received',
+                url: '/shipped',
                 templateUrl: 'app/gift/orderlist/order.shipped.html',
                 controller: 'GiftShippedCtrl',
                 authenticate: true,

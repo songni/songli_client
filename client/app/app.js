@@ -108,6 +108,7 @@ angular.module('clientApp', [
         headers.Authorization = $cookieStore.get('token');
         Restangular.setDefaultHeaders(headers);
         RestWechat.one('userinfo').get().then(function(user) {
+            console.warn(user);
             $rootScope.user = user;
         });
     }
@@ -128,12 +129,12 @@ angular.module('clientApp', [
         }
     });
     $rootScope.$on("$stateChangeStart", function(event, to, toParams, from, fromParams) {
-        if (to.name === 'gift.detail.share' && toParams.from) {
-            event.preventDefault();
-            location.href = $state.href('gift.detail.orders', {
-                id: toParams.id
-            });
-        }
+        // if (to.name === 'gift.detail.share' && toParams.from) {
+        //     event.preventDefault();
+        //     location.href = $state.href('gift.detail.orders', {
+        //         id: toParams.id
+        //     });
+        // }
     });
     $rootScope.$on("$stateChangeSuccess", function(event, to, toParams, from, fromParams) {
         $rootScope.referer = $state.href(from.name, fromParams);

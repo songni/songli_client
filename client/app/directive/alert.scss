@@ -23,3 +23,21 @@
   background-color:#7d3334;
   color:#ffffff;
 }
+
+.pt-alert div {
+    display: block;
+    background: rgba(0,0,0,.7);
+    margin: 0 auto;
+    width: 160px;
+    height: 135px;
+    margin-top: 155px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+}
+.pt-alert span{
+    display: block;
+    padding-top: 60px;
+}
+.pt-alert .close{display: none;}

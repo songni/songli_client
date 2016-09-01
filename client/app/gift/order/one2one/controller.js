@@ -185,8 +185,10 @@ angular.module('clientApp')
         });
     };
 })
-
-
+.controller('OrderReceivedOne2OneCtrl', function($timeout, $scope, $rootScope, $location, $state, $uibModal, $window, RestGiftOrder, Wechat, order, Alert) {
+    $scope.order = order;
+    $scope.receiver = order.receivers[0];
+})
 .controller('OrderAddressOne2OneCtrl', function($timeout, $scope, $rootScope, $location, $state, $uibModal, $window, RestGiftOrder, Wechat, order, Alert) {
     // https://github.com/arrking/songni/issues/41
     // 不管是送多人还是送单人，收礼人都是存储到 receivers中
@@ -203,9 +205,11 @@ angular.module('clientApp')
     if (order.capacity == 1 && order.receivers.length == 1) {
         // 检查一下手机号，作为对收礼人有效性的校验
         if (order.receivers[0].telephone) {
-            location.href = $state.href('gift.detail.share', {
-                id: order.gift.id
-            });
+            // location.href = $state.href('gift.detail.share', {
+            //     id: order.gift.id
+            // });
+            $scope.order = order;
+            return;
         }
     } else {
         // TODO, for debugging

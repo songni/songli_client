@@ -1,0 +1,16 @@
+<!--送礼人头像-->
+<div class="head-center">
+    <img ng-src="{{order.sender.info.headimgurl}}" />
+</div>
+<div class="head head-logo">
+    <img class="icon-img" src="assets/v2/images/i.png">
+    <p class="center-mini-text">你所购买的礼物已送出！收礼人信息如下</p>
+</div>
+<div class="message-block content content1">
+  <form class="form-horizontal" novalidate>
+		{{JSON.stringify(receiver)}}
+      <input ng-disabled="true" class="input-msg form-text" type="text" name="consignee" ng-model="receiver.consignee">
+      <input ng-disabled="true" class="input-msg form-text" type="tel" name="telephone" ng-model="receiver.telephone">
+      <textarea ng-disabled="true" rows="2" name="address" style="height:6em" class="input-msg form-textarea" ng-model="receiver.address"></textarea>
+  </form>
+</div>

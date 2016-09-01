@@ -1,21 +1,22 @@
 <div class="address-from-friend">
     <div class="container-status">
-        <div class="head">
-            <img class="icon-img" src="assets/v2/images/i.png" />
-            <br>
-            <p class="center-mini-text">
-                写下你的收货地址，礼物将送到这里；
-                除了礼物，送礼人还对你说了一段话，收到礼物扫描语音码即可听到～
+    	<!--icon.logo.right-->
+        <img class="icon-img" src="assets/v2/images/i.png" />
+        <div class="head-fillin">
+            <p class="center-mini-text text-color">
+               	写下收货地址，收到礼物时，扫描礼物上的语音二维码听Ta对你说 ~
             </p>
         </div>
-        <div class="content">
+        
+        <div class="content content1 content-top">
             <input type="text" ng-model="data.consignee" class="form-text" name="name" required="required" placeholder="您的姓名" />
             <input type="tel" ng-model="data.telephone" class="form-text" name="tel" required="required" placeholder="手机号码" />
-            <textarea ng-model="data.address" class="form-textarea address" name="address" required="required" rows="6" placeholder="填写详细收货地址 如:街道名/门牌号/楼层/房间号等信息"></textarea>
+            <textarea ng-model="data.address" class="form-textarea address" name="address" required="required" rows="6" placeholder="请留下详细收货地址，确保能收到礼物"></textarea>
             <div class="submit-btn">
-                <button type="submit" ng-click="saveAddr()" class="button button-action ">提交</button>
+                <button type="submit" ng-click="saveAddr()" class="button btn-comm btn-wc btn-green ">完成</button>
             </div>
         </div>
         <!--content-->
     </div>
 </div>
+
