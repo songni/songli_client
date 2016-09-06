@@ -168,8 +168,6 @@ angular.module('clientApp')
     // Binds stylesheet(s) to scope create/destroy events (recommended over add/remove)
     $css.bind([{
         href: 'assets/v2/css/gzhh.css'
-    }, {
-        href: 'assets/v2/css/button.css'
     }], $scope);
 
     //$rootScope.title = '微信支付';
@@ -220,6 +218,11 @@ angular.module('clientApp')
 
 .controller('OrderAddressOne2ManySendCtrl', function($scope, $rootScope, $state, $cookies, Wechat, $location, order, $uibModal) {
     //$rootScope.title = "选择大礼包";
+    
+    //页面body背景色
+        $rootScope.isBody1 = false;
+        $rootScope.isBody2 = true;
+    
     $rootScope.bg2 = false;
     $rootScope.hideBar = true;
     $scope.order = order;
@@ -274,6 +277,10 @@ angular.module('clientApp')
         $state.go('order.detail.one2many-address', null, {location: "replace"})
         return;
     };
+	
+	//页面body背景色
+        $rootScope.isBody1 = false;
+        $rootScope.isBody2 = true;
 
     $rootScope.bg2 = false;
     $rootScope.hideBar = true;
@@ -380,6 +387,11 @@ angular.module('clientApp')
 })
 
 .controller('OrderAddressOne2ManyRecevAddrCtrl', function($scope, $rootScope, $state, $cookies, Wechat, $location, order, Alert, RestGiftOrder) {
+	
+	//页面body背景色
+    $rootScope.isBody1 = false;
+    $rootScope.isBody2 = true;
+	
     $rootScope.bg2 = false;
     $rootScope.hideBar = true;
 
@@ -422,7 +434,8 @@ angular.module('clientApp')
                             break;
                     }
                 }, function(err) {
-                    alert('Get an err, ' + JSON.stringify(err));
+//                  alert('Get an err, ' + JSON.stringify(err));
+                    console.log('Get an err, ' + JSON.stringify(err));
                 });
         };
     }

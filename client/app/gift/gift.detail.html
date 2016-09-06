@@ -22,14 +22,14 @@
         <div class="height-50"></div>
         <div class="gift-detail">
             <hr>
-            <img src="assets/v2/images/word_gift_detail.png" />
+            <img class="title-img" src="https://img.91pintuan.com/songli/word_gift_detail.png" />
             <hr class="hr">
             <div ng-bind-html="trustAsHtml(gift.info.detail)"></div>
         </div>
         <div class="height-60"></div>
     </div>
     
-    <div class="bottom-btn double-col">
+    <div class="bottom-btn double-col btn-left">
         <a ng-if="gift.num.stock != 0 && ((gift.num.stock - gift.num.subpay) <= 0)" class="button btn-ml" ng-disabled="true">已售罄</a>
         <!-- type=1代表一送一 -->
         <a ng-if="!gift.num.stock || ((gift.num.stock - gift.num.subpay) > 0)" class="button btn-one" ui-sref="gift.detail.one2one-record({id:gift.id})">送一人</a>

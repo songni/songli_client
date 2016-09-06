@@ -7,6 +7,10 @@ angular.module('clientApp')
         $rootScope.hideBar = true;
     })
     .controller('GiftListCtrl', function($scope, $rootScope, $state, Gift) {
+    	//页面body背景色
+        $rootScope.isBody1 = true;
+        $rootScope.isBody2 = false;
+    	
         $rootScope.bg2 = false;
         /**
          * #FIXME
@@ -43,6 +47,10 @@ angular.module('clientApp')
         })
     })
     .controller('GiftDetailCtrl', function($scope, $rootScope, $state, $sce, gift, Alert) {
+    	//页面body背景色
+        $rootScope.isBody1 = true;
+        $rootScope.isBody2 = false;
+    	
         //$rootScope.title = "大礼包";
         $scope.appid = hostname[0];
         /**
@@ -72,7 +80,7 @@ angular.module('clientApp')
             return $sce.trustAsHtml(html);
         }
         wx.ready(function(){
-            var iconLiImgUrl = 'http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png';
+            var iconLiImgUrl = gift.info.cover ? gift.info.cover : 'http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png';
             var leanOptions = {
                 title: gift.info.name,
                 imgUrl: iconLiImgUrl 
@@ -91,7 +99,7 @@ angular.module('clientApp')
 
 
 .controller('ShareModalCtrl', function($scope, $uibModalInstance) {
-    $scope.shareSrc = 'assets/v2/images/gift_share.png';
+    $scope.shareSrc = 'https://img.91pintuan.com/songli/gift_share.png';
     $scope.isCloseModal = false;
     $scope.$watch('isCloseModal', function(val) {
         if (val) $uibModalInstance.close();
@@ -158,7 +166,7 @@ angular.module('clientApp')
             marquee("marquee_content", "#marquee_content", 40, 40);
         }
     });
-    $scope.shareSrc = 'assets/v2/images/gift_share.png';
+    $scope.shareSrc = 'https://img.91pintuan.com/songli/gift_share.png';
     $scope.shareStyle = {
         width: '50%'
     };

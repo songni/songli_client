@@ -12,11 +12,6 @@ angular.module('clientApp')
                 url: '/list',
                 templateUrl: 'app/gift/gift.lists.html',
                 controller: 'GiftListCtrl',
-                css: [{
-                    href: 'assets/v2/css/gzhh.css',
-                }, {
-                    href: 'assets/v2/css/button.css',
-                }]
             })
             .state('gift.my', {
                 url: '/my',
@@ -63,17 +58,13 @@ angular.module('clientApp')
                                 img: img
                             });
                             if (gift.status.online === false) {
-                                Alert.add('danger', '该礼物已经下线！');
+                                Alert.add('danger', '该礼物已下架!');
                             }
                         });　
                         return gift;
                     }
                 },
-                css: [{
-                    href: 'assets/v2/css/gzhh.css',
-                }, {
-                    href: 'assets/v2/css/button.css',
-                }]
+              
             })
 
         /**
@@ -86,9 +77,6 @@ angular.module('clientApp')
             templateUrl: 'app/gift/order/one2one/record.html',
             controller: 'GiftRecordSingleCtrl',
             authenticate: true,
-            css: [{
-                href: 'assets/v2/css/sound-record.css',
-            }]
         })
 
         // one 2 many
@@ -97,9 +85,7 @@ angular.module('clientApp')
             templateUrl: 'app/gift/order/one2many/record.html',
             controller: 'GiftRecordMultiCtrl',
             authenticate: true,
-            css: [{
-                href: 'assets/v2/css/sound-record.css'
-            }, {
+            css: [ {
                 href: 'assets/v2/css/bootstrap.min.css',
                 preload: true
             }]
@@ -112,11 +98,6 @@ angular.module('clientApp')
                 url: '/share?from',
                 templateUrl: 'app/gift/gift.share.html',
                 controller: 'GiftShareCtrl',
-                css: [{
-                    href: 'assets/v2/css/button.css',
-                }, {
-                    href: 'assets/v2/css/guide.css',
-                }]
             })
             .state('gift.detail.orders', { //分享后页面
                 url: '/orders',
@@ -138,9 +119,6 @@ angular.module('clientApp')
                 url: '/list',
                 templateUrl: 'app/gift/orderlist/order.list.html',
                 controller: 'GiftMyCtrl',
-                css: [{
-                    href: 'assets/v2/css/gzhh.css',
-                }]
             })
             .state('order.detail', {
                 url: '/:id?from',
@@ -177,35 +155,23 @@ angular.module('clientApp')
                 templateUrl: 'app/gift/order/one2one/address.html',
                 controller: 'OrderAddressOne2OneCtrl',
                 authenticate: true,
-                css: [{
-                    href: 'assets/v2/css/gift-style.css',
-                }, {
-                    href: 'assets/v2/css/button.css',
-                }]
             })
             .state('order.detail.one2many-address', { //我填写地址
                 url: '/one2many-address',
                 templateUrl: 'app/gift/order/one2many/address.html',
                 controller: 'OrderAddressOne2ManySendCtrl',
                 authenticate: true,
-                css: [{
-                    href: 'assets/v2/css/gift-style.css',
-                }, {
-                    href: 'assets/v2/css/button.css',
-                }]
             })
 
-        .state('order.detail.one2one-received', { //1送1已收货
-                url: '/one2one-received',
-                templateUrl: 'app/gift/order/one2one/received.html',
-                controller: 'OrderReceivedOne2OneCtrl',
-                authenticate: true,
-                css: [{
-                    href: 'assets/v2/css/gift-style.css',
-                }, {
-                    href: 'assets/v2/css/button.css',
-                }]
-            })
+        // .state('order.detail.one2one-received', { //1送1已收货
+        //         url: '/one2one-received',
+        //         templateUrl: 'app/gift/order/one2one/received.html',
+        //         controller: 'OrderReceivedOne2OneCtrl',
+        //         authenticate: true,
+        //         css: [{
+        //             href: 'assets/v2/css/gift-style.css',
+        //         }]
+        //     })
             
         .state('order.detail.guide', {
                 url: '/guide',
@@ -223,21 +189,11 @@ angular.module('clientApp')
                     return 'OrderAddressOne2ManyRecevCtrl';
                 },
                 authenticate: true,
-                css: [{
-                    href: 'assets/v2/css/gift-style.css',
-                }, {
-                    href: 'assets/v2/css/button.css',
-                }]
             })
             .state('order.detail.fillin-one2many', { // One 2 Many 收取礼物
                 url: '/fillin-one2many',
                 templateUrl: 'app/gift/order/one2many/address.fillin.html',
                 controller: 'OrderAddressOne2ManyRecevAddrCtrl',
-                css: [{
-                    href: 'assets/v2/css/gift-style.css',
-                }, {
-                    href: 'assets/v2/css/button.css',
-                }]
             })
 
         .state('order.detail.info', { //订单详情
@@ -245,36 +201,24 @@ angular.module('clientApp')
                 templateUrl: 'app/gift/orderlist/order.info.html',
                 controller: 'GiftOrderDetailCtrl',
                 authenticate: true,
-                css: [{
-                    href: 'assets/v2/css/gzhh.css',
-                }]
             })
             .state('order.detail.received', {
                 url: '/received',
                 templateUrl: 'app/gift/orderlist/order.received.html',
                 controller: 'GiftReceivedCtrl',
                 authenticate: true,
-                css: [{
-                    href: 'assets/v2/css/gzhh.css',
-                }]
             })
              .state('order.detail.shipped', {
                 url: '/shipped',
                 templateUrl: 'app/gift/orderlist/order.shipped.html',
                 controller: 'GiftShippedCtrl',
                 authenticate: true,
-                css: [{
-                    href: 'assets/v2/css/gzhh.css',
-                }]
             })
             .state('order.detail.listened', {
                 url: '/listened',
                 templateUrl: 'app/gift/orderlist/order.listened.html',
                 controller: 'GiftListenedCtrl',
                 authenticate: true,
-                css: [{
-                    href: 'assets/v2/css/gzhh.css',
-                }]
             })
             .state('order.detail.listen', { //收听订单
                 url: '/listen',

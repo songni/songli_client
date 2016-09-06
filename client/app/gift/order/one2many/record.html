@@ -1,13 +1,13 @@
-<div class="sound-record" ng-style="{height:innerHeight-54+'px'}">
+<div class="sound-record sound-more" ng-style="{height:innerHeight-54+'px'}">
     <div class="to-who to-more">
-        <img class="img" src="assets/v2/images/gift_copies-more.png" />
+        <img class="img" src="https://img.91pintuan.com/songli/gift_copies-more.png" />
         <br>
         <div class="to-who-count">
             <div class="input-group">
             	<!--左减-->
                 <span class="input-group-btn">
-	              <button type="button" ng-click="reduCapacity()" class="btn btn-success btn-number" >
-	                <span class="glyphicon glyphicon-minus"></span>
+	              <button type="button" ng-click="reduCapacity()" class="btn btn-success btn-number btn-left" >
+	                <span>&minus;</span>
 	              </button>
                 </span>
                 <!--输入框-->
@@ -15,7 +15,7 @@
                 <!--右加-->
                 <span class="input-group-btn">
 	              <button type="button" ng-click="incrCapacity()" class="btn btn-success btn-number" data-type="plus" >
-	                <span class="glyphicon glyphicon-plus"></span>
+	                <span>+</span>
 	              </button>
                 </span>
             </div>
@@ -23,7 +23,7 @@
     </div>
     <div class="voice-box">
         <div class="voice-process">
-            <img src="assets/v2/images/word-zhufu.png" />
+            <img src="https://img.91pintuan.com/songli/word-zhufu.png" />
             <timer interval="1000" countdown="60" autostart="false">
                 <div class="progress">
                     <div class="progress-active" id="pro" aria-valuenow="{{countdown}}" aria-valuemin="0" aria-valuemax="60" style="width: {{progressBar?progressBar:0}}%;">
@@ -34,30 +34,30 @@
         </div>
         <!-- 开始录音 -->
         <div id="record-before" ng-if="status.stop">
-            <img src="assets/v2/images/record.png" ng-click="record()" />
+            <img src="https://img.91pintuan.com/songli/record.png" ng-click="record()" />
             <br>
             <span class="hint">点击开始录音</span>
         </div>
         <!-- 结束录音 -->
         <div id="record-before" ng-if="status.start">
-            <img src="assets/v2/images/re_stop.png" ng-click="stop()" />
+            <img src="https://img.91pintuan.com/songli/re_stop.png" ng-click="stop()" />
             <br>
             <span class="hint">结束录音</span>
         </div>
         <!-- 调试录音 -->
         <div id="record-after" ng-if="status.record">
             <div class="left-button" ng-click="playVoice()">
-                <img src="assets/v2/images/play_red.png" />
+                <img src="https://img.91pintuan.com/songli/play_red.png" />
                 <br>
                 <label class="hint">播放</label>
             </div>
             <div class="left-button" ng-click="rerecord()">
-                <img src="assets/v2/images/re_record.png" />
+                <img src="https://img.91pintuan.com/songli/re_record.png" />
                 <br>
                 <label class="hint">重录</label>
             </div>
             <div class="right-button" ng-click="save()">
-                <img src="assets/v2/images/next_step.png" />
+                <img src="https://img.91pintuan.com/songli/next_step.png" />
                 <br>
                 <label class="hint">下一步</label>
             </div>

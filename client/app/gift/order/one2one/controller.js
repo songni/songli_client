@@ -137,11 +137,12 @@ angular.module('clientApp')
 // Gift Payment
 .controller('GiftPayOne2OneCtrl', function($scope, $rootScope, $window, $state, $stateParams, $cookies, $timeout, RestGift, Alert, $css) {
     // Binds stylesheet(s) to scope create/destroy events (recommended over add/remove)
-    $css.bind([{
-        href: 'assets/v2/css/gzhh.css'
-    }, {
-        href: 'assets/v2/css/button.css'
-    }], $scope);
+//  $css.bind([{
+//      href: 'assets/v2/css/gzhh.css'
+//  }], $scope);
+	//页面body背景色
+    $rootScope.isBody1 = true;
+    $rootScope.isBody2 = false;
 
     //$rootScope.title = '微信支付';
     var module = $stateParams.module;
@@ -188,8 +189,16 @@ angular.module('clientApp')
 .controller('OrderReceivedOne2OneCtrl', function($timeout, $scope, $rootScope, $location, $state, $uibModal, $window, RestGiftOrder, Wechat, order, Alert) {
     $scope.order = order;
     $scope.receiver = order.receivers[0];
+    //页面body背景色
+    $rootScope.isBody1 = false;
+    $rootScope.isBody2 = true;
 })
 .controller('OrderAddressOne2OneCtrl', function($timeout, $scope, $rootScope, $location, $state, $uibModal, $window, RestGiftOrder, Wechat, order, Alert) {
+	//页面body背景色
+//	$rootScope.bodysStyle = 'bodyAddressClass';
+    $rootScope.isBody1 = false;
+    $rootScope.isBody2 = true;
+	
     // https://github.com/arrking/songni/issues/41
     // 不管是送多人还是送单人，收礼人都是存储到 receivers中
 
@@ -219,6 +228,8 @@ angular.module('clientApp')
 
     //$rootScope.title = "填写快递地址";
     $scope.innerHeight = $window.innerHeight;
+    
+        
     $rootScope.bg2 = false;
     $scope.giftAddrForm = {};
     $scope.order = order;
@@ -231,6 +242,7 @@ angular.module('clientApp')
         if ($scope.giftAddrForm.$invalid) {
             $scope.submitted = true;
             return false;
+//         	Alert.add('warning', '收礼人信息不能为空！', 2000);
         }
         // post(subElement, elementToPost, [queryParams, headers])
         RestGiftOrder.one(order.id).one('address').post('', $scope.address).then(function(data) {
@@ -267,7 +279,8 @@ angular.module('clientApp')
             }
             */
         }, function(err) {
-            alert('Get an err, ' + JSON.stringify(err));
+//          alert('Get an err, ' + JSON.stringify(err));
+            console.log('Get an err, ' + JSON.stringify(err));
         });
     };
     var url = 'http://' + $location.host() + $state.href('order.detail.fillin', {

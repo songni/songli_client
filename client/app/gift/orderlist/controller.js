@@ -3,9 +3,13 @@
 angular.module('clientApp')
 
 .controller('GiftMyCtrl', function($scope, $rootScope, $state, GiftOrder) {
+    //页面body背景色
+    $rootScope.isBody1 = true;
+    $rootScope.isBody2 = false;
+
     //$rootScope.title = "我的大礼包列表";
     $scope.apiCfg = window.SONGNI_CFG_API;
-    
+            
     $rootScope.bg2 = false;
     $scope.gifts = new GiftOrder({
         my: true
@@ -21,6 +25,10 @@ angular.module('clientApp')
 // Gift Listen
 // $state.is('order.detail.info')
 .controller('GiftOrderDetailCtrl', function($scope, $rootScope, $state, $stateParams, $timeout, $window, RestGiftOrder, order, Alert) {
+	//页面body背景色
+    $rootScope.isBody1 = true;
+    $rootScope.isBody2 = false;
+	
     //$rootScope.title = '收听好友的大礼包';
     $scope.innerHeight = $window.innerHeight;
     $scope.innerWidth = $window.innerWidth;
@@ -117,9 +125,12 @@ angular.module('clientApp')
     }
 })
 
-.controller('GiftShippedCtrl', function ($scope, order) {
-   var receivers = [];
+.controller('GiftShippedCtrl', function ($scope,$rootScope, order) {
+	//页面body背景色
+    $rootScope.isBody1 = true;
+    $rootScope.isBody2 = false;
     
+   var receivers = [];
     angular.forEach(order.receivers, function (receiver) {
         var status = receiver.status;
         if (status && status.shipping){
@@ -130,7 +141,11 @@ angular.module('clientApp')
     $scope.receivers = receivers;
 })
 
-.controller('GiftListenedCtrl', function ($scope, order) {
+.controller('GiftListenedCtrl', function ($scope,$rootScope, order) {
+	//页面body背景色
+    $rootScope.isBody1 = true;
+    $rootScope.isBody2 = false;
+	
     var receivers = [];
     angular.forEach(order.receivers, function (receiver) {
         var status = receiver.status;
@@ -142,7 +157,11 @@ angular.module('clientApp')
     $scope.receivers = receivers;
 })
 
-.controller('GiftReceivedCtrl', function ($scope, order) {
+.controller('GiftReceivedCtrl', function ($scope,$rootScope, order) {
+	//页面body背景色
+    $rootScope.isBody1 = true;
+    $rootScope.isBody2 = false;
+	
     var receivers = [];
     angular.forEach(order.receivers, function (receiver) {
         // var status = receiver.status;

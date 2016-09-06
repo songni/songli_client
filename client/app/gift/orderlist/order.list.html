@@ -1,4 +1,4 @@
-<div infinite-scroll='gifts.nextPage()' infinite-scroll-disabled='gifts.busy' infinite-scroll-distance='1'>
+<div class="listgift" infinite-scroll='gifts.nextPage()' infinite-scroll-disabled='gifts.busy' infinite-scroll-distance='1'>
     <div ng-repeat="order in gifts.items" ng-click="link(order.id)" style="margin-top:15px">
         <!-- 多人订单 -->
         <div class="trade-group" ng-show="order.capacity > 1">

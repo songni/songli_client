@@ -24,19 +24,19 @@
       </div>
       </timer>
       <div id="play-button" ng-if="media.media_id&&!localId" style="width:28%;margin:20px auto 0;">
-        <img src="./assets/images/play.png" ng-click="play()" style="width:100%;margin:0;">
+        <img src="https://img.91pintuan.com/songli/play.png" ng-click="play()" style="width:100%;margin:0;">
       </div>
       <div ng-if="localId">
         <div id="pause-button" ng-click="pause()" ng-if="status.play">
-          <img src="./assets/images/pause.png"/>
+          <img src="https://img.91pintuan.com/songli/pause.png"/>
         </div>
         <div id="play-button" ng-click="resume()" ng-if="status.pause">
-          <img src="./assets/images/play.png"/>
+          <img src="https://img.91pintuan.com/songli/play.png"/>
         </div>
       </div>
 
       <div id="finish-listen" ng-if="status.stop" ng-click="link()">
-        <img src="./assets/images/down.png" alt="礼物详情" />
+        <img src="https://img.91pintuan.com/songli/down.png" alt="礼物详情" />
       </div>
     </div>
   </div>
