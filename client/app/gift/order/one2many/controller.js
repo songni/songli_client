@@ -4,6 +4,9 @@ angular.module('clientApp')
 .controller('GiftRecordMultiCtrl', function($scope, $rootScope, $state, $cookies, $timeout, $uibModal, $window, Alert) {
     //$rootScope.title = "录制大礼包";
     $scope.innerHeight = $window.innerHeight;
+    $rootScope.moreRecode = {
+    	"background" : "#F2F2F2"
+    }
     $rootScope.bg2 = true;
     $scope.giftOrderCapacity = null; // 默认是1人，但是要显示placeholder，就
     // 默认设置成null，下单后检查
@@ -220,8 +223,8 @@ angular.module('clientApp')
     //$rootScope.title = "选择大礼包";
     
     //页面body背景色
-        $rootScope.isBody1 = false;
-        $rootScope.isBody2 = true;
+    $rootScope.isBody1 = false;
+    $rootScope.isBody2 = true;
     
     $rootScope.bg2 = false;
     $rootScope.hideBar = true;
@@ -279,8 +282,8 @@ angular.module('clientApp')
     };
 	
 	//页面body背景色
-        $rootScope.isBody1 = false;
-        $rootScope.isBody2 = true;
+    $rootScope.isBody1 = false;
+    $rootScope.isBody2 = true;
 
     $rootScope.bg2 = false;
     $rootScope.hideBar = true;
@@ -394,49 +397,48 @@ angular.module('clientApp')
 	
     $rootScope.bg2 = false;
     $rootScope.hideBar = true;
-
+	$scope.addressFriendForm = {};
     $scope.data = {
         consignee: "",
         telephone: "",
         address: ""
     }
-
+    
     $scope.saveAddr = function() {
-        if (_.some($scope.data, function(val, key) {
-                return $scope.data[key] ? false : true;
-            })) {
-            Alert.add('warning', '收礼人信息不能为空！', 2000);
+        if ($scope.addressFriendForm.$invalid) {
+            $scope.submitted = true;
+            return false;
+			//Alert.add('warning', '收礼人信息不能为空！', 2000);
         } else {
         	 Alert.add('success', '领取成功等待收礼吧！', 2000);
             // post request to save receiver info
             // post(subElement, elementToPost, [queryParams, headers])
-            RestGiftOrder.one(order.id).one('address').post('', $scope.data)
-                .then(function(data) {
-                    if (!data.rc)
-                        console.error('saveAddr', '没有response code !');
-                    switch (data.rc) {
-                        case 1:
-                            Alert.add('success', '你已经保存该礼物了', 2000);
-                            break;
-                        case 2:
-                            Alert.add('success', '手慢了，没有礼物了', 2000);
-                            break;
-                        case 3:
-                            Alert.add('success', '信息不全', 2000);
-                            break;
-                        case 4:
-                            location.href = $state.href('gift.detail.share', {
-                                id: order.gift.id
-                            });
-                            break;
-                        default:
-                            Alert.add('warning', '服务器走神了', 2000);
-                            break;
-                    }
-                }, function(err) {
+            RestGiftOrder.one(order.id).one('address').post('', $scope.data).then(function(data) {
+                if (!data.rc)
+                    console.error('saveAddr', '没有response code !');
+                switch (data.rc) {
+                    case 1:
+                        Alert.add('success', '你已经保存该礼物了', 2000);
+                        break;
+                    case 2:
+                        Alert.add('success', '手慢了，没有礼物了', 2000);
+                        break;
+                    case 3:
+                        Alert.add('success', '信息不全', 2000);
+                        break;
+                    case 4:
+                        location.href = $state.href('gift.detail.share', {
+                            id: order.gift.id
+                        });
+                        break;
+                    default:
+                        Alert.add('warning', '服务器走神了', 2000);
+                        break;
+                }
+            }, function(err) {
 //                  alert('Get an err, ' + JSON.stringify(err));
-                    console.log('Get an err, ' + JSON.stringify(err));
-                });
+                console.log('Get an err, ' + JSON.stringify(err));
+            });
         };
     }
 })

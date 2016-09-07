@@ -9,7 +9,7 @@
 	    <!--<p class="center-mini-text">您购买的礼物已经填写收货信息，等待商家发货吧～</p>-->
 	</div>
 </div>
-
+<!--[送礼人-公众号]再次打开时-->
 <div ng-if="order.receivers.length == 1 && order.receivers[0].telephone" class="message-block top1 content content1">
     <form class="form-horizontal">
       <!--<input ng-disabled="true" class="input-msg input-msg1 form-text" type="text" name="consignee" placeholder="收礼人姓名" ng-model="order.receivers[0].consignee">
@@ -22,10 +22,9 @@
 	<div class="content content1 cont-info cont-bottom">
 		<p><label>收礼人: </label><span>{{ order.receivers[0].consignee }}</span></p>
 		<p><label>手机号: </label><span>{{ order.receivers[0].telephone }}</span></p>
-		<p><label>地址: </label><span>{{ order.receivers[0].address }}</span></p>
+		<p><label>地&nbsp;&nbsp;&nbsp;&nbsp;址: </label><span>{{ order.receivers[0].address }}</span></p>
 	</div>
     <div class="footer-btn">
-        <!--<a ui-sref="gift.list" class="button">我也要送礼</a>-->
         <a ui-sref="gift.list" class="button">继续送礼</a>
     </div>
   </form>

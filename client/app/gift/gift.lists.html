@@ -4,9 +4,13 @@
             <img ng-src="{{'http://' + apiCfg.imgUri + gift.info.cover}}" ng-if="gift.info.cover">
             <img ng-src="https://img.91pintuan.com/songli/rose_demo.png" ng-if="!gift.info.cover">
             <div class="present-summary">
-                <span class="present-summary-name" ng-bind="gift.info.name | limitTo:10"></span>
-                <span class="present-summary-price">RMB <span ng-bind="gift.info.price">0</span></span>
+                <span class="present-summary-price">
+                	&#165 <span ng-bind="gift.info.price">0</span>
+                </span>
             </div>
+        </div>
+        <div class="gift-info-name">
+        	<span ng-bind="gift.info.name | limitTo:10"></span>
         </div>
     </div>
 </div>

@@ -3,9 +3,9 @@ body{
     font-family: Helvetica !important;
 }
 //body的背景色
-.bgcolor1{background-color: #F2F2F2;}  //gzhh.css
-.bgcolor2{background-color: #8FC31F;}  //gift-style.css
-
+.bgcolor1{background-color: #F2F2F2;}  //礼物列表
+.bgcolor2{background-color: #8FC31F;}  //送礼人，收礼人，
+.bgcolor3{background-color: #FFFFFF;}  //礼物列表
 .container{
     border-radius: 4px;
     position:relative;
@@ -13,12 +13,11 @@ body{
     margin: 25px 23px 0 23px;
     padding: 70px 5px 5px 5px;
 }
-input,textarea{
+input,textarea,button{
     -webkit-appearance:none;
-    -webkit-tap-highlight-color:#FFFFFF;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 textarea{resize:none;}
-button{-webkit-appearance: none !important;}
 .clear{clear:both;}
 .content{background-color:#F7F7F7;padding:0 4%;padding-bottom: 30px;}
 #shade{width:100%;position:fixed;top:0;left:0;z-index:100;
@@ -102,10 +101,15 @@ button{-webkit-appearance: none !important;}
 .cont-info{
     color: #B7BDCB;
     font-size: 15px;
-    line-height: 9px;
     padding-left: 26px !important;
+    padding-right: 10px !important;
     padding-top: 10px;
     padding-bottom: 80px;
+}
+.cont-info p{
+    display: block;
+    padding: 0;
+    margin: 8px 0 0 0;
 }
 /*[按钮] --样式--*/
 .button{
@@ -144,6 +148,7 @@ button{-webkit-appearance: none !important;}
     display: block;
     border:0;
     border-radius: 4px;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 .btn-comm{
     border: none;

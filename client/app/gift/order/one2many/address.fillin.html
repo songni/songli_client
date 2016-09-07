@@ -9,12 +9,30 @@
         </div>
         
         <div class="content content1 content-top">
-            <input type="text" ng-model="data.consignee" class="form-text" name="name" required="required" placeholder="您的姓名" />
+            <!--<input type="text" ng-model="data.consignee" class="form-text" name="name" required="required" placeholder="您的姓名" />
             <input type="tel" ng-model="data.telephone" class="form-text" name="tel" required="required" placeholder="手机号码" />
             <textarea ng-model="data.address" class="form-textarea address" name="address" required="required" rows="6" placeholder="请留下详细收货地址，确保能收到礼物"></textarea>
             <div class="submit-btn">
                 <button type="submit" ng-click="saveAddr()" class="button btn-comm btn-wc btn-green ">完成</button>
-            </div>
+            </div>-->
+            
+            
+            <form class="form-horizontal" name="addressFriendForm" novalidate ng-submit="saveAddr()" >
+            	<input type="text" ng-model="data.consignee" class="form-text" name="consignee" required placeholder="您的姓名" />
+            	<p ng-show="addressFriendForm.consignee.$invalid && submitted" class="help-block">* 请输入收货人姓名.</p>
+            	
+            	<input type="tel" ng-model="data.telephone" class="form-text" name="telephone" phone required placeholder="手机号码" />
+            	<p ng-show="addressFriendForm.telephone.$invalid && submitted" class="help-block">* 请输入有效的手机号码.</p>
+            	
+            	<textarea ng-model="data.address" class="form-textarea address" name="address" maxlength="50" required rows="6" placeholder="请留下详细收货地址，确保能收到礼物"></textarea>
+            	<p ng-show="addressFriendForm.address.$error.required && submitted" class="help-block">* 请输入收货人的详细地址.</p>
+      			<p ng-show="addressFriendForm.address.$error.maxlength && submitted" class="help-block">* 配送地址字数太多.</p>
+            	
+            	<button type="submit" class="button btn-comm btn-wc btn-green">完成</button>
+            </form>
+            
+            
+            
         </div>
         <!--content-->
     </div>

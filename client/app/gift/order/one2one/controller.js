@@ -239,6 +239,7 @@ angular.module('clientApp')
         telephone: null
     };
     $scope.saveAddr = function() {
+    	console.log($scope.giftAddrForm);
         if ($scope.giftAddrForm.$invalid) {
             $scope.submitted = true;
             return false;

@@ -8,7 +8,7 @@ angular.module('clientApp')
     })
     .controller('GiftListCtrl', function($scope, $rootScope, $state, Gift) {
     	//页面body背景色
-        $rootScope.isBody1 = true;
+        $rootScope.islist = true;
         $rootScope.isBody2 = false;
     	
         $rootScope.bg2 = false;
@@ -80,7 +80,7 @@ angular.module('clientApp')
             return $sce.trustAsHtml(html);
         }
         wx.ready(function(){
-            var iconLiImgUrl = gift.info.cover ? gift.info.cover : 'http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png';
+            var iconLiImgUrl = gift.info.cover ? 'http://' + SONGNI_CFG_API.imgUri + gift.info.cover : 'http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png';
             var leanOptions = {
                 title: gift.info.name,
                 imgUrl: iconLiImgUrl 
