@@ -12,6 +12,8 @@ angular.module('clientApp')
         $rootScope.isBody2 = false;
     	
         $rootScope.bg2 = false;
+
+        console.warn($rootScope.clientWidth + 'px !important');
         /**
          * #FIXME
          * this is a bit ugly, but for the convenient of production setup

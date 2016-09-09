@@ -1,8 +1,8 @@
 <div class="present-list present-lists" infinite-scroll='gifts.nextPage()' infinite-scroll-disabled='gifts.busy' infinite-scroll-distance='1'>
-    <div class="present" ng-repeat="gift in gifts.items" ng-click="link()">
-        <div class="present-img">
-            <img ng-src="{{'http://' + apiCfg.imgUri + gift.info.cover}}" ng-if="gift.info.cover">
-            <img ng-src="https://img.91pintuan.com/songli/rose_demo.png" ng-if="!gift.info.cover">
+    <div class="present" ng-style="clientWidth && {height: (clientWidth/2 + 44).toFixed(2) + 'px'}" ng-repeat="gift in gifts.items" ng-click="link()">
+        <div class="present-img" ng-style="clientWidth && {width: (clientWidth/2).toFixed(2) + 'px', height: (clientWidth/2).toFixed(2) + 'px'}" >
+            <img ng-style="clientWidth && {height: (clientWidth/2 - 20).toFixed(2) + 'px'}" ng-src="{{'http://' + apiCfg.imgUri + gift.info.cover}}" ng-if="gift.info.cover">
+            <img ng-style="clientWidth && {height: (clientWidth/2 - 20).toFixed(2) + 'px'}" ng-src="https://img.91pintuan.com/songli/rose_demo.png" ng-if="!gift.info.cover">
             <div class="present-summary">
                 <span class="present-summary-price">
                 	&#165 <span ng-bind="gift.info.price">0</span>

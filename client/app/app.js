@@ -116,6 +116,9 @@ angular.module('clientApp', [
         $rootScope.merchant = data;
     });
     $rootScope.$on('$stateChangeStart', function(event, to, toParams, from, fromParams) {
+         
+        // $rootScope.bodyStyle = 'body_style1';
+
         $rootScope.referer = $state.href(from.name, fromParams);
         if (to.authenticate && !$cookieStore.get('token')) {
             event.preventDefault();
@@ -127,14 +130,6 @@ angular.module('clientApp', [
                     location.href = link.link;
                 });
         }
-    });
-    $rootScope.$on("$stateChangeStart", function(event, to, toParams, from, fromParams) {
-        // if (to.name === 'gift.detail.share' && toParams.from) {
-        //     event.preventDefault();
-        //     location.href = $state.href('gift.detail.orders', {
-        //         id: toParams.id
-        //     });
-        // }
     });
     $rootScope.$on("$stateChangeSuccess", function(event, to, toParams, from, fromParams) {
         $rootScope.referer = $state.href(from.name, fromParams);
@@ -150,4 +145,5 @@ angular.module('clientApp', [
         console.log(res.errMsg);
     });
     $rootScope.isAndroid = navigator.userAgent.match(/Android/i);
+    $rootScope.clientWidth = document.body.clientWidth;
 });

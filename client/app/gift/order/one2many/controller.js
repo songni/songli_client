@@ -261,7 +261,10 @@ angular.module('clientApp')
 })
 
 .controller('OrderAddressOne2ManyRecevCtrl', function($scope, $rootScope, $state, $stateParams, $cookies, Wechat, RestWechat, $location, order, $uibModal) {
-
+    //页面body背景色
+    $rootScope.isBody1 = false;
+    $rootScope.isBody2 = true;
+    
     //$rootScope.title = "选择大礼包";
     $scope.order = order;
     $scope.user = $rootScope.user;
@@ -280,10 +283,6 @@ angular.module('clientApp')
         $state.go('order.detail.one2many-address', null, {location: "replace"})
         return;
     };
-	
-	//页面body背景色
-    $rootScope.isBody1 = false;
-    $rootScope.isBody2 = true;
 
     $rootScope.bg2 = false;
     $rootScope.hideBar = true;
