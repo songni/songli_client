@@ -6,12 +6,13 @@ body{
 .bgcolor1{background-color: #F2F2F2;}  //礼物列表
 .bgcolor2{background-color: #8FC31F;}  //送礼人，收礼人，
 .bgcolor3{background-color: #FFFFFF;}  //礼物列表
+//todo
 .container{
     border-radius: 4px;
     position:relative;
     background-color: #FFFFFF;
     margin: 25px 23px 0 23px;
-    padding: 70px 5px 5px 5px;
+    padding: 70px 5px 0px 5px;
 }
 input,textarea,button{
     -webkit-appearance:none;

@@ -29,6 +29,9 @@
             </form>
         </div>
         <!--content-->
+        <div style="position: fixed; left: 0px; bottom: 0px;width:100%;">
+            <icon-href theme="white"></icon-href>
+        </div>
     </div>
 
     <!--[收礼人] 已被领取 再次打开 -->
@@ -53,6 +56,7 @@
     <!--content-->
         <div class="footer-btn">
         	<!--送礼人打开的id = 微信用户的id-->
+            <icon-href theme="white"></icon-href>
             <a ng-if="order.sender.openid === user.openid" ui-sref="gift.list" class="button">继续送礼</a>
             <a ng-if="order.sender.openid != user.openid" ui-sref="gift.detail({id: order.gift.id})" class="button">我也要送礼</a>
         </div>
@@ -88,6 +92,9 @@
         		<a href="#" class="button btn-bg" ng-click="fill()">领取礼物</a>
             </div>
             <!--content-->
+            <div style="position: fixed; left: 0px; bottom: 0px;width:100%;">
+                <icon-href theme="white"></icon-href>
+            </div>
         </div>
     </div>
     <!-- 收礼者：已经收礼品了  -->   <!--OK-->
@@ -119,6 +126,7 @@
             <!--content-->
         </div>
         <div class="footer-btn">
+            <icon-href theme="white"></icon-href>
             <a ui-sref="gift.list" class="button">我也要送礼</a>
         </div>
     </div>
@@ -149,6 +157,9 @@
         		<a ng-click="shareAsSender()" id="start-send-present" class="button button-action">继续送礼</a>
             </div> 
             <!--content-->
+            <div style="position: fixed; left: 0px; bottom: 0px;width:100%;">
+                <icon-href theme="white"></icon-href>
+            </div>
         </div>
     </div>
     <!-- 送礼人:打开链接，已经送光了 -->   <!--OK-->
@@ -180,6 +191,7 @@
             <!--content-->
         </div>
         <div class="footer-btn">
+            <icon-href theme="white"></icon-href>
             <a ui-sref="gift.list" class="button">我也要送礼</a>
         </div>
     </div>
@@ -212,6 +224,7 @@
             <!--content-->
         </div>
         <div class="footer-btn">
+            <icon-href theme="white"></icon-href>
             <a ui-sref="gift.list" class="button">我也要送礼</a>
         </div>
     </div>

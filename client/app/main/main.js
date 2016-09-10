@@ -11,9 +11,10 @@ angular.module('clientApp')
                     gifts: function(RestGift) {　
                         return RestGift.getList();
                     }
-                },
-                css: [{
-                    href: 'assets/v2/css/gzhh.css',
-                }]
+                }
+            })
+            .state('info', {
+                url: '/info',
+                templateUrl: 'app/main/info.html'
             });
     });

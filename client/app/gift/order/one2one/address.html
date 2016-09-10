@@ -11,7 +11,7 @@
 </div>
 <!--[送礼人-公众号]再次打开时-->
 <div ng-if="order.receivers.length == 1 && order.receivers[0].telephone" class="message-block top1 content content1">
-    <form class="form-horizontal">
+  <form class="form-horizontal">
       <!--<input ng-disabled="true" class="input-msg input-msg1 form-text" type="text" name="consignee" placeholder="收礼人姓名" ng-model="order.receivers[0].consignee">
       <input ng-disabled="true" class="input-msg input-msg1 form-text" type="tel" name="telephone" placeholder="手机号码" ng-model="order.receivers[0].telephone">
       <textarea ng-disabled="true" rows="2" name="address" style="height:6em" class="input-msg input-msg1 form-textarea" ng-model="order.receivers[0].address"></textarea>-->
@@ -26,9 +26,10 @@
 	</div>
     <div class="footer-btn">
         <a ui-sref="gift.list" class="button">继续送礼</a>
+		<br/>
+		<icon-href theme="white"></icon-href>
     </div>
   </form>
-  
 </div>
 
 <!--送礼人头像-->
@@ -56,5 +57,9 @@
       
       <button type="submit" class="button btn-comm btn-wc btn-green">完成</button>
       <button class="button btn-comm btn-share btn-yellow"  ng-click="share()">不知道地址，发给好友填写</button>
+	  <br>
     </div>
+	<div style="position: fixed; left: 0px; bottom: 0px;width:100%;">
+	  <icon-href theme="white"></icon-href>
+	</div>
 </form>

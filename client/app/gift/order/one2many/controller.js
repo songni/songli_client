@@ -237,7 +237,7 @@ angular.module('clientApp')
         id: order.id
     });
     var title = order.sender.name + '送给你一份礼物，快快收礼吧～';
-    var desc = '一种有心意更有新意的送礼方式';
+    var desc = '会说话的礼物';
     //var img = 'http://p1.ifindu.cn/crop/w_120/h_120'+order.gift.info.cover;
     var img = 'http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png'; //logo.png
     var timeline = title + ',' + desc;
@@ -360,7 +360,7 @@ angular.module('clientApp')
         id: order.id
     });
     var title = order.sender.name + '送给你一份礼物，快快收礼吧～';
-    var desc = '一种有心意更有新意的送礼方式';
+    var desc = '会说话的礼物';
     //var img = 'http://p1.ifindu.cn/crop/w_120/h_120'+order.gift.info.cover;
     var img = 'http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png'; //logo.png
     var timeline = title + ',' + desc;

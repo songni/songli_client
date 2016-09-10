@@ -1,0 +1,42 @@
+$primary_color: #8fc31f;
+$text_color: #CACACA;
+$info_header_height: 385px;
+
+.info_container{
+	margin: -95px -28px 0px -28px;
+	font-family: '微软雅黑'
+}
+.info_header{
+	background: $primary_color;
+	height: $info_header_height;
+	text-align: center;
+	img{
+		margin-top: 50px
+	}
+}
+.info_content{
+	background: white;
+	p{
+		text-align: center;
+	}
+	div{
+		margin-top: 20px;
+		text-align: center;
+		img{
+			width: 60%;
+		}
+	}
+}
+// .info_secondary_title{
+// 	font-size: 16px;
+// }
+// .info_primary_title{
+// 	font-size: 22px;
+// }
+// .info_text{
+// 	color: $text_color;
+// 	font-size: 16px;
+// }
+// .primary_color{
+// 	color: $primary_color;
+// }

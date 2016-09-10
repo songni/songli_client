@@ -37,7 +37,7 @@ angular.module('clientApp')
                 imgUrl: iconLiImgUrl 
             };
             var options = {
-                title: '一种有新意又有心意的送礼方式',
+                title: '会说话的礼物',
                 desc: $rootScope.merchant.info.name + '的礼物货架',
                 link: window.location.href,
                 imgUrl: iconLiImgUrl
@@ -88,7 +88,7 @@ angular.module('clientApp')
                 imgUrl: iconLiImgUrl 
             };
             var options = {
-                title: '让送礼有新意更有心意',
+                title: '会说话的礼物',
                 desc: gift.info.name,
                 imgUrl: iconLiImgUrl 
             };
@@ -112,6 +112,8 @@ angular.module('clientApp')
 .controller('GiftShareCtrl', function($state, $scope, $rootScope, $stateParams, $uibModal, RestGiftOrder, $timeout) {
     //$rootScope.title = "分享大礼包";
     $rootScope.bg2 = false;
+    $rootScope.isBody1 = false;
+    $rootScope.isBody2 = true;
     // $scope.preorders = [{
     //         sender: {
     //             info: {
