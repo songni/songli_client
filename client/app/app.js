@@ -117,8 +117,10 @@ angular.module('clientApp', [
     });
     $rootScope.$on('$stateChangeStart', function(event, to, toParams, from, fromParams) {
          
-        // $rootScope.bodyStyle = 'body_style1';
-
+        // $rootScope.bodyStyle = 'body_style_green';
+        // $rootScope.bodyStyle = 'body_style_grey';
+		// console.log(to)
+		
         $rootScope.referer = $state.href(from.name, fromParams);
         if (to.authenticate && !$cookieStore.get('token')) {
             event.preventDefault();

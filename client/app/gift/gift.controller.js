@@ -8,7 +8,7 @@ angular.module('clientApp')
     })
     .controller('GiftListCtrl', function($scope, $rootScope, $state, Gift) {
     	//页面body背景色
-        $rootScope.islist = true;
+        $rootScope.isBody1 = true;
         $rootScope.isBody2 = false;
     	
         $rootScope.bg2 = false;

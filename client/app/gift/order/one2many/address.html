@@ -1,3 +1,4 @@
+<!--送礼人购买后页面-->
 <div class="pay-success-several">
     <div class="container-status">
     	<!--送礼人头像-->
@@ -47,8 +48,23 @@
             {{ order.receivers && order.receivers.length && order.receivers.length === order.capacity ? '礼物已被抢完' : order.receivers && order.receivers.length ? '继续送礼' : '开始送礼物' }}
         </a>
     </div>
-    <!--content-->
-    <div style="position: fixed; left: 0px; bottom: 20px;width:100%;">
+
+    <!--礼物领取中-->
+    <div ng-if="order.receivers && order.receivers.length && order.receivers.length != order.capacity" class="interact">
+        <p>{{ order.receivers.length }}人已领取</p>
+        <ul>
+            <li ng-repeat="receiver in order.receivers">
+                <img ng-src="receiver.headimgurl"/>
+            	<span class="receiver-name">{{ receiver.name || receiver.consignee }} </span>
+           		<span class="font"> 已经领取了礼物</span>
+            	<span class="date">{{ receiver.fillinDate | date:'MM-dd HH:mm'}}</span>
+            </li>
+        </ul>
+    </div>
+    <!--距底标的高度-->
+    <div ng-if="order.receivers && order.receivers.length && order.receivers.length != order.capacity" class="green-foot"></div>
+    <!--底标-->
+    <div class="font-icon">
         <icon-href theme="white"></icon-href>
     </div>
 </div>

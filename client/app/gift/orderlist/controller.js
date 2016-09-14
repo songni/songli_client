@@ -6,7 +6,7 @@ angular.module('clientApp')
     //页面body背景色
     $rootScope.isBody1 = true;
     $rootScope.isBody2 = false;
-
+    
     //$rootScope.title = "我的大礼包列表";
     $scope.apiCfg = window.SONGNI_CFG_API;
             
@@ -28,7 +28,7 @@ angular.module('clientApp')
 	//页面body背景色
     $rootScope.isBody1 = true;
     $rootScope.isBody2 = false;
-	
+    
     //$rootScope.title = '收听好友的大礼包';
     $scope.innerHeight = $window.innerHeight;
     $scope.innerWidth = $window.innerWidth;
