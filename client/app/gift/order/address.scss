@@ -11,8 +11,13 @@ body{
     border-radius: 4px;
     position:relative;
     background-color: #FFFFFF;
-    margin: 25px 23px 0 23px;
+    margin: 20px 16px 0 16px;
     padding: 70px 5px 0px 5px;
+//  bottom: 20px;
+//  top: 0;
+//  overflow-x: hidden;
+//  overflow-y: scroll;
+    
 }
 input,textarea,button{
     -webkit-appearance:none;
@@ -31,7 +36,7 @@ textarea{resize:none;}
 .container-status{background: #F7F7F7;}
 .receive-present-text{margin-top: 30px;font-size: 14px;color:#646464;}
 /*右上角图标*/
-.icon-img{position: absolute;right:-17px;top: -17px;width:34px;}    
+.icon-img{position: fixed;right:10px;top: 10px;width:34px;}    
 /*头像*/
 .head-center{text-align:center;height: 55px;background: #F7F7F7;}
 .center-name{font-size: 14px;text-align:center;}
@@ -176,6 +181,16 @@ textarea{resize:none;}
     margin-top: 45px !important;
 }
 
+.button-success{
+    background: #90C132 !important;
+    border-radius: 4px;
+    width: 286px !important;
+    height: 45px !important;
+    display: block !important;
+    margin: 0 auto !important;
+    margin-top: 45px !important;
+}
+
 //单人礼物已被领取
 .top1{padding-top: 1px;}
 .cont-bottom{padding-bottom: 50px;padding-left: 0 !important;}
@@ -209,7 +224,7 @@ textarea{resize:none;}
                 height: 33px;
                 float: left;
                 border-radius: 50%;
-                margin-top: 12px;
+                margin-top: 16px;
             }
             .receiver-name{
                 padding-left: 17px;
@@ -238,7 +253,12 @@ textarea{resize:none;}
     bottom: 0px;
     width:100%;
 }
-
+.foot-icon{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
 
 
 

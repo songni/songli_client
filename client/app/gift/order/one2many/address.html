@@ -39,7 +39,7 @@
     <!--礼物说明-->
     <div class="content">
         <p class="send-gift-text">
-            您已成功购买{{order.capacity}}份[{{order.gift.info.name}}],发至到微信好友/微信群或朋友圈,开始送礼吧！
+            您已成功购买{{order.capacity}}份{{order.gift.info.name}},发至到微信好友/微信群或朋友圈,开始送礼吧！
         </p>
         <a href="#" id="start-send-present" 
         	ng-click="share()" 
@@ -50,19 +50,20 @@
     </div>
 
     <!--礼物领取中-->
-    <div ng-if="order.receivers && order.receivers.length && order.receivers.length != order.capacity" class="interact">
+    <div ng-if="order.receivers && order.receivers.length && order.receivers.length != order.capacity || order.receivers.length === order.capacity" class="interact">
         <p>{{ order.receivers.length }}人已领取</p>
         <ul>
             <li ng-repeat="receiver in order.receivers">
-                <img ng-src="receiver.headimgurl"/>
+                <img ng-src="{{receiver.headimgurl}}"/>
             	<span class="receiver-name">{{ receiver.name || receiver.consignee }} </span>
-           		<span class="font"> 已经领取了礼物</span>
+           		<span class="font"> 已领取</span>
             	<span class="date">{{ receiver.fillinDate | date:'MM-dd HH:mm'}}</span>
             </li>
         </ul>
     </div>
+    <!--<icon-href theme="white"></icon-href>-->
     <!--距底标的高度-->
-    <div ng-if="order.receivers && order.receivers.length && order.receivers.length != order.capacity" class="green-foot"></div>
+    <!--<div ng-if="order.receivers && order.receivers.length && order.receivers.length != order.capacity || order.receivers.length === order.capacity" class="green-foot"></div>-->
     <!--底标-->
     <div class="font-icon">
         <icon-href theme="white"></icon-href>

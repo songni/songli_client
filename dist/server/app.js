@@ -5,6 +5,7 @@
 'use strict';
 
 // Set default node environment to development
+
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var express = require('express');
@@ -22,3 +23,4 @@ server.listen(config.port, config.ip, function () {
 
 // Expose app
 exports = module.exports = app;
+//# sourceMappingURL=app.js.map

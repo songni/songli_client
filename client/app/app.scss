@@ -2,15 +2,27 @@
   max-width:640px;
   margin: auto;
 }
-// injector
-@import 'directive/alert.scss';
-@import 'gift/gift.detail.scss';
-@import 'gift/gift.lists.scss';
-@import 'gift/gift.share.scss';
-@import 'gift/nosy.scss';
-@import 'gift/order/address.scss';
-@import 'gift/order/recode.scss';
-@import 'gift/orderlist/orderlist.scss';
-@import 'main/info.scss';
-@import 'icon-href/icon-href.scss';
-// endinjector
+
+/* inject:scss */
+
+@import 'directive/alert';
+
+@import 'gift/gift.detail';
+
+@import 'gift/gift.lists';
+
+@import 'gift/gift.share';
+
+@import 'gift/nosy';
+
+@import 'gift/order/address';
+
+@import 'gift/order/recode';
+
+@import 'gift/orderlist/orderlist';
+
+@import 'main/info';
+
+@import '../components/icon-href/icon-href';
+
+/* endinject */

@@ -8,3 +8,4 @@ var router = express.Router();
 router.get('/', controller.demo);
 
 module.exports = router;
+//# sourceMappingURL=index.js.map

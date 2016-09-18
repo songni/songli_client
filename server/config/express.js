@@ -35,7 +35,7 @@ module.exports = function(app) {
   }
 
   if ('development' === env || 'test' === env) {
-    app.use(require('connect-livereload')({port:35721}));
+    app.use(require('connect-livereload')({port:35712}));
     app.use(express.static(path.join(config.root, '.tmp')));
     app.use(express.static(path.join(config.root, 'client')));
     app.set('appPath', 'client');
