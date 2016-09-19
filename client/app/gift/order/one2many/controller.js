@@ -169,10 +169,6 @@ angular.module('clientApp')
 // Gift Payment
 .controller('GiftPayOne2ManyCtrl', function($scope, $rootScope, $window, $state, $stateParams, $cookies, $timeout, RestGift, Alert, $css) {
     // Binds stylesheet(s) to scope create/destroy events (recommended over add/remove)
-    $css.bind([{
-        href: 'assets/v2/css/gzhh.css'
-    }], $scope);
-
     //$rootScope.title = '微信支付';
 
     var module = $stateParams.module;
@@ -222,10 +218,6 @@ angular.module('clientApp')
 .controller('OrderAddressOne2ManySendCtrl', function($scope, $rootScope, $state, $cookies, Wechat, $location, order, $uibModal) {
     //$rootScope.title = "选择大礼包";
     
-    //页面body背景色
-    $rootScope.isBody1 = false;
-    $rootScope.isBody2 = true;
-    
     $rootScope.bg2 = false;
     $rootScope.hideBar = true;
     $scope.order = order;
@@ -261,9 +253,6 @@ angular.module('clientApp')
 })
 
 .controller('OrderAddressOne2ManyRecevCtrl', function($scope, $rootScope, $state, $stateParams, $cookies, Wechat, RestWechat, $location, order, $uibModal) {
-    //页面body背景色
-    $rootScope.isBody1 = false;
-    $rootScope.isBody2 = true;
     
     //$rootScope.title = "选择大礼包";
     $scope.order = order;
@@ -389,11 +378,7 @@ angular.module('clientApp')
 })
 
 .controller('OrderAddressOne2ManyRecevAddrCtrl', function($scope, $rootScope, $state, $cookies, Wechat, $location, order, Alert, RestGiftOrder) {
-	
-	//页面body背景色
-    $rootScope.isBody1 = false;
-    $rootScope.isBody2 = true;
-	
+
     $rootScope.bg2 = false;
     $rootScope.hideBar = true;
 	$scope.addressFriendForm = {};

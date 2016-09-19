@@ -1,0 +1,16 @@
+{
+  "apps":[{
+    "name":"sl-wx-client-test",
+    "cwd":"./dist/server",
+    "script":"index.js",
+    "log_date_format"  : "YYYY-MM-DD HH:mm Z",
+    "ignoreWatch"      : ["[\\/\\\\]\\./", "node_modules"],
+    "merge_logs"       : true,
+    "exec_mode"  : "fork_mode",
+    "max_memory_restart" : "100M",
+    "instances"        : 0,
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }]
+}

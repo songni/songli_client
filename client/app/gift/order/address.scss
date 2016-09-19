@@ -3,21 +3,19 @@ body{
     font-family: Helvetica !important;
 }
 //body的背景色
-.bgcolor1{background-color: #F2F2F2;}  //礼物列表
-.bgcolor2{background-color: #8FC31F;}  //送礼人，收礼人，
+.bodyStyleGrey{background-color: #F2F2F2;}  //礼物列表
+.bodyStyleGreen{background-color: #8FC31F;}  //送礼人，收礼人，
+.bodyStyleGreen .container{
+    margin: 20px 16px 0 16px;
+}
 
 //todo
 .container{
     border-radius: 4px;
     position:relative;
     background-color: #FFFFFF;
-    margin: 20px 16px 0 16px;
-    padding: 70px 5px 0px 5px;
-//  bottom: 20px;
-//  top: 0;
-//  overflow-x: hidden;
-//  overflow-y: scroll;
-    
+    margin: 25px 23px 0 23px;
+    padding: 70px 5px 0px 5px;    
 }
 input,textarea,button{
     -webkit-appearance:none;
@@ -36,7 +34,7 @@ textarea{resize:none;}
 .container-status{background: #F7F7F7;}
 .receive-present-text{margin-top: 30px;font-size: 14px;color:#646464;}
 /*右上角图标*/
-.icon-img{position: fixed;right:10px;top: 10px;width:34px;}    
+.icon-img{position: absolute;right:-10px;top: -10px;width:34px;}    
 /*头像*/
 .head-center{text-align:center;height: 55px;background: #F7F7F7;}
 .center-name{font-size: 14px;text-align:center;}
@@ -44,10 +42,10 @@ textarea{resize:none;}
 .head-center img{border-radius: 100%;width:67px;height: 67px;border: 2px solid #FFFFFF;margin-top: -45px;}
     /*礼物个数*/
 .head-title-green{text-align:center;height: 90px;}
-.left-count{color: #231815;font-size: 22px;}
+.left-count{color: #231815;font-size: 24px;}
 .left-all{font-size: 23px;margin-bottom: 0;}
-.head-send-status{color: #8FC31F;font-size: 15px;margin-top: -12px;}
-.send-gift-text,.receive-present-text{color:#919191;font-size: 16px;line-height: 20px;padding-left: 5px;margin-top: 0;margin-bottom: 0;}
+.head-send-status{color: #8FC31F;font-size: 15px;margin-top: -20px;}
+.send-gift-text,.receive-present-text{color:#919191;font-size: 16px;line-height: 20px;padding-left: 5px;margin-top: 0;margin-bottom: 0;text-align: justify;}
 
 .address{margin-top: 12px !important;}
 #start-send-present{margin-bottom: 16px}
@@ -102,7 +100,7 @@ textarea{resize:none;}
 .text-color{color: #898989 !important;}
 /*[送一人] 礼物已被领取,再次点击页面*/
 .receive-info{text-align: center;font-size: 22px;color: #231815;line-height: 0;}
-.info1{margin-top: 50px;}
+.info1{margin-top: 46px;}
 .info2{margin-top: 30px;}
 .cont-info{
     color: #B7BDCB;
@@ -110,7 +108,7 @@ textarea{resize:none;}
     padding-left: 26px !important;
     padding-right: 10px !important;
     padding-top: 10px;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
 }
 .cont-info p{
     display: block;
@@ -146,15 +144,15 @@ textarea{resize:none;}
 }
 .btn-no{background: #B5B5B6;}
 .footer-btn{
-    position: fixed;
-    left: 0px;
-//  bottom:20px;
-    bottom: 65px;
     width:100%;
+    padding-bottom: 50px;
+}
+.footer-btn1{
+    padding-bottom: 0px;
 }
 .footer-btn .button{
     width:286px !important;
-    background-color:#B0D562;
+    background-color:#8FC31F;
     color: #FFF;
     margin: 0 auto;
     display: block;
@@ -203,22 +201,21 @@ textarea{resize:none;}
         font-size: 13px;
         padding-top: 28px;
         padding-bottom: 10px;
-        margin: 0 0 0 16px;
-        border-bottom: 1px solid #C5CAD5;
+        margin: 0 0 0 12px;
+        border-bottom: 1px solid #EFEFEF;
         margin-right: -5px;
     }
     ul{
         margin: 0;
         padding: 0;
-        margin-bottom: 30px;
+        padding-bottom: 30px;
         li{
             height: 65px;
-            border-bottom: 1px solid #C5CAD5;
+            border-bottom: 1px solid #EFEFEF;
             line-height: 65px;
             font-size: 14px;
-            margin-left: 16px;
+            margin-left: 12px;
             margin-right: -5px;
-            
             img{
                 width: 33px;
                 height: 33px;
@@ -241,29 +238,15 @@ textarea{resize:none;}
         }
     }
 }
-.green-foot{
-    height: 115px;
-    margin: 0 -5px;
-    background: #8FC31F;
-}
 //底标
-.font-icon{
-    position: fixed; 
-    left: 0px; 
-    bottom: 0px;
-    width:100%;
-}
-.foot-icon{
-    position: fixed;
-    left: 0;
-    bottom: 0;
+.icon-hrer{
+    position: absolute;
     width: 100%;
 }
-
-
-
-
-
+.icon-height{
+     height: 50px;
+     width: 100%;
+}
 
 
 

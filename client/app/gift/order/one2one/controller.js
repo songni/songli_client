@@ -137,12 +137,6 @@ angular.module('clientApp')
 // Gift Payment
 .controller('GiftPayOne2OneCtrl', function($scope, $rootScope, $window, $state, $stateParams, $cookies, $timeout, RestGift, Alert, $css) {
     // Binds stylesheet(s) to scope create/destroy events (recommended over add/remove)
-//  $css.bind([{
-//      href: 'assets/v2/css/gzhh.css'
-//  }], $scope);
-	//页面body背景色
-    $rootScope.isBody1 = true;
-    $rootScope.isBody2 = false;
 
     //$rootScope.title = '微信支付';
     var module = $stateParams.module;
@@ -189,15 +183,8 @@ angular.module('clientApp')
 .controller('OrderReceivedOne2OneCtrl', function($timeout, $scope, $rootScope, $location, $state, $uibModal, $window, RestGiftOrder, Wechat, order, Alert) {
     $scope.order = order;
     $scope.receiver = order.receivers[0];
-    //页面body背景色
-    $rootScope.isBody1 = false;
-    $rootScope.isBody2 = true;
 })
 .controller('OrderAddressOne2OneCtrl', function($timeout, $scope, $rootScope, $location, $state, $uibModal, $window, RestGiftOrder, Wechat, order, Alert) {
-	//页面body背景色
-//	$rootScope.bodysStyle = 'bodyAddressClass';
-    $rootScope.isBody1 = false;
-    $rootScope.isBody2 = true;
     // https://github.com/arrking/songni/issues/41
     // 不管是送多人还是送单人，收礼人都是存储到 receivers中
 

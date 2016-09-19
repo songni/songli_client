@@ -5,15 +5,17 @@
         <div class="to-who-count">
             <div class="input-group">
             	<!--左减-->
-                <span class="input-group-btn">
+                <span class="input-group-btn input-left">
 	              <button type="button" ng-click="reduCapacity()" class="btn btn-success btn-number btn-left" >
 	                <span>&minus;</span>
 	              </button>
                 </span>
                 <!--输入框-->
-                <input type="number" ng-model="giftOrderCapacity" pattern="\d*" class="form-control input-number" placeholder="2" min="2">
+                <span class="input-middle">
+                	<input type="number" ng-model="giftOrderCapacity" pattern="\d*" class="form-control input-number" placeholder="2" min="2">
+                </span>
                 <!--右加-->
-                <span class="input-group-btn">
+                <span class="input-group-btn input-right">
 	              <button type="button" ng-click="incrCapacity()" class="btn btn-success btn-number" data-type="plus" >
 	                <span>+</span>
 	              </button>

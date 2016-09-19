@@ -85,10 +85,7 @@ angular.module('clientApp')
             templateUrl: 'app/gift/order/one2many/record.html',
             controller: 'GiftRecordMultiCtrl',
             authenticate: true,
-            css: [ {
-                href: 'assets/v2/css/bootstrap.min.css',
-                preload: true
-            }]
+
         })
 
         /**

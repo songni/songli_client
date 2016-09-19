@@ -7,9 +7,6 @@ angular.module('clientApp')
         $rootScope.hideBar = true;
     })
     .controller('GiftListCtrl', function($scope, $rootScope, $state, Gift) {
-    	//页面body背景色
-        $rootScope.isBody1 = true;
-        $rootScope.isBody2 = false;
     	
         $rootScope.bg2 = false;
 
@@ -49,10 +46,9 @@ angular.module('clientApp')
         })
     })
     .controller('GiftDetailCtrl', function($scope, $rootScope, $state, $sce, gift, Alert) {
-    	//页面body背景色
-        $rootScope.isBody1 = true;
-        $rootScope.isBody2 = false;
     	
+        console.warn("!!!!!!");
+
         //$rootScope.title = "大礼包";
         $scope.appid = hostname[0];
         /**
@@ -110,54 +106,7 @@ angular.module('clientApp')
 
 // Gift Share 
 .controller('GiftShareCtrl', function($state, $scope, $rootScope, $stateParams, $uibModal, RestGiftOrder, $timeout) {
-    //$rootScope.title = "分享大礼包";
     $rootScope.bg2 = false;
-    $rootScope.isBody1 = false;
-    $rootScope.isBody2 = true;
-    // $scope.preorders = [{
-    //         sender: {
-    //             info: {
-    //                 headimgurl: '/assets/images/user1.png',
-    //                 nickname: '李辛'
-    //             }
-    //         },
-    //         receiver: {
-    //             name: '刘静'
-    //         }
-    //     },
-
-    //     {
-    //         sender: {
-    //             info: {
-    //                 headimgurl: '/assets/images/user2.png',
-    //                 nickname: '贺函'
-    //             }
-    //         },
-    //         receiver: {
-    //             name: '朱益达'
-    //         }
-    //     }, {
-    //         sender: {
-    //             info: {
-    //                 headimgurl: '/assets/images/user3.png',
-    //                 nickname: '樊星'
-    //             }
-    //         },
-    //         receiver: {
-    //             name: '壮壮'
-    //         }
-    //     }, {
-    //         sender: {
-    //             info: {
-    //                 headimgurl: '/assets/images/user4.png',
-    //                 nickname: '至尊宝'
-    //             }
-    //         },
-    //         receiver: {
-    //             name: '紫霞仙子'
-    //         }
-    //     },
-    // ];
     RestGiftOrder.one('list').one('s').getList('', {
         limit: 20,
         gift: $stateParams.id

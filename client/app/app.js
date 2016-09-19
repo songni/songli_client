@@ -134,10 +134,27 @@ angular.module('clientApp', [
         }
     });
     $rootScope.$on("$stateChangeSuccess", function(event, to, toParams, from, fromParams) {
+		// 页面为绿背景
+        let bodyStyle1 = [
+        	'gift.detail.share',
+        	'order.detail.fillin',
+       		'order.detail.fillin-one2many',
+        	'order.detail.one2one-received',
+        	'order.detail.one2one-address',
+        	'order.detail.one2many-address'
+        ]; 
         $rootScope.referer = $state.href(from.name, fromParams);
         document.body.scrollTop = document.documentElement.scrollTop = 0;
-        if ($rootScope.isAndroid)
+        if ($rootScope.isAndroid){
             Wechat.config();
+        }
+        if(bodyStyle1.indexOf(to.name) >= 0){
+            $rootScope.bodyStyle = 'bodyStyle1' 
+        }
+        else{
+            $rootScope.bodyStyle = 'bodyStyle2' 
+        }
+		// console.log(to)
         //Wechat.config(); //不支持spa history.pushState
     });
     Wechat.config();

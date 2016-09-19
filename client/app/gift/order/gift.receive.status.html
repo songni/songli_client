@@ -29,7 +29,7 @@
             </form>
         </div>
         <!--content-->
-        <div class="font-icon">
+        <div class="icon-hrer">
             <icon-href theme="white"></icon-href>
         </div>
     </div>
@@ -60,7 +60,11 @@
             <a ng-if="order.sender.openid === user.openid" ui-sref="gift.list" class="button">继续送礼</a>
             <a ng-if="order.sender.openid != user.openid" ui-sref="gift.detail({id: order.gift.id})" class="button">我也要送礼</a>
         </div>
+        <div class="icon-hrer">
+            <icon-href theme="white"></icon-href>
+        </div>
     </div>
+    
 </div>
 
 <!-- 送多个人 -->
@@ -93,7 +97,7 @@
         		<a href="#" class="button btn-bg" ng-click="fill()">领取礼物</a>
             </div>
             <!--底标-->
-            <div class="font-icon">
+            <div class="icon-hrer">
                 <icon-href theme="white"></icon-href>
             </div>
         </div>
@@ -123,10 +127,12 @@
             <div class="content">
             	<p class="receive-present-text">
             		<!--你的朋友{{order.sender.info.nickname}}为你准备了一份礼物，并对你说了一段话。数量有限赶快领取！收到礼物时扫描语音二维码听听{{order.sender.info.nickname}}说了些什么吧-->
-            		你已成功领取{{order.sender.info.nickname}}的礼物，等待商家发 货吧。不要忘了除了礼物{{order.sender.info.nickname}}还对你说 了一段话，收到礼物时扫描语音码，听听ta都说了些什么吧。
+            		你已成功领取{{order.sender.info.nickname}}的礼物，等待商家发货吧。不要忘了除了礼物{{order.sender.info.nickname}}还对你说了一段话，收到礼物时扫描语音码，听听ta都说了些什么吧。
         		</p>
         		<!--<a href="javascript: void(0)" class="button button-done">你已领取礼物</a>-->
-            	<a ui-sref="gift.list" class="button button-success">我也要送礼</a>
+            	<!--<a ui-sref="gift.list" class="button button-success">我也要送礼</a>-->
+            	<a ui-sref="gift.detail({id: order.gift.id})" class="button button-success">我也要送礼</a>
+            	
             </div> 
             <!--content-->
         </div>
@@ -142,11 +148,10 @@
                 </li>
             </ul>
         </div>
-        <div ng-if="order.receivers && order.receivers.length && order.receivers.length != order.capacity" class="green-foot"></div>
-        <div class="foot-icon">
-            <icon-href theme="white"></icon-href>
-            <!--<a ui-sref="gift.list" class="button">我也要送礼</a>-->
-        </div>
+        <!--底标-->
+	    <div class="icon-hrer">
+	        <icon-href theme="white"></icon-href>
+	    </div>
     </div>
     
     <!-- 【送礼人】:打开链接，还有礼物 -->  
@@ -187,12 +192,10 @@
                     </li>
                 </ul>
             </div>
-            <!--距底标的高度-->
-    		<div ng-if="order.receivers && order.receivers.length && order.receivers.length != order.capacity" class="green-foot"></div>
             <!--底标-->
-            <div class="font-icon">
-                <icon-href theme="white"></icon-href>
-            </div>
+		    <div class="icon-hrer">
+		        <icon-href theme="white"></icon-href>
+		    </div>
         </div>
     </div>
     <!-- 【送礼人】:打开链接，已经送光了 -->   
@@ -218,10 +221,11 @@
             <div class="content">
             	<p class="receive-present-text">
             		<!--你的朋友{{order.sender.info.nickname}}为你准备了一份礼物，并对你说了一段话。数量有限赶快领取！收到礼物时扫描语音二维码听听{{order.sender.info.nickname}}说了些什么吧-->
-            		你已成功领取{{order.sender.info.nickname}}的礼物，等待商家发货吧。不要忘了除了礼物{{order.sender.info.nickname}}还对你说 了一段话，收到礼物时扫描语音码，听听ta都说了些什么吧。
+            		你已成功领取{{order.sender.info.nickname}}的礼物，等待商家发货吧。不要忘了除了礼物{{order.sender.info.nickname}}还对你说了一段话，收到礼物时扫描语音码，听听ta都说了些什么吧。
         		</p>
         		<!--<a href="javascript: void(0)" class="button button-done">手慢了，礼物已被抢完</a>-->
-        		<a ui-sref="gift.list" class="button button-success">我也要送礼</a>
+        		<!--<a ui-sref="gift.list" class="button button-success">我也要送礼</a>-->
+        		<a ui-sref="gift.detail({id: order.gift.id})" class="button button-success">我也要送礼</a>
             </div> 
             <!--content-->
         </div>
@@ -237,12 +241,10 @@
                 </li>
             </ul>
         </div>
-        <!--距底标的高度-->
-		<div ng-if="order.receivers && order.receivers.length && order.receivers.length != order.capacity" class="green-foot"></div>
-        <div class="foot-icon">
-            <icon-href theme="white"></icon-href>
-            <!--<a ui-sref="gift.list" class="button">我也要送礼</a>-->
-        </div>
+        <!--底标-->
+	    <div class="icon-hrer">
+	        <icon-href theme="white"></icon-href>
+	    </div>
     </div>
     <!-- 【收礼人】:还没有收礼，但是礼物已经没有了 -->  
     <div class="open-link-end" ng-if="orderStatus == 0">
@@ -267,10 +269,11 @@
             <div class="content">
             	<p class="receive-present-text">
             		<!--你的朋友{{order.sender.info.nickname}}为你准备了一份礼物，并对你说了一段话。数量有限赶快领取！收到礼物时扫描语音二维码听听{{order.sender.info.nickname}}说了些什么吧-->
-            		你已成功领取{{order.sender.info.nickname}}的礼物，等待商家发货吧。不要忘了除了礼物{{order.sender.info.nickname}}还对你说 了一段话，收到礼物时扫描语音码，听听ta都说了些什么吧。
+            		你已成功领取{{order.sender.info.nickname}}的礼物，等待商家发货吧。不要忘了除了礼物{{order.sender.info.nickname}}还对你说了一段话，收到礼物时扫描语音码，听听ta都说了些什么吧。
         		</p>
         		<!--<a href="javascript: void(0)" class="button button-done">手慢了，礼物已被抢完</a>-->
-        		<a ui-sref="gift.list" class="button button-success">我也要送礼</a>
+        		<!--<a ui-sref="gift.list" class="button button-success">我也要送礼</a>-->
+        		<a ui-sref="gift.detail({id: order.gift.id})" class="button button-success">我也要送礼</a>
             </div> 
             <!--content-->
         </div>
@@ -286,11 +289,9 @@
                 </li>
             </ul>
         </div>
-        <!--距底标的高度-->
-		<div ng-if="order.receivers && order.receivers.length && order.receivers.length != order.capacity" class="green-foot"></div>
-        <div class="foot-icon">
-            <icon-href theme="white"></icon-href>
-            <!--<a ui-sref="gift.list" class="button">我也要送礼</a>-->
-        </div>
+        <!--底标-->
+	    <div class="icon-hrer">
+	        <icon-href theme="white"></icon-href>
+	    </div>
     </div>
 </div>

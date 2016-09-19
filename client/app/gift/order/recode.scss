@@ -72,13 +72,13 @@ input{
     font-size: 13px !important;
 }
 // [-- 送多人 --]
-.sound-more{margin: -69px 20px;background: #F7F7F7;}
+.sound-more{margin: -69px -5px;background: #F7F7F7;}
 .to-who-count {
     background-color: #F7F8F8;
-    padding: 20px;
     text-align: center;
     margin-top: 5px;
     margin-bottom: 6px;
+    height: 75px;
 }
 .to-who-count input{
     text-align: center;
@@ -86,19 +86,49 @@ input{
     -webkit-tap-highlight-color:#FFFFFF;
 }
 .to-who-count .input-group .form-control{
-    margin-left: 7.5%;
     width: auto;
     padding: 0;
     border-radius: 4px !important;
     box-shadow: none !important; 
-    width: 85% !important;
+    border: 1px solid #C6CAD5;
+    height: 33px;
+    background: #F7F8F8;
+    width: 100%;
+    font-size: 16px;
 }
 .to-who-count .btn-success{border-radius: 4px !important;}
 .to-who-count .btn{
-    padding: 0 10px;
     font-size: 20px;
     font-weight: bolder !important; 
+    border: 0;
+    background: #8FC31F;
+    color: #FFFFFF;
 }
+.input-group {
+    padding-top: 20px;
+    height: 35px;
+    margin: 0 auto;
+    width: 100%;
+}
+.input-left{
+    float: left;
+    width: 25%;
+}
+.input-middle{
+    float: left;
+    width: 50%;
+}
+.input-right{
+    float: left;
+    width: 25%;
+}
+.input-left .btn,.input-right .btn {
+    padding: 0;
+    width: 35px;
+    height: 35px;
+    line-height: 30px;
+}
+
 .btn-left span,.btn-right span{display: block;height: 30px;}
 .input-group-btn{font-weight: bolder !important; }
 //  按钮按下的状态
