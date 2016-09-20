@@ -116,11 +116,12 @@
             <div class="head-main head-title-green">
             	<p class="left-count">
             		你已领取礼物
-            		<!--还有{{orderSurplus}}份-->
             	</p>
-                <p class="head-send-status">
+                <p class="head-send-status" ng-if="order.receivers && (order.receivers.length != order.capacity)">
                 	还有{{orderSurplus}}份
-                    <!--{{orderReserved}}人已领取-->
+                </p>
+                <p class="head-send-status" ng-if="order.receivers && (order.receivers.length === order.capacity)">
+                	礼物已被领完
                 </p>
             </div>
             <!--礼物说明-->
@@ -137,7 +138,7 @@
             <!--content-->
         </div>
         <!--interact-->
-        <div ng-if="order.receivers && order.receivers.length && order.receivers.length != order.capacity" class="interact">
+        <div ng-if="order.receivers && order.receivers.length" class="interact">
             <p>{{ order.receivers.length }}人已领取 </p>
             <ul>
                 <li ng-repeat="receiver in order.receivers">
@@ -181,7 +182,7 @@
         		<a ng-click="shareAsSender()" id="start-send-present" class="button button-action">继续送礼</a>
             </div> 
             <!--interact-->
-            <div ng-if="order.receivers && order.receivers.length && order.receivers.length != order.capacity" class="interact">
+            <div ng-if="order.receivers && order.receivers.length" class="interact">
                 <p>{{ order.receivers.length }}人已领取</p>
                 <ul>
                     <li ng-repeat="receiver in order.receivers">
@@ -230,7 +231,7 @@
             <!--content-->
         </div>
         <!--interact-->
-        <div ng-if="order.receivers && order.receivers.length && order.receivers.length != order.capacity" class="interact">
+        <div ng-if="order.receivers && order.receivers.length" class="interact">
             <p>{{ order.receivers.length }}人已领取</p>
             <ul>
                 <li ng-repeat="receiver in order.receivers">
@@ -278,7 +279,7 @@
             <!--content-->
         </div>
         <!--interact-->
-        <div ng-if="order.receivers && order.receivers.length && order.receivers.length != order.capacity" class="interact">
+        <div ng-if="order.receivers && order.receivers.length" class="interact">
             <p>{{ order.receivers.length }}人已领取</p>
             <ul>
                 <li ng-repeat="receiver in order.receivers">
