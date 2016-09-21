@@ -3,17 +3,15 @@
 import md5 from 'md5';
 
 var apiUriDev = {};
-apiUriDev[md5('wx.dev.91pintuan.com')] = 'https://apidev.91pintuan.com';
-apiUriDev[md5('99.dev.91pintuan.com')] = 'https://api99dev.91pintuan.com';
+apiUriDev[md5('wwww.dev.91songli.cc')] = 'http://apidev.91songli.cc';
 
 var apiUriPro = {};
-apiUriPro[md5('wx.91pintuan.com')] = 'https://api.91pintuan.com';
-apiUriPro[md5('91pintuan.com')]    = 'https://api.91pintuan.com';
-apiUriPro[md5('99.91pintuan.com')] = 'https://api99.91pintuan.com';
+apiUriPro[md5('91songli.cc')] = 'http://api.91songli.cc';
+apiUriPro[md5('wx.songni.cc')] = 'http://api.91songli.cc';
 
 exports = module.exports = {
   development:{//开发版
-    uri: 'https://apidev.91pintuan.com',
+    uri: 'http://apidev.91songli.cc',
     imgUri:'https://img.91pintuan.com',
     phtUri:'https://photo.91pintuan.com',
     phtUriExotic:'http://photo.91pintuan.com',
@@ -23,7 +21,7 @@ exports = module.exports = {
     from:'client'
   },
   production:{//产品版本
-    uri: 'https://api.91pintuan.com',
+    uri: 'http://api.91songli.cc',
     imgUri:'https://img.91pintuan.com',
     phtUri:'https://photo.91pintuan.com',
     phtUriExotic:'http://photo.91pintuan.com',

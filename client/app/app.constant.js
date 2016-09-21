@@ -2,15 +2,14 @@
   angular.module("clientApp.constants", [])
 
 .constant("appConfig", {
-	"uri": "https://api.91pintuan.com",
+	"uri": "http://api.91songli.cc",
 	"imgUri": "https://img.91pintuan.com",
 	"phtUri": "https://photo.91pintuan.com",
 	"phtUriExotic": "http://photo.91pintuan.com",
 	"component": "5581117b5f225e4c401c9259",
 	"apiUri": {
-		"bb45b1986964c8b29d4cb5ae777974ff": "https://api.91pintuan.com",
-		"b891d7eaa25445eea5acaa0568fa8ee1": "https://api.91pintuan.com",
-		"482414b37ccdf12b667fd30f1c34280b": "https://api99.91pintuan.com"
+		"acd5e6e0ab2c366ea83d21c106c07912": "http://api.91songli.cc",
+		"45d904d7de17319d5c8148062b2ad308": "http://api.91songli.cc"
 	},
 	"debug": false,
 	"from": "client"
