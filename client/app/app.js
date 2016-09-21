@@ -55,7 +55,7 @@ angular.module('clientApp', [
     // 'door3.css',  deprecated 
     'angularCSS'
 ])
-.config(function(appConfig, $stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $logProvider, RestangularProvider, $cssProvider) {
+.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $logProvider, RestangularProvider, $cssProvider) {
     angular.extend($cssProvider.defaults, {
         preload: true
     });
@@ -68,7 +68,7 @@ angular.module('clientApp', [
 
     $logProvider.debugEnabled('disable'); //disable
 })
-.run(function(appConfig, $rootScope, $cookieStore, $state, $stateParams, Restangular, RestWechat, Wechat, Alert) {
+.run(function(appConfig, $rootScope, $cookieStore, $state, $stateParams, $location, Restangular, RestWechat, Wechat, Alert) {
     $rootScope.appConfig = window.SONGNI_CFG_API = appConfig;
     var apiUri = appConfig.apiUri[$location.host()];
     !apiUri && (apiUri = appConfig.uri);
