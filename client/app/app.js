@@ -8,7 +8,6 @@ req.open('GET', '/config', false);
 req.send(null);
 var response = JSON.parse(req.responseText);
 var api = response.api;
-window.SONGNI_CFG_API = api;
 debugWx = false; //response.debugWx;
 function getUrlVars() {
     var vars = [],
@@ -34,6 +33,7 @@ if (code) {
 //window.ontouchstart = function(e) { e.preventDefault(); };
 
 angular.module('clientApp', [
+    'clientApp.constants',
     'ngCookies',
     'ngResource',
     'ngSanitize',
@@ -55,7 +55,7 @@ angular.module('clientApp', [
     // 'door3.css',  deprecated 
     'angularCSS'
 ])
-.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $logProvider, RestangularProvider, $cssProvider) {
+.config(function(appConfig, $stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $logProvider, RestangularProvider, $cssProvider) {
     angular.extend($cssProvider.defaults, {
         preload: true
     });
@@ -67,10 +67,12 @@ angular.module('clientApp', [
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
     $logProvider.debugEnabled('disable'); //disable
-
-    RestangularProvider.setBaseUrl(api.uri);
 })
-.run(function($rootScope, $cookieStore, $state, $stateParams, Restangular, RestWechat, Wechat, Alert) {
+.run(function(appConfig, $rootScope, $cookieStore, $state, $stateParams, Restangular, RestWechat, Wechat, Alert) {
+    $rootScope.appConfig = window.SONGNI_CFG_API = appConfig;
+    var apiUri = appConfig.apiUri[$location.host()];
+    !apiUri && (apiUri = appConfig.uri);
+    Restangular.setBaseUrl(apiUri);
     //$cookieStore.remove('token');
     Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {
         if (response.status === 401) {
