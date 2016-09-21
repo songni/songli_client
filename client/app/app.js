@@ -72,7 +72,7 @@ angular.module('clientApp', [
     $rootScope.appConfig = window.SONGNI_CFG_API = appConfig;
     var apiUri = appConfig.apiUri[$location.host()];
     !apiUri && (apiUri = appConfig.uri);
-    Restangular.setBaseUrl(apiUri);
+    Restangular.setBaseUrl(apiUri + '/api');
     //$cookieStore.remove('token');
     Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {
         if (response.status === 401) {

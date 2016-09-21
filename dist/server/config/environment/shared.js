@@ -16,8 +16,8 @@ apiUriPro[(0, _md2.default)('wx.songni.cc')] = 'http://api.91songli.cc';
 exports = module.exports = {
   development: { //开发版
     uri: 'http://apidev.91songli.cc',
-    imgUri: 'https://img.91pintuan.com',
-    phtUri: 'https://photo.91pintuan.com',
+    imgUri: 'img.91pintuan.com',
+    phtUri: 'photo.91pintuan.com',
     phtUriExotic: 'http://photo.91pintuan.com',
     component: '5726bf8700bbe21526c4ccbe',
     apiUri: apiUriDev,
@@ -26,8 +26,8 @@ exports = module.exports = {
   },
   production: { //产品版本
     uri: 'http://api.91songli.cc',
-    imgUri: 'https://img.91pintuan.com',
-    phtUri: 'https://photo.91pintuan.com',
+    imgUri: 'img.91pintuan.com',
+    phtUri: 'photo.91pintuan.com',
     phtUriExotic: 'http://photo.91pintuan.com',
     component: '5581117b5f225e4c401c9259',
     apiUri: apiUriPro,

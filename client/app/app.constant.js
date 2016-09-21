@@ -3,8 +3,8 @@
 
 .constant("appConfig", {
 	"uri": "http://api.91songli.cc",
-	"imgUri": "https://img.91pintuan.com",
-	"phtUri": "https://photo.91pintuan.com",
+	"imgUri": "img.91pintuan.com",
+	"phtUri": "photo.91pintuan.com",
 	"phtUriExotic": "http://photo.91pintuan.com",
 	"component": "5581117b5f225e4c401c9259",
 	"apiUri": {
