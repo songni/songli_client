@@ -48,7 +48,7 @@ angular.module('clientApp')
                             var title = gift.info.name;
                             var desc = gift.info.lead;
                             var timeline = title;
-                            var img = 'http://' + apiCfg.imgUri + gift.info.cover;
+                            var img = 'http://' + apiCfg.phtUri + gift.info.cover;
                             // var img = 'http://static.ifindu.cn/gift/images/share.png?2';
                             Wechat.ready({
                                 url: url,
