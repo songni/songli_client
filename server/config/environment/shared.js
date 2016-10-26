@@ -3,7 +3,8 @@
 import md5 from 'md5';
 
 var apiUriDev = {};
-apiUriDev[md5('wwww.dev.91songli.cc')] = 'http://apidev.91songli.cc';
+apiUriDev[md5('dev.91songli.cc')] = 'http://apidev.91songli.cc';
+apiUriDev[md5('dev.songni.cc')] = 'http://apidev.91songli.cc';
 
 var apiUriPro = {};
 apiUriPro[md5('91songli.cc')] = 'http://api.91songli.cc';

@@ -26,6 +26,7 @@
     "angular-swipe": "~0.1.0",
     "angular-touch": "~1.4.4",
     "angular-css": "~1.0.7",
+    "angular-md5": "^0.1.10",
     "lodash": "~4.14.1"
   },
   "devDependencies": {

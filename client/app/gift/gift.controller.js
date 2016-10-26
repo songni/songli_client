@@ -9,8 +9,6 @@ angular.module('clientApp')
     .controller('GiftListCtrl', function($scope, $rootScope, $state, Gift) {
     	
         $rootScope.bg2 = false;
-
-        console.warn($rootScope.clientWidth + 'px !important');
         /**
          * #FIXME
          * this is a bit ugly, but for the convenient of production setup
@@ -46,9 +44,6 @@ angular.module('clientApp')
         })
     })
     .controller('GiftDetailCtrl', function($scope, $rootScope, $state, $sce, gift, Alert) {
-    	
-        console.warn("!!!!!!");
-
         //$rootScope.title = "大礼包";
         $scope.appid = hostname[0];
         /**

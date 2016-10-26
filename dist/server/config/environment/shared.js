@@ -7,7 +7,8 @@ var _md2 = _interopRequireDefault(_md);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var apiUriDev = {};
-apiUriDev[(0, _md2.default)('wwww.dev.91songli.cc')] = 'http://apidev.91songli.cc';
+apiUriDev[(0, _md2.default)('dev.91songli.cc')] = 'http://apidev.91songli.cc';
+apiUriDev[(0, _md2.default)('dev.songni.cc')] = 'http://apidev.91songli.cc';
 
 var apiUriPro = {};
 apiUriPro[(0, _md2.default)('91songli.cc')] = 'http://api.91songli.cc';

@@ -53,7 +53,8 @@ angular.module('clientApp', [
     //'ngAudio',
     'swipe',
     // 'door3.css',  deprecated 
-    'angularCSS'
+    'angularCSS',
+    'angular-md5'
 ])
 .config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $logProvider, RestangularProvider, $cssProvider) {
     angular.extend($cssProvider.defaults, {
@@ -68,9 +69,10 @@ angular.module('clientApp', [
 
     $logProvider.debugEnabled('disable'); //disable
 })
-.run(function(appConfig, $rootScope, $cookieStore, $state, $stateParams, $location, Restangular, RestWechat, Wechat, Alert) {
+.run(function(appConfig, md5, $rootScope, $cookieStore, $state, $stateParams, $location, Restangular, RestWechat, Wechat, Alert) {
     $rootScope.appConfig = window.SONGNI_CFG_API = appConfig;
-    var apiUri = appConfig.apiUri[$location.host()];
+    var host = $location.host().substring(19);
+    var apiUri = appConfig.apiUri[md5.createHash(host)];
     !apiUri && (apiUri = appConfig.uri);
     Restangular.setBaseUrl(apiUri + '/api');
     //$cookieStore.remove('token');
