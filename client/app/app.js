@@ -6,7 +6,6 @@ var req = new XMLHttpRequest();
 req.open('GET', '/config', false);
 req.send(null);
 var response = JSON.parse(req.responseText);
-var config = response.config;
 debugWx = false; //response.debugWx;
 function getUrlVars() {
     var vars = [],
@@ -22,10 +21,10 @@ function getUrlVars() {
 var code = getUrlVars()["code"];
 
 if (code) {
-    var apiUri = appConfig.api + '/api';
+    var apiUri = response.api + '/api';
     req.open('GET', apiUri + '/wechat/token?code=' + code, false);
-    req.setRequestHeader('X-API-From', config.from);
-    req.setRequestHeader('X-Component', config.component);
+    req.setRequestHeader('X-API-From', response.config.from);
+    req.setRequestHeader('X-Component', response.config.component);
     req.send(null);
     token = JSON.parse(req.responseText).token;
 }
@@ -83,10 +82,6 @@ angular.module('clientApp', [
                 .then(function(link) {
                     location.href = link.link;
                 })
-                .catch(function(e){
-                    console.warn('?????????????')
-                    console.warn(e);
-                })
         }
         /*
         if(response.data&&response.data.errmsg){
@@ -116,7 +111,6 @@ angular.module('clientApp', [
         headers.Authorization = $cookieStore.get('token');
         Restangular.setDefaultHeaders(headers);
         RestWechat.one('userinfo').get().then(function(user) {
-            console.warn(user);
             $rootScope.user = user;
         });
     }
