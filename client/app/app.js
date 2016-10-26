@@ -2,12 +2,11 @@
 var debugWx = false;
 var hostname = window.location.hostname.split('.');
 var token = '';
-
 var req = new XMLHttpRequest();
 req.open('GET', '/config', false);
 req.send(null);
 var response = JSON.parse(req.responseText);
-var api = response.api;
+var config = response.config;
 debugWx = false; //response.debugWx;
 function getUrlVars() {
     var vars = [],
@@ -23,9 +22,10 @@ function getUrlVars() {
 var code = getUrlVars()["code"];
 
 if (code) {
-    req.open('GET', api.uri + '/wechat/token?code=' + code, false);
-    req.setRequestHeader('X-API-From', api.from);
-    req.setRequestHeader('X-Component', api.component);
+    var apiUri = appConfig.api + '/api';
+    req.open('GET', apiUri + '/wechat/token?code=' + code, false);
+    req.setRequestHeader('X-API-From', config.from);
+    req.setRequestHeader('X-Component', config.component);
     req.send(null);
     token = JSON.parse(req.responseText).token;
 }
@@ -82,7 +82,11 @@ angular.module('clientApp', [
             RestWechat.one('client').get() //{referer:$state.href($state.current)}
                 .then(function(link) {
                     location.href = link.link;
-                });
+                })
+                .catch(function(e){
+                    console.warn('?????????????')
+                    console.warn(e);
+                })
         }
         /*
         if(response.data&&response.data.errmsg){
@@ -101,8 +105,8 @@ angular.module('clientApp', [
         return data;
     });
     var headers = {
-        'X-API-From': api.from,
-        'X-Component': api.component
+        'X-API-From': appConfig.from,
+        'X-Component': appConfig.component
     };
     Restangular.setDefaultHeaders(headers);
     if (token) {
