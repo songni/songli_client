@@ -12,6 +12,7 @@ apiUriDev[(0, _md2.default)('wwww.dev.91songli.cc')] = 'http://apidev.91songli.c
 var apiUriPro = {};
 apiUriPro[(0, _md2.default)('91songli.cc')] = 'http://api.91songli.cc';
 apiUriPro[(0, _md2.default)('wx.songni.cc')] = 'http://api.91songli.cc';
+apiUriPro[(0, _md2.default)('dalibao.com')] = 'http://api.dalibao.com';
 
 exports = module.exports = {
   development: { //开发版

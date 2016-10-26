@@ -9,7 +9,8 @@
 	"component": "5581117b5f225e4c401c9259",
 	"apiUri": {
 		"acd5e6e0ab2c366ea83d21c106c07912": "http://api.91songli.cc",
-		"45d904d7de17319d5c8148062b2ad308": "http://api.91songli.cc"
+		"45d904d7de17319d5c8148062b2ad308": "http://api.91songli.cc",
+		"6cc673aa5f23836bb0de7bf6f839d2fd": "http://api.dalibao.com"
 	},
 	"debug": false,
 	"from": "client"
