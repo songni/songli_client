@@ -16,6 +16,7 @@
     "express": "^4.0.0",
     "express-session": "~1.0.2",
     "lodash": "~2.4.1",
+    "md5": "^2.2.1",
     "method-override": "~1.0.0",
     "morgan": "~1.0.0",
     "pmx": "^0.4.6",
