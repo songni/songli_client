@@ -74,7 +74,7 @@
     <!--使用状态-->
     <div class="use-state" ng-if="$ctrl.suborder">
       <span>礼物券已被领取</span>
-      <span ng-bind="$ctrl.order.status.shipping ? '已使用' : '未使用' "></span>
+      <span ng-bind="$ctrl.suborder.status.shipping ? '已使用' : '未使用' "></span>
     </div>
     <!--二维码-->
     <div class="gift-code" ng-if="$ctrl.suborder">
