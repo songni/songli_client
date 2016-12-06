@@ -1,0 +1,105 @@
+'use strict';
+
+angular.module('clientApp')
+	.component('giftReceiveForm', {
+		templateUrl: 'app/gift/order/gift.receive.form.html',
+		bindings: {
+			order: '<',
+			address: '=',
+			show: '<',
+			isShare: '<'
+		},
+		controller: function GiftReceiveFormComponent($rootScope, $state, $uibModal, RestWxPoi, RestGiftOrder){
+			this.$onInit = () => {
+				this.poiLoaded = false;
+				let gift = this.order.gift;
+				if(gift.status.lbs){
+					wx.ready(() => {
+						wx.getLocation({
+							success: res => {
+								RestWxPoi.get({
+									tag: gift.poitag,
+									latitude: res.latitude,
+									longitude: res.longitude
+								}).then(pois => {
+									this.pois = pois;
+									this.poiLoaded = true;
+								});
+							},
+							cancel: () => Alert.add('warning','您拒绝授权获取地理位置'),
+							fail: () => location.reload()
+						});
+					});
+				}else{
+					RestWxPoi.get({
+						tag: gift.poitag
+					}).then(pois => {
+						this.pois = pois;
+						this.poiLoaded = true;
+					});
+				}
+			}
+
+			this.saveAddr = () => {
+				if (this.giftAddrForm.$invalid) {
+					this.submitted = true;
+					return false;
+				}
+				if(this.address.poi){
+					this.address.scene = 'poi';
+				}
+				else if(this.address.address){
+					this.address.scene = 'logistics'; 
+				}
+				RestGiftOrder.one(this.order.id).one('address').post('', this.address).then(data => {
+					if (!data.rc)
+						console.error('saveAddr', '没有response code !');
+					switch (data.rc) {
+						case 1:
+							Alert.add('success', '你已经保存该礼物了', 2000);
+							break;
+						case 2:
+							Alert.add('success', '手慢了，没有礼物了', 2000);
+							break;
+						case 3:
+							Alert.add('success', '信息不全', 2000);
+							break;
+						case 4:
+							location.href = $state.href('gift.detail.share', {
+								id: this.order.gift.id
+							});
+							break;
+						default:
+							Alert.add('warning', '系统内部错误', 2000);
+							break;
+					}
+				}, err => {
+					console.log('Get an err, ' + JSON.stringify(err));
+				});
+			}
+
+			this.share = () => {
+				$rootScope.modalInstance = $uibModal.open({
+					templateUrl: 'app/gift/gift.share.modal.html',
+					controller: 'ShareModalCtrl'
+				});
+			}
+
+			this.selPoi = () => {
+				var pois = this.pois;
+				var address = this.address;
+				var modalInstance = $uibModal.open({
+					templateUrl: 'app/gift/order/gift.poi.modal.html',
+					controller: 'GiftPoiModalCtrl',
+					size: 'lg',
+					resolve: {
+						pois: () => pois,
+						address: () => address
+					}
+				})
+				modalInstance.result.then(poi => {
+					this.address.poi = poi;
+				})
+			}
+		}
+	});

@@ -137,26 +137,29 @@ angular.module('clientApp', [
     });
     $rootScope.$on("$stateChangeSuccess", function(event, to, toParams, from, fromParams) {
 		// 页面为绿背景
-        let bodyStyle1 = [
+        let bodyStyle = [
         	'gift.detail.share',
         	'order.detail.fillin',
        		'order.detail.fillin-one2many',
         	'order.detail.one2one-received',
         	'order.detail.one2one-address',
-        	'order.detail.one2many-address'
+        	'order.detail.one2many-address',
+        	'order.detail.fillin-one2one',
+        	'order.detail.received-result'
         ]; 
         $rootScope.referer = $state.href(from.name, fromParams);
         document.body.scrollTop = document.documentElement.scrollTop = 0;
-        if ($rootScope.isAndroid){
-            Wechat.config();
-        }
-        if(bodyStyle1.indexOf(to.name) >= 0){
-            $rootScope.bodyStyle = 'bodyStyle1' 
+        // if ($rootScope.isAndroid){
+        //     Wechat.config();
+        // }
+        if(bodyStyle.indexOf(to.name) >= 0){
+            $rootScope.bodyStyle = 'bgGreen' 
         }
         else{
-            $rootScope.bodyStyle = 'bodyStyle2' 
+            $rootScope.bodyStyle = 'bgGrey' 
         }
-		// console.log(to)
+//      console.log("page background ......");
+//		    console.log(to);
         //Wechat.config(); //不支持spa history.pushState
     });
     Wechat.config();

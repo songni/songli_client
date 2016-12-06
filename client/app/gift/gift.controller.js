@@ -100,8 +100,10 @@ angular.module('clientApp')
 })
 
 // Gift Share 
-.controller('GiftShareCtrl', function($state, $scope, $rootScope, $stateParams, $uibModal, RestGiftOrder, $timeout) {
+.controller('GiftShareCtrl', function($state, $scope, $rootScope, $stateParams, $uibModal, $window, RestGiftOrder, gift, $timeout) {
     $rootScope.bg2 = false;
+    $scope.gift = gift;
+    $scope.marqueeIntervalId = null;
     RestGiftOrder.one('list').one('s').getList('', {
         limit: 20,
         gift: $stateParams.id
@@ -111,7 +113,7 @@ angular.module('clientApp')
             _.each(orders[1], function(val) {
                 $scope.orders.push(val);
             });
-            marquee("marquee_content", "#marquee_content", 40, 40);
+            $scope.marqueeIntervalId = marquee("marquee_content", "#marquee_content", 40, 40);
         }
     });
     $scope.shareSrc = 'https://img.91pintuan.com/songli/gift_share.png';
@@ -124,7 +126,10 @@ angular.module('clientApp')
             scope: $scope
         });
     };
-
+    $scope.screen = {height:$window.innerHeight,width:$window.innerWidth};
+    $scope.$on('$destroy', () => {
+        $scope.marqueeIntervalId && clearInterval($scope.marqueeIntervalId);
+    })
     // $scope.$on('$viewContentLoaded', function() {
     //     marquee("marquee_content", "#marquee_content", 40, $scope.orders.length * 8);
     // });
@@ -272,4 +277,14 @@ angular.module('clientApp')
     $scope.items = [0, 1, 2];
     $scope.selection = $scope.items[0];
 
+})
+
+.controller('GiftPoiModalCtrl',function($scope,$uibModalInstance, $window, pois, address){
+    $scope.pois  = pois;
+    $scope.address = address;
+    $scope.selPoi = function(){
+      var poi = this.poi;
+      $uibModalInstance.close(poi);
+    };
+    $scope.screen = {height:$window.innerHeight,width:$window.innerWidth};
 });

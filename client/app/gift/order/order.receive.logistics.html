@@ -1,0 +1,36 @@
+<!--礼logo-->
+<img class="icon-img" src="https://img.91pintuan.com/songli/i.png">
+<div class="greyBox"></div>
+<!--送礼人头像-->
+<div class="head-center">
+  <img ng-src="{{$ctrl.order.sender.info.headimgurl}}" />
+</div>
+<div class="blackBox"></div>
+<div class="pre-main">
+<!--礼物说明-->
+  <div class="head-content content-addr">
+    <p ng-if="$ctrl.isShare" class="receive-present-text">已经完成支付！想要送给谁写下收礼人的收货信息；不知道地址可以直接发给对方填写</p>
+    <p ng-if="!$ctrl.isShare" class="receive-present-text">你的朋友{{$ctrl.order.sender.info.nickname}}为你准备了一份礼物，并对你说了一段话表达祝福。赶快领取吧，写下地址收到礼物时扫描二维码听Ta对你说  ~</p>
+  </div>
+</div>
+<!--form表单-->
+<form class="form-horizontal form-addr" name="$ctrl.giftAddrForm" novalidate ng-submit="$ctrl.saveAddr($ctrl)">
+	<div class="form-cont">
+		<input class="form-text" type="text" name="consignee" placeholder="收礼人姓名" ng-model="$ctrl.address.consignee" ng-maxlength="20" required>
+		<p ng-show="$ctrl.giftAddrForm.consignee.$error.maxlength && $ctrl.submitted" class="help-block">* 收货人字数太多.</p>		
+
+		<input class="form-text" type="tel" name="telephone" placeholder="手机号码" ng-model="$ctrl.address.telephone" required phone>
+		<p ng-show="$ctrl.giftAddrForm.telephone.$invalid && $ctrl.submitted" class="help-block">* 请输入有效的手机号码.</p>
+		
+		<!--物流收货-->
+		<div ng-if="(!$ctrl.order.gift.scene || $ctrl.order.gift.scene === 'logistics')">
+			<textarea rows="2" name="address" style="height:6em" class="form-textarea" placeholder="请留下详细收货地址，确保能收到礼物" ng-model="$ctrl.address.address" ng-maxlength="500" required></textarea>
+			<p ng-show="$ctrl.giftAddrForm.address.$error.required && $ctrl.submitted" class="help-block">* 请输入收货人的详细地址.</p>
+			<p ng-show="$ctrl.giftAddrForm.address.$error.maxlength && $ctrl.submitted" class="help-block">* 配送地址字数太多.</p>
+		</div>
+		
+		<button  type="submit" class="button btn-comm btn-wc btn-green">完成</button>
+		<button ng-if="$ctrl.isShare" class="button btn-comm btn-share btn-yellow"  ng-click="$ctrl.share()">不知道地址，发给好友填写</button>
+		<br>
+	</div>
+</form>

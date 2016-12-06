@@ -8,7 +8,6 @@
 </div>
 <div class="message-block content content1">
   <form class="form-horizontal" novalidate>
-		{{JSON.stringify(receiver)}}
       <input ng-disabled="true" class="input-msg form-text" type="text" name="consignee" ng-model="receiver.consignee">
       <input ng-disabled="true" class="input-msg form-text" type="tel" name="telephone" ng-model="receiver.telephone">
       <textarea ng-disabled="true" rows="2" name="address" style="height:6em" class="input-msg form-textarea" ng-model="receiver.address"></textarea>

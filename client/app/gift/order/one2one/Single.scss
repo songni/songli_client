@@ -1,0 +1,137 @@
+.greyBox{width: 100%;height: 40px;background: #F7F7F7; border-radius: 4px;}
+.blackBox{height: 30px;background: #FFFFFF;margin: 0 5px;}
+//领取礼物页面  order.pre.receive.html
+.pre-receive{border-radius: 4px;padding-bottom: 5px;}
+.pre-main{
+  background: #FFFFFF;
+  margin: 0 5px;
+}
+.head-center{
+  text-align: center;
+  margin-bottom: -35px;
+  background: #F7F7F7;
+  img{
+    width:67px;
+    height: 67px;
+    border-radius: 100%;
+    border: 2px solid #FFFFFF;
+  }
+}
+.head-sender{
+  text-align: center;
+  color: #B5B5B6;
+  span:nth-child(1){
+    display: inline-block;
+    margin-top: 10px;
+  }
+}
+.head-prompt{
+  text-align: center;
+  padding: 20px 0 30px 0;
+  color: #95C62B;
+  span:nth-child(1){
+    color: #231815;
+    font-size: 24px;
+  }
+}
+.head-content{
+  padding: 0 20px;
+  padding-bottom: 50px;
+  .btn-fill{
+    width: 172px !important;
+    height: 45px !important;
+    margin-top: 50px !important;
+  }
+  .receive-more-poi{
+    width: 100%;
+    display: inline-block;
+    margin-top: 20px;
+    color: #BDC3D0;
+    text-align: center;
+  }
+  .receive-vcode{
+    width: 100%;
+    height: 22px;
+    text-align: center;
+    span{display: inline-block;}
+    span:first-child{
+      width: 22px;
+      height: 22px;
+      img{width: 100%;height: 100%;}
+    }
+    span:last-child{
+      margin-left: 5px;
+      vertical-align: 4px;
+      color: #B9BFCD;
+      font-size: 15px;
+    }
+  }
+}
+.interact{
+  border-radius: 0;
+  background: #F7F7F7;
+}
+.content-addr{
+  padding-top: 30px;
+  padding-bottom: 20px;
+  padding-left: 8%;
+  padding-right: 8%;
+  p{font-size: 14px;}
+}
+// 购买礼物成功页面 one2one/address.html
+.gift-purchase{
+  background: #F7F7F7;
+  border-radius: 4px;
+  padding-bottom: 5px;
+  .btn-fr{
+    margin-top: 50px !important;
+  }
+}
+
+// address.html
+.one-address{
+  background: #F7F7F7;
+  border-radius: 4px;
+  .head-nickname{
+    background: #FFFFFF;
+    margin: 0 5px;
+    text-align: center;
+    padding-top: 10px;
+    height: 30px;
+  }
+}
+.message-block{
+  background: #F7F7F7;
+  padding-bottom: 5px;
+  border-radius: 4px;
+  .state-info{
+    margin: 0 5px;
+    padding-top: 25px;
+    background: #FFFFFF;
+    height: 50px;
+    color: #231815;
+    font-size: 22px;
+    text-align: center;
+    height: 70px;
+    span{display: block}
+  }
+  .pre-info{
+    padding-top: 40px;
+    margin: 0 5px;
+    background: #FFFFFF;
+    color: #B7BDCB;
+    div{
+      span:nth-child(1){
+        display: inline-block;
+        margin-left: 30px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .footer-btn{
+    width: auto;
+    margin: 0 5px;
+    background: #FFFFFF;
+    padding-top: 50px;
+  }
+}

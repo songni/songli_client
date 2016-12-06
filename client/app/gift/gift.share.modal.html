@@ -1,1 +1,17 @@
-<img ng-src="{{shareSrc}}" src="assets/images/share.png" ng-style="shareStyle" class="img-responsive pull-right share-guide"/>
+<style>
+  .share{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.6);
+  }
+</style>
+<div class="share" id="share" ng-click="$dismiss()">
+  <img ng-src="{{shareSrc}}" src="assets/images/share.png" ng-style="shareStyle" class="img-responsive pull-right share-guide"/>
+</div>
+<script>
+  var oShare = document.getElementById("share");
+  oShare.style.height = screen.height + 'px';
+</script>

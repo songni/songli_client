@@ -1,63 +1,85 @@
-<!--送礼人头像-->
-<div ng-if="order.receivers.length == 1 && order.receivers[0].telephone">
-	<div class="head-center">
-	    <img ng-src="{{order.sender.info.headimgurl}}" /><br />
-	    <span>{{order.sender.info.nickname}}的礼物</span>
-	</div>
-	<div class="head head-logo">
-	    <img class="icon-img" src="https://img.91pintuan.com/songli/i.png">
-	    <!--<p class="center-mini-text">您购买的礼物已经填写收货信息，等待商家发货吧～</p>-->
-	</div>
+<!--[送礼人]: 已收礼-->
+<div ng-if="order.receivers.length == 1 && order.receivers[0].telephone" class="one-address">
+  <img class="icon-img" src="https://img.91pintuan.com/songli/i.png">
+  <div class="greyBox"></div>
+  <!--送礼人头像-->
+  <div class="head-center">
+    <img ng-src="{{order.sender.info.headimgurl}}" />
+  </div>
+  <div class="blackBox"></div>
+  <div class="head-nickname">
+    <span>{{order.sender.info.nickname}}的礼物</span><br />
+  </div>
 </div>
 <!--[送礼人-公众号]再次打开时-->
-<div ng-if="order.receivers.length == 1 && order.receivers[0].telephone" class="message-block top1 content content1">
+<div ng-if="order.receivers.length == 1 && order.receivers[0].telephone" class="message-block">
   <form class="form-horizontal">
       <!--<input ng-disabled="true" class="input-msg input-msg1 form-text" type="text" name="consignee" placeholder="收礼人姓名" ng-model="order.receivers[0].consignee">
       <input ng-disabled="true" class="input-msg input-msg1 form-text" type="tel" name="telephone" placeholder="手机号码" ng-model="order.receivers[0].telephone">
       <textarea ng-disabled="true" rows="2" name="address" style="height:6em" class="input-msg input-msg1 form-textarea" ng-model="order.receivers[0].address"></textarea>-->
-	<div class="content content1">
-		<p class="receive-info info1">礼物已被领取</p>
-		<p class="receive-info info2">等待商家发货</p>
-	</div> 
-	<div class="content content1 cont-info cont-bottom">
-		<p><label>收礼人: </label><span>{{ order.receivers[0].consignee }}</span></p>
-		<p><label>手机号: </label><span>{{ order.receivers[0].telephone }}</span></p>
-		<p><label>地&nbsp;&nbsp;&nbsp;&nbsp;址: </label><span>{{ order.receivers[0].address }}</span></p>
-	</div>
-    <div class="footer-btn footer-btn1">
+  	<div class="state-info">
+  		<span>礼物已被领取</span>
+  		<span>等待商家发货</span>
+  	</div> 
+  	<div class="pre-info">
+  		<div><span>收礼人：</span><span>{{ order.receivers[0].consignee }}</span></div>
+  		<div><span>手机号：</span><span>{{ order.receivers[0].telephone }}</span></div>
+  		<!--物流-->
+  		<div ng-if="order.receivers[0].address">
+  		  <span>地&nbsp;&nbsp;&nbsp;&nbsp;址：</span>
+  		  <span>{{ order.receivers[0].address }}</span>
+  		</div>
+  		<!--门店-->
+  		<div ng-if="order.receivers[0].poi">
+  		  <span>门店地址：</span>
+  		  <span>{{ order.receivers[0].poi.base_info.business_name +  order.receivers[0].poi.base_info.address}}</span>
+  		</div>
+  	</div>
+	
+    <div class="footer-btn">
         <a ui-sref="gift.list" class="button">继续送礼</a>
     </div>
   </form>
 </div>
 
-<!--送礼人头像-->
-<div ng-if="order.receivers.length == 1 && !order.receivers[0].telephone">
-	<div class="head-center">
-	    <img ng-src="{{order.sender.info.headimgurl}}" />
-	</div>
-	<div class="head head-logo">
-	    <img class="icon-img" src="https://img.91pintuan.com/songli/i.png">
-	    <p class="center-mini-text">支付成功，请填写收礼人的收货信息。不知道地址可以直接也发给对方填写哦</p>
-	</div>
-</div>
+<!--【成功】购买礼物-->
+<div ng-if="order.receivers.length == 1 && !order.receivers[0].telephone" class="gift-purchase">
+  <!--【门店场景】-->
+  <div ng-if="order.gift.scene === 'poi' ">
+    <img class="icon-img" src="https://img.91pintuan.com/songli/i.png">
+  	<div class="greyBox"></div>
+    <!--送礼人头像-->
+    <div class="head-center">
+      <img ng-src="{{order.sender.info.headimgurl}}" />
+    </div>
+    <div class="blackBox"></div>
+    <div class="pre-main">
+      <div class="head-sender">
+        <span>{{order.sender.info.nickname}}的礼物</span><br />
+      </div>
+      <div class="head-prompt">
+        <span>已购买成功</span><br />
+        <span>开始送礼吧</span>
+      </div>
+      <div class="head-content">
+        <p class="receive-present-text">您已经成功购买1份{{order.gift.info.name}}；自己领取或转发送给朋友。</p>
+        <a href="#" ng-click="share()" class="button btn-bg btn-fr">送给朋友</a>
+      </div>
+    </div>
+  </div>
+  
+  <!--【物流场景】-->
+	<order-receive
+		order="order"
+		address="address"
+		is-share="true"
+		poi-disabled="true">
+	</order-receive>
+	<!--<div ng-if=" order.gift.scene === 'logistics' ">
+	  <a href="#" ng-click="share()" class="button btn-bg btn-fr">送给朋友</a>
+	</div>-->
 
-<form class="form-horizontal" name="giftAddrForm" novalidate ng-submit="saveAddr()" >
-    <div ng-if="order && order.receivers && order.receivers.length && !order.receivers[0].telephone" class="message-block content content1">
-      <input class="form-text" type="text" name="consignee" placeholder="收礼人姓名" ng-model="address.consignee" ng-maxlength="20" required>
-      <p ng-show="giftAddrForm.consignee.$error.maxlength && submitted" class="help-block">* 收货人字数太多.</p>
-      
-      <input class="form-text" type="tel" name="telephone" placeholder="手机号码" ng-model="address.telephone" required phone>
-      <p ng-show="giftAddrForm.telephone.$invalid && submitted" class="help-block">* 请输入有效的手机号码.</p>
-      
-      <textarea rows="2" name="address" style="height:6em" class="form-textarea" placeholder="请留下详细收货地址，确保能收到礼物" ng-model="address.address" ng-maxlength="500" required></textarea>
-      <p ng-show="giftAddrForm.address.$error.required && submitted" class="help-block">* 请输入收货人的详细地址.</p>
-      <p ng-show="giftAddrForm.address.$error.maxlength && submitted" class="help-block">* 配送地址字数太多.</p>
-      
-      <button type="submit" class="button btn-comm btn-wc btn-green">完成</button>
-      <button class="button btn-comm btn-share btn-yellow"  ng-click="share()">不知道地址，发给好友填写</button>
-	  <br>
-   </div>
-	<div class="icon-hrer">
-	  <icon-href theme="white"></icon-href>
-	</div>
-</form>
+</div>
+<div class="icon-hrer">
+	<icon-href theme="white"></icon-href>
+</div>

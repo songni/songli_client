@@ -1,0 +1,17 @@
+<div class="container-status">
+	<order-receive-poi
+		ng-if="$ctrl.scene === 'poi' && !$ctrl.poiDisabled" 
+		order="$ctrl.order" 
+		address="$ctrl.address" 
+		save-addr="$ctrl.saveAddr"
+	>
+	</order-receive-poi>
+	<order-receive-logistics
+		ng-if="$ctrl.scene === 'logistics' && !$ctrl.logisticsDisabled" 
+		order="$ctrl.order" 
+		address="$ctrl.address"
+		save-addr="$ctrl.saveAddr"
+		is-share="$ctrl.isShare"
+	>
+	</order-receive-logistics>
+</div>

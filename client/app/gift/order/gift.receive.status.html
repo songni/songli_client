@@ -1,171 +1,42 @@
 <!-- 送一个人 -->
 <div class="address-from-friend" ng-show="order.capacity == 1">
-    <!-- 没被领取 -->
-    <div class="container-status" ng-show="!order.receivers || !order.receivers.length || !order.receivers[0].telephone">
-    	<!--icon.logo.right-->
-    	<img class="icon-img" src="https://img.91pintuan.com/songli/i.png" />
-    	<!--送礼人头像-->
-    	<div class="head-center">
-            <img ng-src="{{order.sender.info.headimgurl}}" /><br/>
-        </div>
-    	<!--礼物说明-->
-        <div class="content content1">
-        	<p class="receive-present-text">
-        		你的朋友{{order.sender.info.nickname}}为你准备了一份礼物，并对你说了一段话表达祝福。赶快领取吧，写下地址收到礼物时扫描二维码听Ta对你说  ~
-    		</p>
-        </div> 
-        <div class="content content1 cont-onetop">
-            <form name="giftAddrForm" novalidate ng-submit="saveAddr()">
-                <input type="text" name="consignee" placeholder="{{giftAddrForm.consignee.$invalid && submitted?'姓名未填写':' 收礼人姓名'}}" ng-model="address.consignee" ng-maxlength="20" required class="form-text" ng-class="{'error':giftAddrForm.consignee.$invalid && submitted}">
-                <p ng-show="giftAddrForm.consignee.$error.maxlength && submitted" class="help-block">* 收货人字数太多.</p>
-                
-                <input type="tel" name="telephone" placeholder="{{giftAddrForm.telephone.$invalid && submitted?'手机号未填写':'手机号码'}}" ng-model="address.telephone" required phone class="form-text" ng-class="{'error':giftAddrForm.telephone.$invalid && submitted}">
-                <p ng-show="giftAddrForm.telephone.$error.phone && submitted" class="help-block">* 不是有效的手机号码.</p>
-                
-                <textarea rows="4" name="address" placeholder="{{giftAddrForm.address.$invalid && submitted?'收货地址未填写':'请留下详细地址，确保能收到礼物'}}" ng-model="address.address" ng-maxlength="300" required class="form-textarea address" ng-class="{'error':giftAddrForm.address.$invalid && submitted}"></textarea>
-                <p ng-show="giftAddrForm.address.$error.maxlength" class="help-block">* 配送地址字数太多.</p>
-                
-				<button type="submit" class="button btn-comm btn-wc btn-green">完成</button>
-            </form>
-        </div>
-        <!--content-->
-        <div class="icon-hrer">
-            <icon-href theme="white"></icon-href>
-        </div>
-    </div>
+  <!-- 没被领取 -->
+  <div
+    ng-if="!order.receivers || !order.receivers.length || !order.receivers[0].telephone" 
+    ng-include="'app/gift/order/order.pre.receive.html'">
+  </div>
 
-    <!--[收礼人] 已被领取 再次打开 -->
-    <div class="container-status" ng-if="order.receivers && order.receivers.length && order.receivers[0].telephone">
-    <!--icon.logo.right-->
-        <img class="icon-img" src="https://img.91pintuan.com/songli/i.png" />
-        <!--送礼人头像-->
-        <div class="head-center">
-            <img ng-src="{{order.sender.info.headimgurl}}" /><br/>
-            <span>{{order.sender.info.nickname}}的礼物</span>
-        </div>
-        <!--礼物说明-->
-        <div class="content content1">
-            <p class="receive-info info1">礼物已被领取</p>
-            <p class="receive-info info2">等待商家发货</p>
-        </div> 
-        <div class="content content1 cont-info">
-            <p><label>收礼人: </label><span>{{ order.receivers[0].consignee }}</span></p>
-            <p><label>手机号: </label><span>{{ order.receivers[0].telephone }}</span></p>
-            <p><label>地&nbsp;&nbsp;&nbsp;&nbsp;址: </label><span>{{ order.receivers[0].address }}</span></p>
-        </div>
-    <!--content-->
-        <div class="footer-btn">
-        	<!--送礼人打开的id = 微信用户的id-->
-            <!--<icon-href theme="white"></icon-href>-->
-            <a ng-if="order.sender.openid === user.openid" ui-sref="gift.list" class="button">继续送礼</a>
-            <a ng-if="order.sender.openid != user.openid" ui-sref="gift.detail({id: order.gift.id})" class="button">我也要送礼</a>
-        </div>
-        <div class="icon-hrer">
-            <icon-href theme="white"></icon-href>
-        </div>
-    </div>
-    
+  <!--[收礼人] 已被领取 再次打开 -->
+  <order-received 
+    ng-if="order.receivers && order.receivers.length && order.receivers[0].telephone"
+    order="order">
+  </order-received>
 </div>
 
 <!-- 送多个人 -->
 <div ng-if="order.capacity > 1">
     <!-- 【收礼人】:还没有收礼，而且有余 -->   
     <div class="receive-present" ng-if="orderStatus == 1">
-        <div class="container-status">
-        	<!--icon.logo.right-->
-            <img class="icon-img" src="https://img.91pintuan.com/songli/i.png" />
-        	<!--送礼人头像-->
-            <div class="head-center">
-                <img ng-src="{{order.sender.info.headimgurl}}" /><br/>
-                <span>{{order.sender.info.nickname}}的礼物</span>
-            </div>
-            <!--礼物-->
-            <div class="head-main head-title-green">
-            	<p class="left-count">
-            		还有{{orderSurplus}}份
-            	</p>
-                <p class="head-send-status">
-                    {{orderReserved}}人已领取
-                </p>
-            </div>
-            <!--礼物说明-->
-            <div class="content">
-            	<p class="receive-present-text">
-            		你的朋友{{order.sender.info.nickname}}为你准备了一份礼物，并对你说了一段话。数量有限赶快领取！收到礼物时扫描语音二维码听听{{order.sender.info.nickname}}说了些什么吧
-            		<!--你已成功领取{{order.sender.info.nickname}}的礼物，等待商家发 货吧。不要忘了除了礼物{{order.sender.info.nickname}}还对你说 了一段话，收到礼物时扫描语音码，听听ta都说了些什么吧。-->
-        		</p>
-        		<a href="#" class="button btn-bg" ng-click="fill()">领取礼物</a>
-            </div>
-            <!--底标-->
-            <div class="icon-hrer">
-                <icon-href theme="white"></icon-href>
-            </div>
-        </div>
+      <div ng-include="'app/gift/order/order.pre.receive.html'"></div>
     </div>
     <!-- 【收礼人】：已经收礼品了  -->   
     <div class="open-link-end" ng-if="(orderStatus == 10) || (orderStatus == 11)">
-        <div class="container-status">
-        	<!--icon.logo.right-->
-            <img class="icon-img" src="https://img.91pintuan.com/songli/i.png" />
-        	<!--送礼人头像-->
-            <div class="head-center">
-                <img ng-src="{{order.sender.info.headimgurl}}" /><br/>
-                <span>{{order.sender.info.nickname}}的礼物</span>
-            </div>
-            <!--礼物-->
-            <div class="head-main head-title-green">
-            	<p class="left-count">
-            		你已领取礼物
-            	</p>
-                <p class="head-send-status" ng-if="order.receivers && (order.receivers.length != order.capacity)">
-                	还有{{orderSurplus}}份
-                </p>
-                <p class="head-send-status" ng-if="order.receivers && (order.receivers.length === order.capacity)">
-                	礼物已被领完
-                </p>
-            </div>
-            <!--礼物说明-->
-            <div class="content">
-            	<p class="receive-present-text">
-            		<!--你的朋友{{order.sender.info.nickname}}为你准备了一份礼物，并对你说了一段话。数量有限赶快领取！收到礼物时扫描语音二维码听听{{order.sender.info.nickname}}说了些什么吧-->
-            		你已成功领取{{order.sender.info.nickname}}的礼物，等待商家发货吧。不要忘了除了礼物{{order.sender.info.nickname}}还对你说了一段话，收到礼物时扫描语音码，听听ta都说了些什么吧。
-        		</p>
-        		<!--<a href="javascript: void(0)" class="button button-done">你已领取礼物</a>-->
-            	<!--<a ui-sref="gift.list" class="button button-success">我也要送礼</a>-->
-            	<a ui-sref="gift.detail({id: order.gift.id})" class="button button-success">我也要送礼</a>
-            	
-            </div> 
-            <!--content-->
-        </div>
-        <!--interact-->
-        <div ng-if="order.receivers && order.receivers.length" class="interact">
-            <p>{{ order.receivers.length }}人已领取 </p>
-            <ul>
-                <li ng-repeat="receiver in order.receivers">
-                    <img ng-src="{{receiver.headimgurl}}"/>
-                    <span class="receiver-name">{{ receiver.name || receiver.consignee }} </span>
-                    <span class="font"> 已领取</span>
-                    <span class="date">{{ receiver.fillinDate | date:'MM-dd HH:mm'}}</span>
-                </li>
-            </ul>
-        </div>
-        <!--底标-->
-	    <div class="icon-hrer">
-	        <icon-href theme="white"></icon-href>
-	    </div>
+      <order-received-guide
+          order="order">
+      </order-received-guide>
     </div>
     
-    <!-- 【送礼人】:打开链接，还有礼物 -->  
+    <!-- 【送礼人】:打开链接，还有礼物  
     <div class="open-link" ng-if="(orderStatus == 101) || (orderStatus == 111)">
         <div class="container-status">
-        	<!--icon.logo.right-->
+        	
             <img class="icon-img" src="https://img.91pintuan.com/songli/i.png" />
-        	<!--送礼人头像-->
+        	
             <div class="head-center">
                 <img ng-src="{{order.sender.info.headimgurl}}" /><br/>
                 <span>{{order.sender.info.nickname}}的礼物</span>
             </div>
-            <!--礼物-->
+            
             <div class="head-main head-title-green">
             	<p class="left-count">
             		还有{{orderSurplus}}份
@@ -174,14 +45,14 @@
                     {{order.capacity - orderSurplus}}人已领取
                 </p>
             </div>
-        	<!--礼物说明-->
+        	
             <div class="content">
             	<p class="receive-present-text">
             		已有{{order.capacity - orderSurplus}}人领取你的礼物,还有{{orderSurplus}}份礼物,继续送礼吧~
         		</p>
         		<a ng-click="shareAsSender()" id="start-send-present" class="button button-action">继续送礼</a>
             </div> 
-            <!--interact-->
+            
             <div ng-if="order.receivers && order.receivers.length" class="interact">
                 <p>{{ order.receivers.length }}人已领取</p>
                 <ul>
@@ -193,23 +64,24 @@
                     </li>
                 </ul>
             </div>
-            <!--底标-->
+            
 		    <div class="icon-hrer">
 		        <icon-href theme="white"></icon-href>
 		    </div>
         </div>
-    </div>
-    <!-- 【送礼人】:打开链接，已经送光了 -->   
+    </div> -->
+
+    <!-- 【送礼人】:打开链接，已经送光了   
     <div class="open-link-end" ng-if="(orderStatus == 100) || (orderStatus == 110)">
         <div class="container-status">
-        	<!--icon.logo.right-->
+        	
             <img class="icon-img" src="https://img.91pintuan.com/songli/i.png" />
-        	<!--送礼人头像-->
+        	
             <div class="head-center">
                 <img ng-src="{{order.sender.info.headimgurl}}" /><br/>
                 <span>{{order.sender.info.nickname}}的礼物</span>
             </div>
-            <!--礼物-->
+            
             <div class="head-main head-title-green">
             	<p class="left-count">
             		礼物已被抢完
@@ -218,46 +90,45 @@
                     {{orderReserved}}人已领取
                 </p>
             </div>
-        	<!--礼物说明-->
+        	
             <div class="content">
             	<p class="receive-present-text">
-            		<!--你的朋友{{order.sender.info.nickname}}为你准备了一份礼物，并对你说了一段话。数量有限赶快领取！收到礼物时扫描语音二维码听听{{order.sender.info.nickname}}说了些什么吧-->
             		你已成功领取{{order.sender.info.nickname}}的礼物，等待商家发货吧。不要忘了除了礼物{{order.sender.info.nickname}}还对你说了一段话，收到礼物时扫描语音码，听听ta都说了些什么吧。
         		</p>
-        		<!--<a href="javascript: void(0)" class="button button-done">手慢了，礼物已被抢完</a>-->
-        		<!--<a ui-sref="gift.list" class="button button-success">我也要送礼</a>-->
         		<a ui-sref="gift.detail({id: order.gift.id})" class="button button-success">我也要送礼</a>
             </div> 
-            <!--content-->
+            
         </div>
-        <!--interact-->
+        
         <div ng-if="order.receivers && order.receivers.length" class="interact">
             <p>{{ order.receivers.length }}人已领取</p>
             <ul>
                 <li ng-repeat="receiver in order.receivers">
                     <img ng-src="{{receiver.headimgurl}}"/>
-                    <span class="receiver-name">{{ receiver.name || receiver.consignee }} </span>
+                    <span class="receiver-name">{{ receiver.name || receiver.consignee }}</span>
                     <span class="font"> 已领取</span>
                     <span class="date">{{ receiver.fillinDate | date:'MM-dd HH:mm'}}</span>
                 </li>
             </ul>
         </div>
-        <!--底标-->
+        
 	    <div class="icon-hrer">
 	        <icon-href theme="white"></icon-href>
 	    </div>
-    </div>
-    <!-- 【收礼人】:还没有收礼，但是礼物已经没有了 -->  
+    </div> -->
+
+
+    <!-- 【收礼人】:还没有收礼，但是礼物已经没有了  
     <div class="open-link-end" ng-if="orderStatus == 0">
         <div class="container-status">
-        	<!--icon.logo.right-->
+        	
             <img class="icon-img" src="https://img.91pintuan.com/songli/i.png" />
-        	<!--送礼人头像-->
+        	
             <div class="head-center">
                 <img ng-src="{{order.sender.info.headimgurl}}" /><br/>
                 <span>{{order.sender.info.nickname}}的礼物</span>
             </div>
-            <!--礼物-->
+            
             <div class="head-main head-title-green">
             	<p class="left-count">
             		手慢了，礼物已被抢完
@@ -266,19 +137,16 @@
                     {{orderReserved}}人已领取
                 </p>
             </div>
-        	<!--礼物说明-->
+        	
             <div class="content">
             	<p class="receive-present-text">
-            		<!--你的朋友{{order.sender.info.nickname}}为你准备了一份礼物，并对你说了一段话。数量有限赶快领取！收到礼物时扫描语音二维码听听{{order.sender.info.nickname}}说了些什么吧-->
-            		你已成功领取{{order.sender.info.nickname}}的礼物，等待商家发货吧。不要忘了除了礼物{{order.sender.info.nickname}}还对你说了一段话，收到礼物时扫描语音码，听听ta都说了些什么吧。
+            		你的朋友{{order.sender.info.nickname}}为你准备了一份礼物，并对你说了一段话。数量有限赶快领取！收到礼物时扫描语音二维码听听{{order.sender.info.nickname}}说了些什么吧
         		</p>
-        		<!--<a href="javascript: void(0)" class="button button-done">手慢了，礼物已被抢完</a>-->
-        		<!--<a ui-sref="gift.list" class="button button-success">我也要送礼</a>-->
         		<a ui-sref="gift.detail({id: order.gift.id})" class="button button-success">我也要送礼</a>
             </div> 
-            <!--content-->
+            
         </div>
-        <!--interact-->
+        
         <div ng-if="order.receivers && order.receivers.length" class="interact">
             <p>{{ order.receivers.length }}人已领取</p>
             <ul>
@@ -290,9 +158,10 @@
                 </li>
             </ul>
         </div>
-        <!--底标-->
+        
 	    <div class="icon-hrer">
 	        <icon-href theme="white"></icon-href>
 	    </div>
     </div>
+    -->
 </div>

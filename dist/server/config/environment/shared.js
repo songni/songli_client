@@ -12,6 +12,7 @@ apiUriDev[(0, _md2.default)('dev.songni.cc')] = 'http://apidev.91songli.cc';
 
 var apiUriPro = {};
 apiUriPro[(0, _md2.default)('91songli.cc')] = 'http://api.91songli.cc';
+apiUriPro[(0, _md2.default)('91songli.com')] = 'http://api.91songli.com';
 apiUriPro[(0, _md2.default)('wx.songni.cc')] = 'http://api.91songli.cc';
 apiUriPro[(0, _md2.default)('dalibao.com')] = 'http://api.dalibao.com';
 

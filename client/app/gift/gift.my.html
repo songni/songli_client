@@ -1,11 +1,11 @@
 <div infinite-scroll='gifts.nextPage()' infinite-scroll-disabled='gifts.busy'  infinite-scroll-distance='1'>
     <div class="trade-list" ng-repeat="gift in gifts.items" ng-click="link()">
         <div class="empty-canvas title">
-                <b>
-                    <span>送给 </span>
-                    <span class="trade-name" ng-bind="gift.receiver.name"></span>
-                </b>
-                <span class="trade-date" ng-bind="gift.time.add | date:'yyyy-MM-dd'"></span>
+            <b>
+                <span>送给 </span>
+                <span class="trade-name" ng-bind="gift.receiver.name"></span>
+            </b>
+            <span class="trade-date" ng-bind="gift.time.add | date:'yyyy-MM-dd'"></span>
         </div>
 
         <div class="empty-canvas trade-content">

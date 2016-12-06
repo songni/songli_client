@@ -1,0 +1,11 @@
+<order-receive
+		ng-if="!order.receivers || !order.receivers.length || !order.receivers[0].telephone"
+		order="order"
+		address="address"
+>
+</order-receive>
+<order-received
+	ng-if="order.receivers && order.receivers.length && order.receivers[0].telephone"
+	order="order"
+>
+</order-received>

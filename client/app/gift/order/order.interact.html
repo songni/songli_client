@@ -1,0 +1,11 @@
+<div ng-if="($ctrl.order.capacity > 1) && $ctrl.order.receivers && $ctrl.order.receivers.length " class="interact">
+	<p>{{ $ctrl.order.receivers.length }}人已领取 ，<span ng-if="$ctrl.remainCount === 0 ">礼物已经领完</span><span ng-if="$ctrl.remainCount !== 0 ">还有{{ $ctrl.remainCount }}份</span></p>
+	<ul>
+		<li ng-repeat="receiver in $ctrl.order.receivers">
+				<img ng-src="{{receiver.headimgurl}}"/>
+				<span class="receiver-name">{{ receiver.name || receiver.consignee }} </span>
+				<span class="font"> 已领取</span>
+				<span class="date">{{ receiver.fillinDate | date:'MM-dd HH:mm'}}</span>
+		</li>
+	</ul>
+</div>

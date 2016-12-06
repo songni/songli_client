@@ -1,0 +1,400 @@
+// gift.poi.modal.html 选择门店
+.modal-open .modal{
+    background: none;
+    opacity: initial;
+  .modal-dialog{margin: 0;}
+}
+.poi-address{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow:scroll; 
+  background: #FFFFFF;
+  .address_list{
+    background: #FFFFFF;
+    .list-group-item{border: 0;}
+    .poiList:hover{background: #FFFFFF;}
+    .poiList:hover .distance{background: #FFFFFF;}
+    .poiList{
+      border-bottom: 1px solid #EFEFEF;
+      margin-top:1px;
+      padding: 10px 15px;
+      display: block;
+      h4{
+        color: #281E1B;
+        font-size: 17px;
+        margin-right: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-weight: normal;
+      }
+      p{
+        color: #BBBBBC;
+        font-size: 13px;
+        margin-right: 5px;
+        margin-top: 6px;
+        margin-bottom: 0;
+        span:nth-child(2),
+        span:nth-child(3){
+          margin-right: -5px;
+        }
+      }
+    }
+    .poi-com{
+      float: right;
+      border: 1px solid #F8C063;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      margin-top: 20px;
+      margin-left: -2px;
+    }
+    .point{
+      margin-right:2%;
+    }
+    .point1{
+      margin-right: -18px;
+      background: url("https://img.91pintuan.com/home/sjdicon/sjdcheckbox.png");
+      background-size:contain;
+    }
+    .resLeft{
+      width: 88%;
+      margin-bottom: 6px;
+      border-right: 1px solid #EFEFEF;
+      .distance{
+        color: #F49F11;
+        background: #FFFFFF;
+        font-weight: normal;
+        float: right;
+        font-size: 14px;
+        margin-right: 6px;
+      }
+    }
+  }
+}
+//您当前位置距离该商家门店过远 样式
+.beyWamp{
+  background: rgba(99,99,99,0.4);
+  position: relative;
+  .beyond{
+    width: 100%;
+    background: #FFFFFF;
+    position: absolute;
+    left: 0;bottom: 0;
+    span{
+      display: block;
+      text-align: center;
+      font-size: 16px;
+      color: #342B28;
+      padding-top: 40px;
+    }
+    .bey_back{
+      width: 320px;
+      height: 45px;
+      display: block;
+      color: #FFFFFF;
+      background: #F0373D;
+      font-size: 16px;
+      padding: 10px 0;
+      line-height: 15px;
+      text-align: center;
+      margin: 15px auto;
+      border-radius: 5px;
+      -webkit-appearance:none;
+      border: 0;
+    }
+  }
+}
+// 礼物信息
+.gift-info{
+  width: 100%;
+  height: 90px;
+  background: #F7F7F7;
+  border-radius: 4px 4px 0 0;
+  .fl{float: left;}
+  .fr{float: right;}
+  .info{
+    width: 83%;
+    height: 40px;
+    padding-top: 25px;
+    margin-left: 7%;
+    span{vertical-align: top;font-size: 15px;}
+    span:nth-child(1){
+      display: block;
+      width: 35px;
+      height: 35px;
+      padding: 2.5px;
+      background: #FFFFFF;
+      img{width: 100%;height: 100%;object-fit: cover;}
+    }
+    span:nth-child(2){
+      display: block;
+      color: #B5B5B6;
+    }
+    span:nth-child(3){
+      height: 33px;
+      display: block;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
+
+// order.receive.poi.html 领取礼物-门店自提
+.poi-receive{
+  background: #FFFFFF;
+  margin: 0 -5px;
+  padding-bottom: 65px;
+  border-radius: 4px;
+  .prompt{
+    height: 85px;
+    color: #8FC31F;
+    line-height: 85px;
+    text-align: center;
+  }
+  .form-recpoi{
+    .fl{float: left;}
+    .fr{float: right;}
+    font-size: 14px;
+    .form-common{
+      width: 90%;
+      min-height: 45px;
+      background: #F7F7F7;
+      margin-left: 5%;
+      margin-bottom: 10px;
+      line-height: 45px;
+    }
+    .form-label{
+      width: 19%;
+      height: 45px;
+      line-height: 45px;
+      margin-left: 3%;
+      float: left;
+    }
+    input{
+      width: 70%;   
+//    height: 38px;  
+      border: 0;
+      font-size: 14px;
+      background: #F7F7F7;
+      text-align: left; 
+      padding-top: 16px;
+    }
+    .form-poi{
+      .label-poi{
+        width: 23%;
+        margin-left: 3%;
+      }
+      .poi{
+        display: block;
+        width: 62%;
+        height: 45px;
+        padding-left: 4%;
+      }
+      .right{
+        display: block;
+        width: 8%;
+        height: 45px;
+        img{width: 10px;vertical-align: middle;}
+      }
+    }
+    .help-block{
+      height: 30px;
+      clear: both;
+      background: #FFFFFF;
+      margin: 0;
+    }
+  }
+  .btn-poi{
+    width: 155px;
+    height: 45px;
+    margin: 0 auto;
+    margin-top: 50px !important;
+    display: block;
+  }
+  .btn-spoi{
+    width: 90%;
+    height: 45px;
+    margin-left: 5%;
+    display: block;
+    margin-top: 50px !important;
+  }
+}
+
+// order.received.html 领取礼物之后 门店自提
+.poi-received{
+  background: #FFFFFF;
+  border-radius: 4px;
+  padding-bottom: 1px;
+  .use-state{
+    width: 100%;
+    height: 108px;
+    text-align: center;
+    span{display: block}
+    span:nth-child(1){
+      color: #B5B5B6;
+      font-size: 15px;
+      padding-top: 35px;
+    }
+    span:nth-child(2){
+      color: #8FC31F;
+      font-size: 20px;
+      margin-top: 5px;
+    }
+  }
+  .gift-code{
+    width: 100%;
+    height: 320px;
+    text-align: center;
+    border-bottom: 1px solid #CACBCB;
+    span{display: block}
+    span:nth-child(1){
+      width: 202px;
+      height: 202px;
+      margin: 0 auto;
+      img{width: 100%;}
+    }
+    span:nth-child(2){
+      font-size: 14px;
+      color: #6A6665;
+      margin-bottom: 27px;
+    }
+    span:nth-child(3),
+    span:nth-child(4){
+      color: #B5B5B6;
+    }
+  }
+  .rec-info{
+    background: #F7F7F7;
+    .fl{float: left;}
+    .fr{float: right;}
+    .clear{clear: both;}
+    ul{
+      padding: 0;
+      margin: 0;
+      li{
+        height: 65px;
+        border-bottom: 1px solid #C9CACA;
+        .rec-l{
+          width: 80%;
+          span{display: block}
+          span:nth-child(1){
+            color: #B5B5B6;
+            padding-left: 25px;
+            margin-top: 15px;
+            font-size: 14px;
+          }
+          span:nth-child(2){
+            color: #231815;
+            padding-left: 25px;
+            margin-top: 5px;
+            font-size: 14px;
+          }
+        }
+        .rec-r{
+          width: 20%;
+          .merchant{
+            width: 50%;
+            border-radius: 50%;
+            margin-top: 16px;
+          }
+          .poi-icon{
+            width: 15px;
+            height: 20px;
+            margin-top: 23px;
+            margin-left: 15px;
+          }
+          .icon-r{
+            width: 10px;
+            vertical-align: top;
+            margin-top: 26px;
+            padding-right: 15px;
+          }
+        }
+      }
+      li:last-child{border: none;}
+    }
+  }
+}
+  //物流单人
+.onecapacity{
+  padding-bottom: 5px;
+}
+
+// merchant.info.html 商家信息页面
+.merchant-info{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: scroll;
+  background: #FFFFFF;
+  .merchant-pubno{
+//  margin: 20px 16px 0 16px;
+    background: #FFFFFF;
+    .pubno{
+      font-size: 15px;
+      height: 70px;
+      border-bottom: 1px solid rgba(204,204,204,.5);
+      background: #FFFFFF;
+      span{display: inline-block;}
+      span:nth-child(1){
+        width: 70px;
+        height: 50px;
+        padding: 10px 10px 10px 15px;
+        line-height: 50px;
+        img{width: 50px;height: 50px;}
+      }
+      span:nth-child(2){
+        vertical-align: top;
+        line-height: 70px;
+      }
+    }
+    .pubno:first-child{border-radius: 4px 4px 0 0;}
+    .pubno:last-child{border-radius: 0 0 4px 4px;}
+  }
+} 
+
+// order.receive.logistics.html 【物流场景】
+.form-addr{
+  background: #FFFFFF;
+  margin: 0 5px;
+  margin-top: -10px;
+  .form-cont{
+    background: #FFFFFF;
+    padding: 0 8%;
+    padding-bottom: 50px;
+  }
+}
+.nogift{
+  min-height: 350px;
+  background: #FFFFFF;
+  text-align: center;
+  font-size: 22px;
+  span:first-child{
+    display: block;
+    margin-top: 30px;
+    font-size: 22px;
+    color: #231815;
+  }
+  span:nth-child(2){
+    font-size: 14px;
+    color: #8FC31F;
+  }
+  p{
+    color: #909090;
+    text-align: left;
+    font-size: 16px;
+    padding: 40px 30px;
+  }
+  .btn-gary{
+    background: #B7BDCB;
+    width: 55% !important;
+  }
+}

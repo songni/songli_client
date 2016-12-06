@@ -1,0 +1,41 @@
+<div class="container-status pre-receive">
+	<!--icon.logo.right-->
+	<img class="icon-img" src="https://img.91pintuan.com/songli/i.png" />
+	<div class="greyBox"></div>
+	<!--送礼人头像-->
+	<div class="head-center">
+		<img ng-src="{{$ctrl.order.sender.info.headimgurl}}" />
+	</div>
+	<div class="blackBox"></div>
+	<div class="pre-main">
+	  <div class="head-sender">
+      <span>{{$ctrl.order.sender.info.nickname}}的礼物</span><br />
+    </div>
+    <!--礼物领取过程-->
+    <!--单人-->
+    <!--<div class="head-prompt" ng-if="order.capacity === 1">
+      <span>请尽快领取</span> <br />
+      <span ng-if="order.gift.scene === 'poi'">领取后到店使用</span>
+      <span ng-if="order.gift.scene === 'logistics'">使用后物流发货</p>
+    </div>-->
+    <!--多人-->
+    <div ng-if="$ctrl.order.capacity > 1" class="head-main head-title-green">
+      <p class="left-count">你已经领取礼物 </p>
+      <p class="head-send-status" ui-sref="order.detail.received-result({id: $ctrl.order.id})" >点击查看礼物详情</p>
+    </div>
+    <!--礼物说明-->
+    <div class="head-content">
+      <p class="receive-present-text">你已成功领取{{$ctrl.order.sender.info.nickname}}的礼物。使用时请到你所选择的对应门店，点击立即使用将二维码消费凭证出示给商家，即可领取礼物。</p>
+      <a ui-sref="order.detail.received-result({id: $ctrl.order.id})" class="button btn-bg btn-fill">立即使用</a>
+      <p class="receive-vcode"><span><img src="https://img.91pintuan.com/songli/client/vcode-icon.png"></span><span>到店使用时请向商家出示二维码</span></p>
+    </div>
+		<!--interact-->
+    <order-interact
+      order="$ctrl.order">
+    </order-interact>
+    
+  </div>
+	<div class="icon-hrer">
+		<icon-href theme="white"></icon-href>
+	</div>
+</div>

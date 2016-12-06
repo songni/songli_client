@@ -1,0 +1,30 @@
+<div class="merchant-info" id="merchant" ng-click="$dismiss()">
+  <div class="merchant-pubno" id="pubno">
+    <div class="pubno">
+      <span><img width="50px"  ng-src="{{ merchant.pubno.head_img }}"></span>
+      <span>{{merchant.pubno.nick_name}}</span>
+    </div>
+    <div class="pubno">
+      <span>联系人</span>
+      <span>{{merchant.info.linkman}}</span>
+    </div>
+    <div class="pubno">
+      <span>联系商家</span>
+      <span>{{merchant.info.phone ? merchant.info.phone : merchant.info.telephone}}</span>
+    </div>
+    <div class="pubno">
+      <span>官方微信</span>
+      <span>{{merchant.pubno.nick_name}}</span>
+    </div>
+  </div>
+  
+  <!--<div class="icon-hrer">
+    <icon-href theme="white"></icon-href>
+  </div>-->
+</div>
+<script>
+  var oMerchant = document.getElementById("merchant");
+  var oPubno = document.getElementById("pubno");
+  oMerchant.style.height = screen.height + 'px';
+  oPubno.style.height = (screen.height-200) +  'px';
+</script>

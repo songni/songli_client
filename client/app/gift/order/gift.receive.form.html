@@ -1,0 +1,28 @@
+<form class="form-horizontal" name="$ctrl.giftAddrForm" novalidate ng-submit="$ctrl.saveAddr()">
+	<div class="message-block content content1">
+		<input ng-if="$ctrl.show" class="form-text" type="text" name="consignee" placeholder="收礼人姓名" ng-model="$ctrl.address.consignee" ng-maxlength="20" required>
+		<p ng-show="$ctrl.giftAddrForm.consignee.$error.maxlength && $ctrl.submitted" class="help-block">* 收货人字数太多.</p>		
+
+		<input ng-if="$ctrl.show" class="form-text" type="tel" name="telephone" placeholder="手机号码" ng-model="$ctrl.address.telephone" required phone>
+		<p ng-show="$ctrl.giftAddrForm.telephone.$invalid && $ctrl.submitted" class="help-block">* 请输入有效的手机号码.</p>
+		
+		<!--物流收货-->
+		<div ng-if="$ctrl.show && (!$ctrl.order.gift.scene || $ctrl.order.gift.scene === 'logistics')">
+			<textarea rows="2" name="address" style="height:6em" class="form-textarea" placeholder="请留下详细收货地址，确保能收到礼物" ng-model="$ctrl.address.address" ng-maxlength="500" required></textarea>
+			<p ng-show="$ctrl.giftAddrForm.address.$error.required && $ctrl.submitted" class="help-block">* 请输入收货人的详细地址.</p>
+			<p ng-show="$ctrl.giftAddrForm.address.$error.maxlength && $ctrl.submitted" class="help-block">* 配送地址字数太多.</p>
+		</div>
+		
+		<!--门店自提-->
+		<div ng-if="$ctrl.show && $ctrl.order.gift.scene === 'poi'" ng-click="$ctrl.selPoi()">
+			<label for="poi">使用门店</label>
+			<span>{{ $ctrl.address.poi ? $ctrl.address.poi.base_info.business_name : '请选择门店'}}</span>
+			<input type="hidden" name="poi" ng-model="$ctrl.address.poi" required/>
+			<p ng-show="$ctrl.giftAddrForm.poi.$invalid && $ctrl.submitted" class="help-block">* 请选择门店
+		</div>
+		
+		<button ng-if="$ctrl.show" type="submit" class="button btn-comm btn-wc btn-green">完成</button>
+		<button ng-if="$ctrl.show && $ctrl.isShare" class="button btn-comm btn-share btn-yellow"  ng-click="$ctrl.share()">不知道地址，发给好友填写</button>
+	  <br>
+	</div>
+</form>

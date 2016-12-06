@@ -17,6 +17,12 @@
 
 @import 'gift/order/address';
 
+@import 'gift/order/gift.poi';
+
+@import 'gift/order/one2many/many';
+
+@import 'gift/order/one2one/Single';
+
 @import 'gift/order/recode';
 
 @import 'gift/orderlist/orderlist';

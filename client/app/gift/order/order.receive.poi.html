@@ -1,0 +1,46 @@
+<div class="poi-receive" id="poi">
+  <!--宽度：{{document.width}}-->
+  <!--gift information-->
+  <div class="gift-info">
+    <div class="info">
+      <span class="fl"><img ng-src="{{'//' + $ctrl.appConfig.phtUri + $ctrl.order.gift.info.cover}}"></span>
+      <span class="fl">礼品</span>
+      <span style="width: {{(document.width*0.8) - 70}}px;"  class="fr" ng-bind="$ctrl.order.gift.info.name"></span>
+    </div>
+  </div>
+  <div class="prompt">
+    <span>请填写信息后到店使用</span>
+  </div>
+  <!--form表单-->
+  <form class="form-recpoi" name="$ctrl.giftAddrForm" novalidate ng-submit="$ctrl.saveAddr($ctrl)">
+    <!--姓名-->
+    <div class="form-common form-name">
+      <label class="form-label fl">姓名</label>
+      <input class="fr" type="text" name="consignee" placeholder="收礼人姓名" ng-model="$ctrl.address.consignee" ng-maxlength="20" required>
+      <p ng-show="$ctrl.giftAddrForm.consignee.$error.maxlength && $ctrl.submitted" class="help-block">* 收货人字数太多.</p>  
+    </div>
+    <!--手机号-->
+    <div class="form-common form-tel">
+      <label class="form-label fl">手机号</label>
+      <input class="fr" type="tel" name="telephone" placeholder="手机号码" ng-model="$ctrl.address.telephone" required phone>
+      <p ng-show="$ctrl.giftAddrForm.telephone.$invalid && $ctrl.submitted" class="help-block">* 请输入有效的手机号码.</p>
+    </div>
+    <!--门店自提-->
+    <div class="form-common form-poi" ng-click="$ctrl.selPoi()">
+      <label class="label-poi fl" for="poi">使用门店</label>
+      <span class="fl poi" ng-if="!$ctrl.poiLoaded">门店加载中</span>
+      <span class="fl poi" ng-if="$ctrl.poiLoaded">{{ $ctrl.address.poi ? $ctrl.address.poi.base_info.business_name : '请选择门店'}}</span>
+      <input type="hidden" name="poi" ng-model="$ctrl.address.poi" required/>
+      <span class="fr right"><img src="https://img.91pintuan.com/songli/client/poi-right.png" alt="" /></span>
+      <p ng-show="$ctrl.giftAddrForm.poi.$invalid && $ctrl.submitted" class="help-block">* 请选择门店
+    </div>
+    
+    <button type="submit" class="button btn-comm btn-wc btn-green btn-poi">完成</button>
+    <button ng-if="$ctrl.isShare" class="button btn-comm btn-share btn-yellow btn-spoi"  ng-click="$ctrl.share()">不知道地址，发给好友填写</button>
+ 
+  </form>
+</div>
+<!--底标-->
+<div class="icon-hrer">
+  <icon-href theme="white"></icon-href>
+</div>

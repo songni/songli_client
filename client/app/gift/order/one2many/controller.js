@@ -230,7 +230,6 @@ angular.module('clientApp')
     });
     var title = order.sender.name + '送给你一份礼物，快快收礼吧～';
     var desc = '会说话的礼物';
-    //var img = 'http://p1.ifindu.cn/crop/w_120/h_120'+order.gift.info.cover;
     var img = order.gift.info.cover ? 'http://' + SONGNI_CFG_API.phtUri + order.gift.info.cover : 'http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png';
     var timeline = title + ',' + desc;
     Wechat.ready({
@@ -239,10 +238,10 @@ angular.module('clientApp')
         desc: desc,
         timeline: timeline,
         img: img,
-        state: 'gift.detail.share',
-        params: {
-            id: $scope.order.gift.id
-        }
+        // state: 'gift.detail.share',
+        // params: {
+        //     id: $scope.order.gift.id
+        // }
     });
     $scope.share = function() {
         $rootScope.modalInstance = $uibModal.open({
@@ -257,35 +256,31 @@ angular.module('clientApp')
     //$rootScope.title = "选择大礼包";
     $scope.order = order;
     $scope.user = $rootScope.user;
-
+    $rootScope.bg2 = false;
+    $rootScope.hideBar = true;
+    $scope.address = {};
+    $scope.isReceived = false;
+    $scope.isAvailble = true;
+    // check the person who open the link is the sender
+    $scope.isSender = $rootScope.user.id === order.sender.id ? true : false;
+    // this is a flag for the order's status
+    $scope.orderStatus = 0;
 
     // 如果没有 user, 需要跳转到认证界面
     // 
-    if ($scope.user === undefined)
+    if($scope.user === undefined){
         RestWechat.one('client').get({
             referer: $state.href('order.detail.fillin', $stateParams)
         })
         .then(function(link) {
             window.location.href = link.link;
         });
-    if($rootScope.user.id === (order.sender.id || order.sender._id)){
-        $state.go('order.detail.one2many-address', null, {location: "replace"})
+    }        
+    if($scope.isSender){
+        location.href = $state.href('order.detail.one2many-address', {id: order.id})
+        // $state.go('order.detail.one2many-address', null, {location: "replace"})
         return;
     };
-
-    $rootScope.bg2 = false;
-    $rootScope.hideBar = true;
-    $scope.address = {};
-    $scope.isReceived = false;
-    $scope.isAvailble = true;
-    $scope.isSender = false;
-    // this is a flag for the order's status
-    $scope.orderStatus = 0;
-
-    // check the person who open the link is the sender
-    if ($scope.user.id === order.sender.id) {
-        $scope.isSender = true;
-    }
 
     if (_.some(order.receivers, function(receiver) {
             return receiver.userOpenId == $rootScope.user.openid;
@@ -378,28 +373,28 @@ angular.module('clientApp')
 })
 
 .controller('OrderAddressOne2ManyRecevAddrCtrl', function($scope, $rootScope, $state, $cookies, Wechat, $location, order, Alert, RestGiftOrder) {
-
     $rootScope.bg2 = false;
     $rootScope.hideBar = true;
-	$scope.addressFriendForm = {};
-    $scope.data = {
+    $scope.addressFriendForm = {};
+    $scope.address = {
         consignee: "",
         telephone: "",
         address: ""
     }
-    
-    $scope.saveAddr = function() {
-        if ($scope.addressFriendForm.$invalid) {
+    $scope.order = order;
+    $scope.saveAddr = function($ctrl) {
+        let form = $ctrl && $ctrl.giftAddrForm || $scope.addressFriendForm;
+        let address = $ctrl && $ctrl.address || $scope.data;
+        let scene = address.scene = address.poi ? 'poi' : 'logistics'
+        if (form.$invalid) {
             $scope.submitted = true;
+            $ctrl.submitted = true;
             return false;
-			//Alert.add('warning', '收礼人信息不能为空！', 2000);
         } else {
-        	 Alert.add('success', '领取成功等待收礼吧！', 2000);
-            // post request to save receiver info
-            // post(subElement, elementToPost, [queryParams, headers])
-            RestGiftOrder.one(order.id).one('address').post('', $scope.data).then(function(data) {
-                if (!data.rc)
+            RestGiftOrder.one(order.id).one('address').post('', address).then(function(data) {
+                if (!data.rc) {
                     console.error('saveAddr', '没有response code !');
+                }
                 switch (data.rc) {
                     case 1:
                         Alert.add('success', '你已经保存该礼物了', 2000);
@@ -411,17 +406,25 @@ angular.module('clientApp')
                         Alert.add('success', '信息不全', 2000);
                         break;
                     case 4:
+                        // poi
+                        if(scene === 'poi'){
+                            location.href = $state.href('order.detail.fillin', {
+                                id: order.id
+                            });
+                            return;
+                        }
+                        // logistics
                         location.href = $state.href('gift.detail.share', {
                             id: order.gift.id
                         });
                         break;
                     default:
-                        Alert.add('warning', '服务器走神了', 2000);
+                        Alert.add('warning', '系统内部错误', 2000);
                         break;
                 }
             }, function(err) {
 //                  alert('Get an err, ' + JSON.stringify(err));
-                console.log('Get an err, ' + JSON.stringify(err));
+                alert('Get an err, ' + JSON.stringify(err));
             });
         };
     }

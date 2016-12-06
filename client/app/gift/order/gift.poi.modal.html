@@ -1,0 +1,31 @@
+<div class="poi-address" style="width:{{screen.width}}px; height:{{screen.height}}px;" ng-if="pois.length">
+    <div class="list-group address_list" style="min-height: {{screen.height}}px">
+      <a href="#" class="list-group-item poiList"
+          ng-repeat="poi in pois"
+          ng-click="selPoi()">
+          <!--右侧按钮圈-->
+          <span class="poi-com point"></span>
+          <span class="poi-com point1" ng-if="address.poi.id === poi.id"></span>
+          <div class="resLeft">
+            <span class="distance" ng-if="poi.distance">{{poi.distance}}km</span>
+            <h4 class="list-group-item-heading"
+       ng-bind="poi.base_info.business_name + (poi.base_info.branch_name ? '(' + poi.base_info.branch_name + ')' : '')"></h4>
+            <p class="list-group-item-text">
+              <span ng-bind="poi.base_info.province"></span>
+              <span ng-bind="poi.base_info.city"></span>
+              <span ng-bind="poi.base_info.district"></span>
+              <span ng-bind="poi.base_info.address"></span>
+            </p>
+          </div>
+      </a>
+    </div>
+</div>
+
+<div></div>
+
+<div ng-if="!pois.length" class="beyWamp" >
+    <div class="beyond">
+    <span>:( 您当前位置距离该商家门店过远</span><br />
+    <button class="bey_back"  ng-click="$dismiss()">返回{{pois}}</button>
+    </div>
+</div>

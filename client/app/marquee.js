@@ -19,5 +19,5 @@ function marquee(u_name, con_name, speed, line_height) {
             con.css('top', (-top) + "px");
         }
     }
-    setInterval(Marquee, speed);
+    return setInterval(Marquee, speed);
 }

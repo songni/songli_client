@@ -58,7 +58,7 @@ angular.module('clientApp')
                                 img: img
                             });
                             if (gift.status.online === false) {
-                                Alert.add('danger', '该礼物已下架!');
+                                // Alert.add('danger', '该礼物已下架!');
                             }
                         });　
                         return gift;
@@ -92,73 +92,74 @@ angular.module('clientApp')
          * 分享
          */
         .state('gift.detail.share', { //分享页面
-                url: '/share?from',
-                templateUrl: 'app/gift/gift.share.html',
-                controller: 'GiftShareCtrl',
-            })
-            .state('gift.detail.orders', { //分享后页面
-                url: '/orders',
-                templateUrl: 'app/gift/gift.orders.html',
-                controller: 'GiftOrdersCtrl',
-            })
-            .state('gift.detail.qrcode', {
-                url: '/qrcode',
-                templateUrl: 'app/gift/gift.qrcode.html',
-                controller: 'GiftShareCtrl',
-                authenticate: true
-            })
-            .state('order', {
-                abstract: true,
-                url: '/order',
-                template: '<ui-view/>'
-            })
-            .state('order.list', {
-                url: '/list',
-                templateUrl: 'app/gift/orderlist/order.list.html',
-                controller: 'GiftMyCtrl',
-            })
-            .state('order.detail', {
-                url: '/:id?from',
-                template: '<ui-view/>',
-                abstract: true,
-                resolve: {
-                    order: function($stateParams, RestGiftOrder) {　
-                        return RestGiftOrder.one($stateParams.id).one('detail').get({
-                            from: $stateParams.from
-                        });
-                    }
-                }
-            })
-            .state('order.detail.go', {
-                url: '/go',
-                controller: function($scope, $state, order) {
-                    // if (order.receiver.consignee)
-                    location.href = $state.href('order.detail.info', {
-                        id: order.id
+            url: '/share?from',
+            templateUrl: 'app/gift/gift.share.html',
+            controller: 'GiftShareCtrl',
+        })
+        .state('gift.detail.orders', { //分享后页面
+            url: '/orders',
+            templateUrl: 'app/gift/gift.orders.html',
+            controller: 'GiftOrdersCtrl',
+        })
+        .state('gift.detail.qrcode', {
+            url: '/qrcode',
+            templateUrl: 'app/gift/gift.qrcode.html',
+            controller: 'GiftShareCtrl',
+            authenticate: true
+        })
+        .state('order', {
+            abstract: true,
+            url: '/order',
+            template: '<ui-view/>'
+        })
+        .state('order.list', {
+            url: '/list',
+            templateUrl: 'app/gift/orderlist/order.list.html',
+            controller: 'GiftMyCtrl',
+        })
+        .state('order.detail', {
+            url: '/:id?from',
+            template: '<ui-view/>',
+            abstract: true,
+            resolve: {
+                order: function($stateParams, RestGiftOrder) {　
+                    return RestGiftOrder.one($stateParams.id).one('detail').get({
+                        from: $stateParams.from
                     });
-                    // else
-                    //     location.href = $state.href('order.detail.address', {
-                    //         id: order.id
-                    //     });
                 }
-            })
+            }
+        })
+        .state('order.detail.go', {
+            url: '/go',
+            controller: function($scope, $state, order) {
+                // if (order.receiver.consignee)
+                location.href = $state.href('order.detail.info', {
+                    id: order.id
+                });
+                // else
+                //     location.href = $state.href('order.detail.address', {
+                //         id: order.id
+                //     });
+            }
+        })
 
         /**
          * 支付后
          * 支付成功后，送礼人分享／填写地址界面
          */
         .state('order.detail.one2one-address', { //我填写地址
-                url: '/one2one-address',
-                templateUrl: 'app/gift/order/one2one/address.html',
-                controller: 'OrderAddressOne2OneCtrl',
-                authenticate: true,
-            })
-            .state('order.detail.one2many-address', { //我填写地址
-                url: '/one2many-address',
-                templateUrl: 'app/gift/order/one2many/address.html',
-                controller: 'OrderAddressOne2ManySendCtrl',
-                authenticate: true,
-            })
+            url: '/one2one-address',
+            templateUrl: 'app/gift/order/one2one/address.html',
+            controller: 'OrderAddressOne2OneCtrl',
+            authenticate: true,
+        })
+
+        .state('order.detail.one2many-address', { //我填写地址
+            url: '/one2many-address',
+            templateUrl: 'app/gift/order/one2many/address.html',
+            controller: 'OrderAddressOne2ManySendCtrl',
+            authenticate: true,
+        })
 
         // .state('order.detail.one2one-received', { //1送1已收货
         //         url: '/one2one-received',
@@ -171,66 +172,80 @@ angular.module('clientApp')
         //     })
             
         .state('order.detail.guide', {
-                url: '/guide',
-                templateUrl: 'app/gift/address.guide.html',
-                controller: 'OrderAddressCtrl',
-                authenticate: true,
-            })
-            .state('order.detail.fillin', { //好友填写地址
-                url: '/fillin',
-                templateUrl: 'app/gift/order/gift.receive.status.html',
-                controllerProvider: function(order) {
-                    if (order.capacity == 1) {
-                        return 'OrderAddressOne2OneCtrl';
-                    }
-                    return 'OrderAddressOne2ManyRecevCtrl';
-                },
-                authenticate: true,
-            })
-            .state('order.detail.fillin-one2many', { // One 2 Many 收取礼物
-                url: '/fillin-one2many',
-                templateUrl: 'app/gift/order/one2many/address.fillin.html',
-                controller: 'OrderAddressOne2ManyRecevAddrCtrl',
-            })
+            url: '/guide',
+            templateUrl: 'app/gift/address.guide.html',
+            controller: 'OrderAddressCtrl',
+            authenticate: true,
+        })
+        .state('order.detail.fillin', { //好友填写地址
+            url: '/fillin?from',
+            templateUrl: 'app/gift/order/gift.receive.status.html',
+            controllerProvider: function(order) {
+                if (order.capacity == 1) {
+                    return 'OrderAddressOne2OneCtrl';
+                }
+                return 'OrderAddressOne2ManyRecevCtrl';
+            },
+            authenticate: true,
+        })
+        .state('order.detail.fillin-one2many', { // One 2 Many 收取礼物
+            url: '/fillin-one2many',
+            templateUrl: 'app/gift/order/one2many/address.fillin.html',
+            controller: 'OrderAddressOne2ManyRecevAddrCtrl',
+        })
+        .state('order.detail.fillin-one2one', { // One 2 One 收取礼物
+            url: '/fillin-one2one',
+            templateUrl: 'app/gift/order/one2one/address.fillin.html',
+            controller: 'OrderAddressOne2OneRecevAddrCtrl'
+        })
+
+        .state('order.detail.received-result', {
+            url: '/received-result',
+            template: '<order-received order="$ctrl.order"></order-received>',
+            controller: function(order){
+                this.order = order;
+            },
+            controllerAs: '$ctrl'
+        })
 
         .state('order.detail.info', { //订单详情
-                url: '/info',
-                templateUrl: 'app/gift/orderlist/order.info.html',
-                controller: 'GiftOrderDetailCtrl',
-                authenticate: true,
-            })
-            .state('order.detail.received', {
-                url: '/received',
-                templateUrl: 'app/gift/orderlist/order.received.html',
-                controller: 'GiftReceivedCtrl',
-                authenticate: true,
-            })
-             .state('order.detail.shipped', {
-                url: '/shipped',
-                templateUrl: 'app/gift/orderlist/order.shipped.html',
-                controller: 'GiftShippedCtrl',
-                authenticate: true,
-            })
-            .state('order.detail.listened', {
-                url: '/listened',
-                templateUrl: 'app/gift/orderlist/order.listened.html',
-                controller: 'GiftListenedCtrl',
-                authenticate: true,
-            })
-            .state('order.detail.listen', { //收听订单
-                url: '/listen',
-                templateUrl: 'app/gift/gift.listen.html',
-                controller: 'GiftListenCtrl',
-                authenticate: true,
-            })
-            .state('guide', {
-                url: '/guide?id',
-                templateUrl: 'app/gift/gift.guide.html',
-                controller: 'GiftGuideCtrl'
-            })
-            .state('test', {
-                url: '/test',
-                templateUrl: 'app/gift/test.html',
-                controller: 'TestCtrl'
-            });
+            url: '/info',
+            templateUrl: 'app/gift/orderlist/order.info.html',
+            controller: 'GiftOrderDetailCtrl',
+            authenticate: true,
+        })
+        .state('order.detail.received', {
+            url: '/received',
+            templateUrl: 'app/gift/orderlist/order.received.html',
+            controller: 'GiftReceivedCtrl',
+            authenticate: true,
+        })
+        .state('order.detail.shipped', {
+            url: '/shipped',
+            templateUrl: 'app/gift/orderlist/order.shipped.html',
+            controller: 'GiftShippedCtrl',
+            authenticate: true,
+        })
+        .state('order.detail.listened', {
+            url: '/listened',
+            templateUrl: 'app/gift/orderlist/order.listened.html',
+            controller: 'GiftListenedCtrl',
+            authenticate: true,
+        })
+        .state('order.detail.listen', { //收听订单
+            url: '/listen',
+            templateUrl: 'app/gift/gift.listen.html',
+            controller: 'GiftListenCtrl',
+            authenticate: true,
+        })
+        .state('guide', {
+            url: '/guide?id',
+            templateUrl: 'app/gift/gift.guide.html',
+            controller: 'GiftGuideCtrl'
+        })
+        .state('test', {
+            url: '/test',
+            templateUrl: 'app/gift/test.html',
+            controller: 'TestCtrl'
+        });
     });

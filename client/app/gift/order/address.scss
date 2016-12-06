@@ -5,8 +5,10 @@ body{
 //body的背景色
 .bodyStyleGrey{background-color: #F2F2F2;}  //礼物列表
 .bodyStyleGreen{background-color: #8FC31F;}  //送礼人，收礼人，
+//绿色背景下的container
 .bodyStyleGreen .container{
-    margin: 20px 16px 0 16px;
+  margin: 20px 16px 0 16px;
+  padding: 0;
 }
 
 //todo
@@ -30,16 +32,17 @@ textarea{resize:none;}
 }
 .fill-out-describe{margin-top: 25px;text-align:left;}
 
-.form-friend{margin-top: -70px;}
-.container-status{background: #F7F7F7;}
+//.form-friend{margin-top: -70px;}
+.container-status{background: #F7F7F7;border-radius: 4px;}
+.bgBlack{background: #FFFFFF;}
 .receive-present-text{margin-top: 30px;font-size: 14px;color:#646464;}
 /*右上角图标*/
-.icon-img{position: absolute;right:-10px;top: -10px;width:34px;}    
+.icon-img{position: absolute;right:-10px;top: -10px;width:34px;} 
 /*头像*/
-.head-center{text-align:center;height: 55px;background: #F7F7F7;}
-.center-name{font-size: 14px;text-align:center;}
-.head-center span{font-size: 15px;text-align: center;color: #B5B5B6;margin-top: 9px;display: block;}
-.head-center img{border-radius: 100%;width:67px;height: 67px;border: 2px solid #FFFFFF;margin-top: -45px;}
+//.head-center{text-align:center;height: 55px;background: #F7F7F7;}
+//.center-name{font-size: 14px;text-align:center;}
+//.head-center span{font-size: 15px;text-align: center;color: #B5B5B6;margin-top: 9px;display: block;}
+//.head-center img{border-radius: 100%;width:67px;height: 67px;border: 2px solid #FFFFFF;margin-top: -45px;}
     /*礼物个数*/
 .head-title-green{text-align:center;height: 90px;}
 .left-count{color: #231815;font-size: 24px;}
@@ -133,14 +136,14 @@ textarea{resize:none;}
     box-sizing: border-box;
 }
 .btn-bg{
-    width: 286px !important;
+    width: 95% !important;
     height: 45px !important;
     background: #8FC31F;
     color: #FFFFFF;
     border-radius: 4px;
     display: block !important;
     margin: 0 auto !important;
-    margin-top: 45px !important;
+//  margin-top: 45px !important;
 }
 .btn-no{background: #B5B5B6;}
 .footer-btn{
@@ -203,7 +206,7 @@ textarea{resize:none;}
         padding-bottom: 10px;
         margin: 0 0 0 12px;
         border-bottom: 1px solid #EFEFEF;
-        margin-right: -5px;
+//      margin-right: -5px;
     }
     ul{
         margin: 0;
@@ -215,7 +218,7 @@ textarea{resize:none;}
             line-height: 65px;
             font-size: 14px;
             margin-left: 12px;
-            margin-right: -5px;
+//          margin-right: -5px;
             img{
                 width: 33px;
                 height: 33px;
@@ -240,8 +243,9 @@ textarea{resize:none;}
 }
 //底标
 .icon-hrer{
-    position: absolute;
-    width: 100%;
+  position: absolute;
+  width: 100%;
+  margin-top: 10px;
 }
 .icon-height{
      height: 50px;

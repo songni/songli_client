@@ -195,7 +195,7 @@ angular.module('clientApp')
     //     });
     // }
     // impl for v1 END
-    // 
+    //
 
     if (order.capacity == 1 && order.receivers.length == 1) {
         // 检查一下手机号，作为对收礼人有效性的校验
@@ -225,13 +225,11 @@ angular.module('clientApp')
         telephone: null
     };
     $scope.saveAddr = function() {
-    	console.log($scope.giftAddrForm);
         if ($scope.giftAddrForm.$invalid) {
             $scope.submitted = true;
-            return false;
-//         	Alert.add('warning', '收礼人信息不能为空！', 2000);
+            return false
         }
-        // post(subElement, elementToPost, [queryParams, headers])
+        let scene = address.scene = address.poi ? 'poi' : 'logistics'
         RestGiftOrder.one(order.id).one('address').post('', $scope.address).then(function(data) {
             if (!data.rc)
                 console.error('saveAddr', '没有response code !');
@@ -251,7 +249,7 @@ angular.module('clientApp')
                     });
                     break;
                 default:
-                    Alert.add('warning', '服务器走神了', 2000);
+                    Alert.add('warning', '系统内部错误', 2000);
                     break;
             }
             // location.href = $state.href('gift.detail.share', {
@@ -295,4 +293,15 @@ angular.module('clientApp')
             controller: 'ShareModalCtrl'
         });
     };
-});
+    $scope.fill = function(){
+        location.href = $state.href('order.detail.fillin-one2one', {id: order.id});
+    }
+})
+.controller('OrderAddressOne2OneRecevAddrCtrl', function($timeout, $scope, $rootScope, $location, $state, $uibModal, $window, RestGiftOrder, Wechat, order, Alert) {
+    $scope.order = order;
+    $scope.address = {
+        consignee: order.receivers[0] ? order.receivers[0].name : '',
+        address: null,
+        telephone: null
+    };
+})

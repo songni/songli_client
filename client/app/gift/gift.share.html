@@ -1,45 +1,53 @@
 <div class="section section-last">
 	<div class="show-head">
 		<img class="gift-img" src="https://img.91pintuan.com/songli/icon-herf/present_sent_demo.png" 
-		 ng-src="{{'http://' + apiCfg.phtUri + gift.info.cover}}"><br />
+		  ng-src="{{'http://' + apiCfg.phtUri + gift.info.cover}}"><br />
 		<span class="gift-name">{{gift.info.name}}</span>
 	</div>
-	
 	<div class="guide-bottom btn-gift">
-        <div class="double-col">
-            <a class="button btns btn-giftlist" ui-sref="gift.detail({id: gift.id})">我也要送</a>
-            <!--<a class="button button-highlight" ng-click="share()">分享</a>-->
-        </div>
+    <div class="double-col">
+      <a class="button btns btn-giftlist" ui-sref="gift.detail({id: gift.id})">我也要送</a>
+    </div>
 	</div>
-	
-    <div class="show-box">
-        <div class="white-box">
-        	<span class="box-img"><img src="https://img.91pintuan.com/songli/i.png" /></span>
-        	<span class="box-r">已有<span>{{gift.num.pay}}</span>人用这个礼物送出了祝福</span>
-        </div>
-        
-        <div class="marquee">
-            <ul class="scroll-box" id="marquee_content">
-                <li ng-repeat="order in orders">
-                    <img src="{{order.sender.info.headimgurl.replace('/0','/46')}}" />
-                    <span ng-if="order.capacity === 1">
-                        {{order.sender.info.nickname}} 祝福 {{order.receivers[0].name}} ...
-                    </span>
-                    <span ng-if="order.capacity != 1">
-                        {{order.sender.info.nickname}} 祝福 TA的朋友们
-                    </span>
-                </li>
-                <!--<li ng-repeat="order in preorders" ng-if="gift.num.pay<4">
-                    <img src="{{order.sender.info.headimgurl.replace('/0','/46')}}" />
-                    <span><span>{{order.sender.info.nickname}}</span> 祝福<span>{{order.receivers[0].consignee}}</span>
-                    </span>
-                </li>-->
-            </ul>
-        </div>
-   </div>
+
+  <div class="show-box">
+    <div class="white-box">
+    	<span class="box-img"><img src="https://img.91pintuan.com/songli/i.png" /></span>
+      <!--<span>
+        <span ng-if="gift.info.benedictory.title">{{gift.info.benedictory.title.replace('{NUM}', gift.num.pay)}}</span>
+    	  <span ng-if="!gift.info.benedictory.title" class="box-r">已有<span>{{gift.num.pay}}</span>人用这个礼物送出了祝福</span>  
+      </span>-->
+      <span class="box-title">
+        {{gift.info.benedictory.title ? 
+          gift.info.benedictory.title.replace('{NUM}', gift.num.pay) : '已有' + gift.num.pay + '人用这个礼物送出了祝福' }}
+      </span>
+    </div>
+    <div class="marquee">
+      <!--<lq-marquee behavior="" direction="upon"></lq-marquee>-->
+      <ul class="scroll-box" id="marquee_content">
+        <li ng-repeat="order in orders">
+          <img src="{{order.sender.info.headimgurl.replace('/0','/46')}}" />
+          <!--送单人-->
+          <span ng-if="order.capacity === 1">
+            {{ gift.info.benedictory.one2one 
+              ? gift.info.benedictory.one2one.replace('{SENDER}', order.sender.name).replace('{RECEIVER}', order.receivers[0].name)
+              : order.sender.info.nickname + '祝福' + order.receivers[0].name
+            }}
+          </span>
+          <!--送多人-->
+          <span ng-if="order.capacity != 1">
+            {{
+              gift.info.benedictory.one2many
+              ? gift.info.benedictory.one2many.replace('{SENDER}', order.sender.name) 
+              : order.sender.info.nickname + ' 祝福 TA的朋友们'
+            }}
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
    <!--底标-->
-   <div class="icon-hrer">
-   		<icon-href theme="white"></icon-href>
-   </div>
-   
+  <div class="icon-hrer">
+ 		<icon-href theme="white"></icon-href>
+  </div>
 </div>
