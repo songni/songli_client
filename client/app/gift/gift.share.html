@@ -19,7 +19,7 @@
       </span>-->
       <span class="box-title">
         {{gift.info.benedictory.title ? 
-          gift.info.benedictory.title.replace('{NUM}', gift.num.pay) : '已有' + gift.num.pay + '人用这个礼物送出了祝福' }}
+          gift.info.benedictory.title.replace('{NUM}', gift.num.pay) : '已有' + gift.num.pay + '人用这个礼物说谢谢' }}
       </span>
     </div>
     <div class="marquee">
@@ -31,7 +31,7 @@
           <span ng-if="order.capacity === 1">
             {{ gift.info.benedictory.one2one 
               ? gift.info.benedictory.one2one.replace('{SENDER}', order.sender.name).replace('{RECEIVER}', order.receivers[0].name)
-              : order.sender.info.nickname + '祝福' + order.receivers[0].name
+              : order.sender.info.nickname + '谢谢' + order.receivers[0].name
             }}
           </span>
           <!--送多人-->
@@ -39,7 +39,7 @@
             {{
               gift.info.benedictory.one2many
               ? gift.info.benedictory.one2many.replace('{SENDER}', order.sender.name) 
-              : order.sender.info.nickname + ' 祝福 TA的朋友们'
+              : order.sender.info.nickname + ' 谢谢 TA的朋友们'
             }}
           </span>
         </li>
@@ -47,7 +47,7 @@
     </div>
   </div>
    <!--底标-->
-  <div class="icon-hrer">
+  <div class="icon-hrer" style="width: {{screen.width - 10}}px">
  		<icon-href theme="white"></icon-href>
   </div>
 </div>
