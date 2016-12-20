@@ -261,10 +261,6 @@ angular.module('clientApp')
     $scope.address = {};
     $scope.isReceived = false;
     $scope.isAvailble = true;
-    // check the person who open the link is the sender
-    $scope.isSender = $rootScope.user.id === order.sender.id ? true : false;
-    // this is a flag for the order's status
-    $scope.orderStatus = 0;
 
     // 如果没有 user, 需要跳转到认证界面
     // 
@@ -275,12 +271,18 @@ angular.module('clientApp')
         .then(function(link) {
             window.location.href = link.link;
         });
-    }        
+    }
+
+    // check the person who open the link is the sender
+    $scope.isSender = $rootScope.user.id === order.sender.id ? true : false;
+
     if($scope.isSender){
         location.href = $state.href('order.detail.one2many-address', {id: order.id})
-        // $state.go('order.detail.one2many-address', null, {location: "replace"})
+        //$state.go('order.detail.one2many-address', null, {location: "replace"})
         return;
     };
+    // this is a flag for the order's status
+    $scope.orderStatus = 0;
 
     if (_.some(order.receivers, function(receiver) {
             return receiver.userOpenId == $rootScope.user.openid;
@@ -408,6 +410,11 @@ angular.module('clientApp')
                     case 4:
                         // poi
                         if(scene === 'poi'){
+                            let user = $rootScope.user;
+                            if (!user || !user.subscribe) {
+                                location.href = $state.href('order.detail.subscribe', {id: order.id})
+                                return;
+                            }
                             location.href = $state.href('order.detail.fillin', {
                                 id: order.id
                             });

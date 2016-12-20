@@ -48,88 +48,90 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
 </head>
 
 <body ng-class="{bodyStyleGreen:bodyStyle === 'bgGreen', bodyStyleGrey:bodyStyle === 'bgGrey'}" class="view-container">
-    <!--[if lt IE 9]>
-      <div class="browsehappy">
-      您使用的是浏览器版本过低。请<a href="http://browsehappy.com/" target="_blank">升级您的浏览器</a>，以改善您的体验。
-      </div>
-    <![endif]-->
-    <div ui-view="" class="container view-frame" ng-style="moreRecode">
-        <div class="loading">
-            <i class="fa fa-spinner fa-pulse"></i>
-        </div>
+  <!--[if lt IE 9]>
+    <div class="browsehappy">
+               您使用的是浏览器版本过低。请<a href="http://browsehappy.com/" target="_blank">升级您的浏览器</a>，以改善您的体验。
     </div>
-    <div ng-include="'app/directive/alert.html'"></div>
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->
-    <!-- build:js({client,node_modules}) app/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/lodash/lodash.js"></script>
-    <script src="bower_components/restangular/dist/restangular.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/angular-moment/angular-moment.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
-    <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
-    <script src="bower_components/angular-currency-filter/src/currency-filter.js"></script>
-    <script src="bower_components/humanize-duration/humanize-duration.js"></script>
-    <script src="bower_components/angular-timer/dist/angular-timer.js"></script>
-    <script src="bower_components/angular-elastic/elastic.js"></script>
-    <script src="bower_components/holderjs/holder.js"></script>
-    <script src="bower_components/angular-holderjs/src/holder.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-swipe/dist/angular-swipe.js"></script>
-    <script src="bower_components/angular-css/angular-css.js"></script>
-    <script src="bower_components/angular-md5/angular-md5.js"></script>
-    <!-- endbower -->
-    <script src="bower_components/angular-i18n/angular-locale_zh.js"></script>
-    <script src="bower_components/moment/locale/zh-cn.js"></script>
-    <!-- endbuild -->
-    <!-- build:js({.tmp,client}) app/app.js -->
-    <script src="app/app.js"></script>
-    <!-- injector:js -->
-    <script src="app/animations/animations.js"></script>
-    <script src="app/app.constant.js"></script>
-    <script src="app/directive/alert.js"></script>
-    <script src="app/directive/alert.service.js"></script>
-    <script src="app/directive/android.js"></script>
-    <script src="app/directive/nl2br.js"></script>
-    <script src="app/directive/onLongPress.js"></script>
-    <script src="app/directive/phone.js"></script>
-    <script src="app/gift/gift.controller.js"></script>
-    <script src="app/gift/gift.js"></script>
-    <script src="app/gift/gift.service.js"></script>
-    <script src="app/gift/order/one2many/controller.js"></script>
-    <script src="app/gift/order/one2one/controller.js"></script>
-    <script src="app/gift/order/order.interact.js"></script>
-    <script src="app/gift/order/order.receive.js"></script>
-    <script src="app/gift/order/order.received.guide.js"></script>
-    <script src="app/gift/order/order.received.js"></script>
-    <script src="app/gift/orderlist/controller.js"></script>
-    <script src="app/gift/poi/poi.service.js"></script>
-    <script src="app/login/login.controller.js"></script>
-    <script src="app/login/login.js"></script>
-    <script src="app/main/main.controller.js"></script>
-    <script src="app/main/main.js"></script>
-    <script src="app/marquee.js"></script>
-    <script src="app/wechat/wechat.controller.js"></script>
-    <script src="app/wechat/wechat.js"></script>
-    <script src="app/wechat/wechat.service.js"></script>
-    <script src="components/icon-href/icon-href.directive.js"></script>
-    <script src="components/marquee/marquee.js"></script>
-    <script src="components/modal/modal.service.js"></script>
-    <script src="components/navbar/navbar.controller.js"></script>
-    <!-- endinjector -->
-    <!-- endbuild -->
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <![endif]-->
+  <div ui-view="" class="container view-frame" ng-style="moreRecode">
+    <div class="loading">
+      <i class="fa fa-spinner fa-pulse"></i>
+    </div>
+  </div>
+  <div ng-include="'app/directive/alert.html'"></div>
+  <!--[if lt IE 9]>
+  <script src="bower_components/es5-shim/es5-shim.js"></script>
+  <script src="bower_components/json3/lib/json3.min.js"></script>
+  <![endif]-->
+  <!-- build:js({client,node_modules}) app/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/lodash/lodash.js"></script>
+  <script src="bower_components/restangular/dist/restangular.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
+  <script src="bower_components/angular-moment/angular-moment.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
+  <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+  <script src="bower_components/angular-currency-filter/src/currency-filter.js"></script>
+  <script src="bower_components/humanize-duration/humanize-duration.js"></script>
+  <script src="bower_components/angular-timer/dist/angular-timer.js"></script>
+  <script src="bower_components/angular-elastic/elastic.js"></script>
+  <script src="bower_components/holderjs/holder.js"></script>
+  <script src="bower_components/angular-holderjs/src/holder.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-swipe/dist/angular-swipe.js"></script>
+  <script src="bower_components/angular-css/angular-css.js"></script>
+  <script src="bower_components/angular-md5/angular-md5.js"></script>
+  <!-- endbower -->
+  <script src="bower_components/angular-i18n/angular-locale_zh.js"></script>
+  <script src="bower_components/moment/locale/zh-cn.js"></script>
+  <!-- endbuild -->
+  <!-- build:js({.tmp,client}) app/app.js -->
+  <script src="app/app.js"></script>
+  <!-- injector:js -->
+  <script src="app/animations/animations.js"></script>
+  <script src="app/app.constant.js"></script>
+  <script src="app/directive/alert.js"></script>
+  <script src="app/directive/alert.service.js"></script>
+  <script src="app/directive/android.js"></script>
+  <script src="app/directive/nl2br.js"></script>
+  <script src="app/directive/onLongPress.js"></script>
+  <script src="app/directive/phone.js"></script>
+  <script src="app/gift/gift.controller.js"></script>
+  <script src="app/gift/gift.js"></script>
+  <script src="app/gift/gift.service.js"></script>
+  <script src="app/gift/order/one2many/controller.js"></script>
+  <script src="app/gift/order/one2one/controller.js"></script>
+  <script src="app/gift/order/order.interact.js"></script>
+  <script src="app/gift/order/order.pre.receive.js"></script>
+  <script src="app/gift/order/order.receive.js"></script>
+  <script src="app/gift/order/order.received.guide.js"></script>
+  <script src="app/gift/order/order.received.js"></script>
+  <script src="app/gift/order/order.subscribe.js"></script>
+  <script src="app/gift/orderlist/controller.js"></script>
+  <script src="app/gift/poi/poi.service.js"></script>
+  <script src="app/login/login.controller.js"></script>
+  <script src="app/login/login.js"></script>
+  <script src="app/main/main.controller.js"></script>
+  <script src="app/main/main.js"></script>
+  <script src="app/marquee.js"></script>
+  <script src="app/wechat/wechat.controller.js"></script>
+  <script src="app/wechat/wechat.js"></script>
+  <script src="app/wechat/wechat.service.js"></script>
+  <script src="components/icon-href/icon-href.directive.js"></script>
+  <script src="components/marquee/marquee.js"></script>
+  <script src="components/modal/modal.service.js"></script>
+  <script src="components/navbar/navbar.controller.js"></script>
+  <!-- endinjector -->
+  <!-- endbuild -->
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </body>
 
 </html>

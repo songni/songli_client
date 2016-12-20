@@ -9,7 +9,10 @@
     </div>
   </div>
   <div class="prompt">
-    <span>请填写信息后到店使用</span>
+    <!--<span>请填写信息后到店使用</span>-->
+    <span style="width: {{document.width/2}}px;">
+      <img src="https://img.91pintuan.com/songli/client/receive-step-1.png" alt="" />
+    </span>
   </div>
   <!--form表单-->
   <form class="form-recpoi" name="$ctrl.giftAddrForm" novalidate ng-submit="$ctrl.saveAddr($ctrl)">
@@ -35,7 +38,7 @@
       <p ng-show="$ctrl.giftAddrForm.poi.$invalid && $ctrl.submitted" class="help-block">* 请选择门店
     </div>
     
-    <button type="submit" class="button btn-comm btn-wc btn-green btn-poi">完成</button>
+    <button type="submit" class="button btn-comm btn-wc btn-green btn-poi">下一步</button>
     <button ng-if="$ctrl.isShare" class="button btn-comm btn-share btn-yellow btn-spoi"  ng-click="$ctrl.share()">不知道地址，发给好友填写</button>
  
   </form>

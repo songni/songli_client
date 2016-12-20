@@ -19,27 +19,18 @@
       </span>-->
       <span class="box-title">
         {{gift.info.benedictory.title ? 
-          gift.info.benedictory.title.replace('{NUM}', gift.num.pay) : '已有' + gift.num.pay + '人用这个礼物说谢谢' }}
+          gift.info.benedictory.title.replace('{NUM}', gift.num.receivers) : '已有' + gift.num.receivers + '人收到了礼物' }}
       </span>
     </div>
     <div class="marquee">
       <!--<lq-marquee behavior="" direction="upon"></lq-marquee>-->
       <ul class="scroll-box" id="marquee_content">
-        <li ng-repeat="order in orders">
-          <img src="{{order.sender.info.headimgurl.replace('/0','/46')}}" />
-          <!--送单人-->
-          <span ng-if="order.capacity === 1">
-            {{ gift.info.benedictory.one2one 
-              ? gift.info.benedictory.one2one.replace('{SENDER}', order.sender.name).replace('{RECEIVER}', order.receivers[0].name)
-              : order.sender.info.nickname + '谢谢' + order.receivers[0].name
-            }}
-          </span>
-          <!--送多人-->
-          <span ng-if="order.capacity != 1">
-            {{
-              gift.info.benedictory.one2many
-              ? gift.info.benedictory.one2many.replace('{SENDER}', order.sender.name) 
-              : order.sender.info.nickname + ' 谢谢 TA的朋友们'
+        <li ng-repeat="suborder in suborders">
+          <img src="{{suborder.headimgurl.replace('/0','/46')}}" />
+          <span>
+            {{ gift.info.benedictory.content 
+              ? gift.info.benedictory.content.replace('{RECEIVER}', (suborder.name).slice(0, 1) + '** ' || (suborder.consignee).slice(0, 1) + '** ')
+              : (( (suborder.name).slice(0, 1) || (suborder.consignee).slice(0, 1) ) + '** 收到了礼物')
             }}
           </span>
         </li>

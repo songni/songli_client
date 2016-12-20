@@ -9,13 +9,26 @@
                 <p class="name" ng-bind="gift.info.name"></p>
                 <p class="lead" ng-bind="gift.info.lead"></p>
                 <div class="separate-box present-summary-bottom">
-                    <div class="separate-left">
-                        <span>{{gift.info.price | currency}}</span>
+                  <div class="trade-status-green benedictory-title">
+                    <div class="zfy" ng-if="gift.num.pay > 0">
+                      {{gift.info.benedictory.title ? 
+                          gift.info.benedictory.title.replace('{NUM}', (gift.num.receivers || 0)) : '已有' + (gift.num.receivers || 0) + '人收到了礼物' }}
                     </div>
-                    <div class="separate-right trade-status-green">
-                        已送出 <span ng-bind="gift.num.subpay">0</span>份
-                    </div>
-                    <div class="clear"></div>
+                    <div ng-if="gift.num.pay <= 0"></div>
+                  </div>
+                  
+                  <div class="separate-left">
+                    <span>{{gift.info.price | currency}}</span>
+                  </div>
+                  <!--<div class="separate-right trade-status-green">
+                      <div ng-if="gift.info.benedictory.title">
+                          {{ gift.info.benedictory.title.replace('{NUM}', gift.num.subpay || 0) }}
+                      </div>
+                      <div ng-if="!gift.info.benedictory.title">
+                                                已送出 <span ng-bind="gift.num.subpay">0</span>份
+                      </div>
+                  </div>-->
+                  <div class="clear"></div>
                 </div>
             </div>
         </div>

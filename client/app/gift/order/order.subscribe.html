@@ -1,0 +1,38 @@
+<div class="poi-receive subscribe" id="subscribe">
+  <!--宽度：{{$ctrl.$window.innerHeight}}-->
+  <!--gift information-->
+  <div class="gift-info">
+    <div class="info">
+      <span class="fl"><img ng-src="{{'//' + $ctrl.appConfig.phtUri + $ctrl.order.gift.info.cover}}"></span>
+      <span class="fl">礼品</span>
+      <span style="width: {{($ctrl.$subscribeWidth*0.8) - 70}}px;"  class="fr" ng-bind="$ctrl.order.gift.info.name"></span>
+    </div>
+  </div>
+  <div class="step">
+    <img src="https://img.91pintuan.com/songli/client/receive-step-2.png" alt="" />
+  </div>
+  <div class="guidance">
+    <span>长按二维码关注公号</span>
+    <span>公号将会发送礼物消费凭证</span>
+  </div>
+  <div class="merchant-code" style="width: {{$ctrl.$subscribeWidth/2 + 40}}px; height: {{$ctrl.$subscribeWidth/2 + 40}}px;">
+		<!--商家二维码-->
+		<div class="code" style="width: {{$ctrl.$subscribeWidth/2 + 40 }}px;">
+		  <img ng-if="$ctrl.qrcode" ng-src="{{ 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=' + $ctrl.qrcode}}"/>
+		</div>
+		<div class="radius">
+		  <img src="https://img.91pintuan.com/songli/client/top.png" alt="" />
+		  <img src="https://img.91pintuan.com/songli/client/right.png" alt="" />
+		  <img src="https://img.91pintuan.com/songli/client/bottom.png" alt="" />
+		  <img src="https://img.91pintuan.com/songli/client/left.png" alt="" />
+		</div>
+		
+	</div>
+	<div class="past">
+	  <span>如已关注，公号已经发送</span>
+	</div>
+</div>
+<!--底标-->
+<div class="icon-hrer">
+  <icon-href theme="white"></icon-href>
+</div>

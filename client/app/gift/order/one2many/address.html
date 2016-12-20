@@ -30,11 +30,19 @@
     <!--礼物说明-->
     <div class="head-content">
       <p class="receive-present-text">您已成功购买{{order.capacity}}份{{order.gift.info.name}},发至到微信好友/微信群或朋友圈,开始送礼吧！</p>
+      <!--礼物领取中-->
       <a href="#" id="start-send-present" 
+        ng-if=" !order.receivers || !order.receivers.length || (order.receivers.length && order.receivers.length !== order.capacity) "
         ng-click="share()" 
         ng-class="{'btn-no' :order.receivers.length === order.capacity}"
         class="button btn-bg btn-fill">
-          {{ order.receivers && order.receivers.length && order.receivers.length === order.capacity ? '礼物已被抢完' : order.receivers && order.receivers.length ? '继续送礼' : '开始送礼' }}
+          {{ order.receivers && order.receivers.length ? '继续送礼' : '开始送礼' }}
+      </a>
+      <!--礼物被抢完时-->
+      <a ui-sref="gift.list"
+        ng-if=" order.receivers && order.receivers.length && order.receivers.length === order.capacity "
+        class="button btn-bg btn-fill button-yellow">
+                  继续送礼
       </a>
     </div>
   </div>

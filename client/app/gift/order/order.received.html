@@ -26,8 +26,8 @@
         <div class="footer-btn">
           <!--送礼人打开的id = 微信用户的id-->
           <!--<icon-href theme="white"></icon-href>-->
-          <a ng-if="$ctrl.isSender" ui-sref="gift.list" class="button">继续送礼</a>
-          <a ng-if="!$ctrl.isSender" ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="button">我也要送</a>
+          <a ng-if="$ctrl.isSender" ui-sref="gift.list" class="btn-receive button-success btn-logistic">继续送礼</a>
+          <a ng-if="!$ctrl.isSender" ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="btn-receive button-success btn-logistic">我也要送</a>
         </div>
       </div>
 		</div>
@@ -56,72 +56,105 @@
         </div>
         <div class="head-content">
           <p class="receive-present-text">你已成功领取{{$ctrl.order.sender.info.nickname}}的礼物，等待商家发货吧。不要忘了除了礼物{{$ctrl.order.sender.info.nickname}}还对你说了一段话，收到礼物时扫描语音码，听听ta都说了些什么吧。 </p>
-				  <a ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="button button-success">我也要送礼</a>
+				  <a ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="button button-success btn-logistic">我也要送</a>
         </div>
 			</div>
 		</div>
 	</div>
   <!--【门店】-->
-	<div ng-if="$ctrl.scene === 'poi'" class="poi-received">  
-	  <!--礼物信息-->
-		<div class="gift-info" ui-sref="gift.detail.share({id: $ctrl.order.gift.id})">
-			<div class="info">
-			  <span class="fl"><img ng-src="//{{$ctrl.appConfig.phtUri + $ctrl.order.gift.info.cover}}" alt=""></span>
-        <span class="fl">礼品</span>
-        <span class="fr" style="width: {{(document.width*0.8) - 70}}px;" ng-bind="$ctrl.order.gift.info.name"></span>
+	<div ng-if="$ctrl.scene === 'poi'" class="poi-received">
+		<!--送礼人-->
+		<div ng-if="$ctrl.isSender && $ctrl.order.capacity === 1">
+			<div class="onecapacity">
+				<img class="icon-img" src="https://img.91pintuan.com/songli/i.png" />
+				<div class="greyBox"></div>
+				<!--送礼人头像-->
+				<div class="head-center">
+					<img ng-src="{{$ctrl.order.sender.info.headimgurl}}" /><br/>
+				</div>
+				<div class="blackBox"></div>
+				<div class="pre-main">
+					<div class="head-sender">
+						<span>{{ $ctrl.order.sender.info.nickname }}的礼物</span><br />
+					</div>
+					<div class="head-prompt">
+						<span>{{ $ctrl.order.receivers[0].consignee }}</span><br/>
+						<span>领取了你的礼物</span>
+					</div>
+					<div>
+						您已成功购买1份{{ $ctrl.order.gift.info.name }}；自己领取或者转发送给好友
+					</div>
+					<div class="footer-btn">
+						<!--送礼人打开的id = 微信用户的id-->
+						<!--<icon-href theme="white"></icon-href>-->
+						<a ui-sref="gift.list" class="button">继续送礼</a>
+					</div>
+				</div>
 			</div>
 		</div>
-    <!--使用状态-->
-    <div class="use-state" ng-if="$ctrl.suborder">
-      <span>礼物券已被领取</span>
-      <span ng-bind="$ctrl.suborder.status.shipping ? '已使用' : '未使用' "></span>
-    </div>
-    <!--二维码-->
-    <div class="gift-code" ng-if="$ctrl.suborder">
-      <span><img ng-src="{{ $ctrl.suborder.qrcode.src }}"></span>
-      <span>{{ $ctrl.suborder.id }}</span>
-      <span>请保留二维码消费凭证</span>
-      <span>到店使用时请向商家出示二维码</span>
-    </div>
-    <!--领取信息-->
-		<div class="rec-info" ng-if="$ctrl.suborder" >			
-			<ul>
-				<li ng-click="openMerchant()">
-					<div class="rec-l fl">
-					  <span>联系商家</span>
-            <span>{{ $ctrl.$rootScope.merchant.pubno.nick_name }}</span>
-					</div>
-					<div class="rec-r fl">
-					  <img class="merchant" ng-src="{{ $ctrl.$rootScope.merchant.pubno.head_img }}">
-					  <img class="icon-r fr" src="http://91pt.oss-cn-beijing.aliyuncs.com/songli/client/received.png">
-					</div>
-				</li>
-				<li ng-click="$ctrl.openLocation($ctrl.suborder.poi)">
-				  <div class="rec-l fl">
-				    <span>自提门店</span>
-            <span>{{ $ctrl.suborder.poi.base_info.business_name }}</span>
-				  </div>
-					<div class="rec-r fl">
-					  <img class="poi-icon" src="http://91pt.oss-cn-beijing.aliyuncs.com/songli/client/received-address.png">
-            <img class="icon-r fr" src="http://91pt.oss-cn-beijing.aliyuncs.com/songli/client/received.png">
-					</div>
-				</li>
-				<li>
-				  <div class="clear"></div>
-					<div class="rec-l">
-					  <span>领取人信息</span>
-            <span>{{ $ctrl.suborder.consignee + '   ' + $ctrl.suborder.telephone }}</span>
-					</div>
-				</li>
-			</ul>
-		</div>
 
-		<div class="nogift" ng-if="!$ctrl.suborder">
-			<span>礼物已被抢完</span>
-			<span>{{$ctrl.order.receivers.length}}人已经领取</span>
-			<p>您已成功购买{{$ctrl.order.capacity}}份{{$ctrl.order.gift.info.name}},发至到微信好友/微信群或朋友圈,开始送礼吧！</p>
-      <a href="#" class="button btn-bg btn-fr btn-gary">礼物已被抢完</a>
+		<!--收礼人或者其他人-->
+		<div ng-if="!$ctrl.isSender">
+			<div class="gift-info" ui-sref="gift.detail.share({id: $ctrl.order.gift.id})">
+				<div class="info">
+					<span class="fl"><img ng-src="//{{$ctrl.appConfig.phtUri + $ctrl.order.gift.info.cover}}" alt=""></span>
+					<span class="fl">礼品</span>
+					<span class="fr" style="width: {{(document.width*0.8) - 70}}px;" ng-bind="$ctrl.order.gift.info.name"></span>
+				</div>
+			</div>
+			<!--使用状态-->
+			<div class="use-state" ng-if="$ctrl.suborder">
+				<span>礼物券已被领取</span>
+				<span ng-bind="$ctrl.suborder.status.shipping ? '已使用' : '未使用' "></span>
+			</div>
+			<!--二维码-->
+			<div class="gift-code" ng-if="$ctrl.suborder">
+				<span><img ng-src="{{ $ctrl.suborder.qrcode.src }}"></span>
+				<span>{{ $ctrl.suborder.id }}</span>
+				<span>请保留二维码消费凭证</span>
+				<span>到店使用时请向商家出示二维码</span>
+			</div>
+			<!--领取信息-->
+			<div class="rec-info" ng-if="$ctrl.suborder" >			
+				<ul>
+					<li ng-click="openMerchant()">
+						<div class="rec-l fl">
+							<span>联系商家</span>
+							<span>{{ $ctrl.$rootScope.merchant.pubno.nick_name }}</span>
+						</div>
+						<div class="rec-r fl">
+							<img class="merchant" ng-src="{{ $ctrl.$rootScope.merchant.pubno.head_img }}">
+							<img class="icon-r fr" src="http://91pt.oss-cn-beijing.aliyuncs.com/songli/client/received.png">
+						</div>
+					</li>
+					<li ng-click="$ctrl.openLocation($ctrl.suborder.poi)">
+						<div class="rec-l fl">
+							<span>自提门店</span>
+							<span>{{ $ctrl.suborder.poi.base_info.business_name }}</span>
+						</div>
+						<div class="rec-r fl">
+							<img class="poi-icon" src="http://91pt.oss-cn-beijing.aliyuncs.com/songli/client/received-address.png">
+							<img class="icon-r fr" src="http://91pt.oss-cn-beijing.aliyuncs.com/songli/client/received.png">
+						</div>
+					</li>
+					<li>
+						<div class="clear"></div>
+						<div class="rec-l">
+							<span>领取人信息</span>
+							<span>{{ $ctrl.suborder.consignee + '   ' + $ctrl.suborder.telephone }}</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="nogift" ng-if="!$ctrl.suborder">
+				<span>礼物已被抢完</span>
+				<span>{{$ctrl.order.receivers.length}}人已经领取</span>
+				<p>您已成功购买{{$ctrl.order.capacity}}份{{$ctrl.order.gift.info.name}},发至到微信好友/微信群或朋友圈,开始送礼吧！</p>
+				<a href="#" class="button btn-bg btn-fr btn-gary">礼物已被抢完</a>
+			</div>
 		</div>
+		
 	</div>
 </div>
 

@@ -84,8 +84,7 @@ angular.module('clientApp')
             url: '/one2many-record',
             templateUrl: 'app/gift/order/one2many/record.html',
             controller: 'GiftRecordMultiCtrl',
-            authenticate: true,
-
+            authenticate: true
         })
 
         /**
@@ -181,22 +180,32 @@ angular.module('clientApp')
             url: '/fillin?from',
             templateUrl: 'app/gift/order/gift.receive.status.html',
             controllerProvider: function(order) {
-                if (order.capacity == 1) {
+                if (order.capacity == 1) { 
                     return 'OrderAddressOne2OneCtrl';
                 }
                 return 'OrderAddressOne2ManyRecevCtrl';
             },
             authenticate: true,
         })
+        .state('order.detail.subscribe', {
+            url: '/subscribe',
+            template: '<order-subscribe order="$ctrl.order"></order-subscribe>',
+            controller: function(order){
+                this.order = order;
+            },
+            controllerAs: '$ctrl'
+        })
         .state('order.detail.fillin-one2many', { // One 2 Many 收取礼物
             url: '/fillin-one2many',
             templateUrl: 'app/gift/order/one2many/address.fillin.html',
             controller: 'OrderAddressOne2ManyRecevAddrCtrl',
+            authenticate: true
         })
         .state('order.detail.fillin-one2one', { // One 2 One 收取礼物
             url: '/fillin-one2one',
             templateUrl: 'app/gift/order/one2one/address.fillin.html',
-            controller: 'OrderAddressOne2OneRecevAddrCtrl'
+            controller: 'OrderAddressOne2OneRecevAddrCtrl',
+            authenticate: true
         })
 
         .state('order.detail.received-result', {
@@ -205,7 +214,18 @@ angular.module('clientApp')
             controller: function(order){
                 this.order = order;
             },
-            controllerAs: '$ctrl'
+            controllerAs: '$ctrl',
+            authenticate: true,
+        })
+
+        .state('order.detail.received-guide', {
+            url: '/received-guide',
+            template: '<order-received-guide order="$ctrl.order"></order-received-guide>',
+            controller: function(order){
+                this.order = order;
+            },
+            controllerAs: '$ctrl',
+            authenticate: true
         })
 
         .state('order.detail.info', { //订单详情
@@ -214,6 +234,17 @@ angular.module('clientApp')
             controller: 'GiftOrderDetailCtrl',
             authenticate: true,
         })
+        
+        // .state('order.detail.receive', {
+        //     url: '/receive',
+        //     templateUrl: '<order-receive order="$ctrl.order" address="$ctrl.address"></order-receive>',
+        //     controller: function(order){
+        //         this.order = order;
+        //     },
+        //     controllerAs: '$ctrl',
+        //     authenticate: true
+        // })
+
         .state('order.detail.received', {
             url: '/received',
             templateUrl: 'app/gift/orderlist/order.received.html',

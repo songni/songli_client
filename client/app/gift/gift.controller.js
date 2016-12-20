@@ -45,7 +45,7 @@ angular.module('clientApp')
     })
     .controller('GiftDetailCtrl', function($scope, $rootScope, $state, $sce, gift, Alert) {
         //$rootScope.title = "大礼包";
-        $scope.appid = hostname[0];
+        $scope.appid = hostname[0];        
         /**
          * #FIXME
          * this is a bit ugly, but for the convenient of production setup
@@ -104,15 +104,23 @@ angular.module('clientApp')
     $rootScope.bg2 = false;
     $scope.gift = gift;
     $scope.marqueeIntervalId = null;
+    let limit = 20;
     RestGiftOrder.one('list').one('s').getList('', {
-        limit: 20,
+        limit: limit,
         gift: $stateParams.id
-    }).then(function(orders) {
+    }).then(orders => {
         if (orders[1].length) {
-            $scope.orders = [];
-            _.each(orders[1], function(val) {
-                $scope.orders.push(val);
-            });
+            $scope.suborders = [];
+            for (let i=0, len=orders[1].length; i<len; i++) {
+                let order = orders[1][i];
+                for (let j=0, len=order.receivers.length; j<len; j++) {
+                    let suborder = order.receivers[j]
+                    if ($scope.suborders.length >= limit) {
+                        break;
+                    }
+                    $scope.suborders.push(suborder);
+                }
+            }
             $scope.marqueeIntervalId = marquee("marquee_content", "#marquee_content", 40, 40);
         }
     });
@@ -130,9 +138,6 @@ angular.module('clientApp')
     $scope.$on('$destroy', () => {
         $scope.marqueeIntervalId && clearInterval($scope.marqueeIntervalId);
     })
-    // $scope.$on('$viewContentLoaded', function() {
-    //     marquee("marquee_content", "#marquee_content", 40, $scope.orders.length * 8);
-    // });
 })
 
 // Gift Orders

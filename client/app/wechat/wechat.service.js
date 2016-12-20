@@ -4,6 +4,9 @@ angular.module('clientApp')
   .service('RestWechat', function(Restangular){
     return Restangular.service('wechat');
   })
+  .service('RestWxQrcode', function(Restangular){
+    return Restangular.service('gift/wx_qrcode');
+  })
   .service('Wechat',function($rootScope, $location, $document, $state, RestWechat, Alert) {
     return {
       params: {

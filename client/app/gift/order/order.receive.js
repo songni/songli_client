@@ -12,21 +12,24 @@ angular.module('clientApp')
 			saveAddr: '<'
 		},
 		controller: function OrderReceive($rootScope, $state, $uibModal, Alert, RestWxPoi, RestGiftOrder){
+			let orderId = this.order.id;
 			this.$onInit = () => {
 				this.scene = this.order.gift.scene || 'logistics';
 			}
 			if(!this.saveAddr){
   			this.saveAddr = ctrl => {
+
           if (ctrl.giftAddrForm.$invalid) {
             ctrl.submitted = true;
             return false;
           }
-          if(this.address.poi){
+          if (this.address.poi) {
             this.address.scene = 'poi';
           }
-          else if(this.address.address){
+          else if (this.address.address) {
             this.address.scene = 'logistics'; 
           }
+					
           RestGiftOrder.one(this.order.id).one('address').post('', this.address).then(data => {
             if (!data.rc)
               console.error('saveAddr', '没有response code !');
@@ -47,7 +50,11 @@ angular.module('clientApp')
                   });
                 }
                 if(this.scene === 'poi'){
-                  $state.reload();
+									let user = $rootScope.user;
+									if(user.subscribe){       // 0未关注， 1 关注
+										return $state.reload();	
+									}
+									location.href = $state.href('order.detail.subscribe', {id: orderId})
                 }
                 break;
               default:

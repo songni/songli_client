@@ -1,36 +1,85 @@
-<div class="container-status pre-receive">
+<div ng-if="$ctrl.one2oneLogisticsSender">
+  <order-receive
+    order="$ctrl.order"
+    is-share="true"
+    address="$ctrl.address"
+  >
+  </order-receive>
+</div>
+
+<div ng-if="!$ctrl.one2oneLogisticsSender" class="container-status pre-receive">
 	<!--icon.logo.right-->
 	<img class="icon-img" src="https://img.91pintuan.com/songli/i.png" />
 	<div class="greyBox"></div>
 	<!--送礼人头像-->
 	<div class="head-center">
-		<img ng-src="{{order.sender.info.headimgurl}}" />
+		<img ng-src="{{$ctrl.order.sender.info.headimgurl}}" />
 	</div>
 	<div class="blackBox"></div>
 	<div class="pre-main">
 	  <div class="head-sender">
-      <span>{{order.sender.info.nickname}}送给你一份礼物</span>
+      <span>{{$ctrl.order.sender.info.nickname}}送给你一份礼物</span>
     </div>
     <!--礼物领取过程-->
-    <!--单人-->
-    <div class="head-prompt" ng-if="order.capacity === 1">
-      <span>请尽快领取</span> <br />
-      <span ng-if="order.gift.scene === 'poi'">领取后到店使用</span>
-      <span ng-if="order.gift.scene === 'logistics'">领取后将快递配送</p>
+    <div ng-if="$ctrl.isAvailable">
+      <!--单人-->
+      <div ng-if="$ctrl.type === 'one2one'" class="head-prompt">
+        <div ng-if="$ctrl.isSender">
+          <span>已购买成功</span><br />
+          <span>开始送礼吧</span>
+        </div>
+        <div ng-if="$ctrl.isReceiver">
+          <span>请尽快领取</span> <br />
+          <span ng-if="$ctrl.order.gift.scene === 'poi'">领取后到店使用</span>
+          <p ng-if="$ctrl.order.gift.scene === 'logistics'">领取后将快递配送</p>
+        </div>
+      </div>
+      <!--多人-->
+      <div ng-if="$ctrl.type === 'one2many'" class="head-main head-title-green">
+        <p class="left-count">还有{{$ctrl.availableCount}}份 </p>
+        <p class="head-send-status">{{$ctrl.receivedCount}}人已领取</p>
+      </div>
     </div>
-    <!--多人-->
-    <div ng-if="order.capacity > 1" class="head-main head-title-green">
-      <p class="left-count">还有{{orderSurplus}}份 </p>
-      <p class="head-send-status">{{orderReserved}}人已领取</p>
+
+    <div ng-if="!$ctrl.isAvailable" class="head-prompt">
+      <div ng-if="$ctrl.type === 'one2one'">
+        <span>礼物已被抢完</span> <br />
+        {{$ctrl.order.receivers[0].name}}
+      </div>
+
+      <div ng-if="$ctrl.type === 'one2many'">
+        <span>礼物已被抢完</span> <br />
+        <span>{{$ctrl.receivedCount}}人已领取</span>
+      </div>
+      
     </div>
+    
     <!--礼物说明-->
-    <div class="head-content">
-      <p class="receive-present-text">你的朋友{{order.sender.info.nickname}}为你准备了一份礼物：{{order.gift.info.name}}。并对你说了一段话，赶快领取吧！</p>
-      <a href="#" class="button btn-bg btn-fill" ng-click="fill()">领取礼物</a>
-      <span class="receive-more-poi" ng-if="order.capacity > 1 && order.gift.scene === 'poi'  ">领取后到店使用</span>
+    <div ng-if="$ctrl.isSender" class="head-content">
+      <p class="receive-present-text">{{$ctrl.order.sender.info.nickname}}为你准备了一份礼物：{{$ctrl.order.gift.info.name}}。并对你说了一段话，赶快领取吧！</p>
+      <div ng-if="$ctrl.isAvailable">
+        <a class="button btn-bg btn-fill" ng-click="$ctrl.share()">送给朋友</a>
+      </div>
+      <div ng-if="!$ctrl.isAvailable">
+        <a href="gift.list" class="button btn-bg btn-fill">继续送礼</a>
+      </div>
+    </div>
+    <div ng-if="$ctrl.isReceiver" class="head-content">
+      <p class="receive-present-text">{{$ctrl.order.sender.info.nickname}}为你准备了一份礼物：{{$ctrl.order.gift.info.name}}。并对你说了一段话，赶快领取吧！</p>
+      <div ng-if="$ctrl.isAvailable">
+        <a href="#" class="button btn-bg btn-fill" ng-click="$ctrl.fill()">领取礼物</a>
+      </div>
+      <div ng-if="!$ctrl.isAvailable">
+        <a ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="button button-success btn-fill button-yellow">我也要送</a>
+      </div>
+      <span class="receive-more-poi" ng-if="$ctrl.type === 'one2many' && $ctrl.order.gift.scene === 'poi'  ">领取后到店使用</span>
     </div>
 	</div>
 
+  <order-interact
+    ng-if="$ctrl.isInteract"
+    order="$ctrl.order"
+  ></order-interact>
 	<!--底标-->
 	<div class="icon-hrer">
 		<icon-href theme="white"></icon-href>
