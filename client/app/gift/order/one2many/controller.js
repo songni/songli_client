@@ -1,7 +1,7 @@
 angular.module('clientApp')
 
 // 送多人
-.controller('GiftRecordMultiCtrl', function($scope, $rootScope, $state, $cookies, $timeout, $uibModal, $window, Alert) {
+.controller('GiftRecordMultiCtrl', function($scope, $rootScope, $state, $cookies, $timeout, $uibModal, $window, Alert, Wechat) {
     //$rootScope.title = "录制大礼包";
     $scope.innerHeight = $window.innerHeight;
     $rootScope.moreRecode = {
@@ -26,6 +26,8 @@ angular.module('clientApp')
     $scope.$on('timer-stopped', function(event, data) {
         console.log('Timer Stopped - data = ', data);
     });
+
+    Wechat.config();
 
     wx.ready(function() {
 

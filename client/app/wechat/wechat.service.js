@@ -16,7 +16,8 @@ angular.module('clientApp')
         img : 'http://static.ifindu.cn/91pintuan/images/logo.png'
       },
       config:function(){
-        this.params.url = this.params.url||$location.absUrl();
+        this.params.url = $location.absUrl();  
+        
         RestWechat.one('sign').one('jssdk').get({type:'jsapi',url:this.params.url}).then(function(data){
           $rootScope.signature = data.signature;
           var config = {
