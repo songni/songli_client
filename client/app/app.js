@@ -167,8 +167,8 @@ angular.module('clientApp', [
     Wechat.config();
     //Wechat.ready();
     wx.error(function(res) {
-        Alert.add('warning', res.errMsg);
-        console.log(res.errMsg);
+        //Alert.add('warning', res.errMsg);
+        //console.log(res.errMsg);
     });
     $rootScope.isAndroid = navigator.userAgent.match(/Android/i);
     $rootScope.clientWidth = document.body.clientWidth;

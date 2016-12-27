@@ -7,9 +7,8 @@ angular.module('clientApp')
   .service('RestWxQrcode', function(Restangular){
     return Restangular.service('gift/wx_qrcode');
   })
-  .service('Wechat',function($rootScope, $location, $document, $state, RestWechat, Alert) {
+  .service('Wechat',function($rootScope, $location, $document, $state, RestWechat, Alert, UserAgent) {
     return {
-      prevUrl: '',
       params: {
         url  : $location.absUrl(),
         title : $document[0].title,
@@ -17,17 +16,17 @@ angular.module('clientApp')
         img : 'http://static.ifindu.cn/91pintuan/images/logo.png'
       },
       config:function(){
-        this.params.url = $location.absUrl();  
+        this.params.url = $location.absUrl();
         
         return RestWechat.one('sign').one('jssdk').get({type:'jsapi',url:this.params.url}).then(function(data){
           $rootScope.signature = data.signature;
+          
           var config = {
-            debug:debugWx,
-            appId:data.appId,
-            timestamp:data.timestamp,
-            nonceStr:data.nonceStr,
-            signature:data.signature,
-            jsApiList:[
+            appId: data.appId,
+            timestamp: data.timestamp,
+            nonceStr: data.nonceStr,
+            signature: data.signature,
+            jsApiList: [
               'onMenuShareTimeline',
               'onMenuShareAppMessage',
               'onMenuShareQQ',
@@ -53,17 +52,17 @@ angular.module('clientApp')
       },
       ready:function(data){
         
-        if (this.prevUrl && this.prevUrl === $location.absUrl()) {
-          return done();
+        if (UserAgent.isiOS) {
+          wx.ready(done.bind(this))
+        } else {
+          this.config().then(() => {
+            wx.ready(done.bind(this))
+          })
         }
-        
-        this.prevUrl = $location.absUrl();
-        this.config().then(done)
 
         function done () {
-          
           if (typeof data === 'function') {
-            return data.apply(null);
+            return data()
           }
 
           try{

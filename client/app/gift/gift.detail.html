@@ -46,9 +46,9 @@
     <!-- Start giving gifts to friends -->
     <div class="bottom-btn double-col btn-left" ng-if=" !gift.num.stock || ((gift.num.stock - gift.num.subpay) > 0) ">
       <!-- type = 1 代表一送一 -->
-      <a ng-if="!gift.num.stock || ((gift.num.stock - gift.num.subpay) > 0)" class="button btn-one" ui-sref="gift.detail.one2one-record({id:gift.id})">送一人</a>
+      <a ng-if="!gift.num.stock || ((gift.num.stock - gift.num.subpay) > 0)" class="button btn-one" ui-sref="gift.detail.one2one-record({id: gift.id})" ui-sref-opts="{reload: true, notify: true, cache: false}">送一人</a>
       <!-- type = 2 代表一送多 -->
-      <a ng-if="!gift.num.stock || ((gift.num.stock - gift.num.subpay) > 0)" class="button btn-more" ui-sref="gift.detail.one2many-record({id:gift.id})">送多人</a>
+      <a ng-if="!gift.num.stock || ((gift.num.stock - gift.num.subpay) > 0)" class="button btn-more" ui-sref="gift.detail.one2many-record({id: gift.id})" ui-sref-opts="{reload: true, notify: true, cache: false}">送多人</a>
     </div>
     <!-- The gift has been sold out  -->
     <div class="bottom-btn double-col btn-left" ng-if=" !gift.status.online || ( gift.num.stock != 0 && ((gift.num.stock - gift.num.subpay) <= 0) ) " style="background: #8FC31F;" >

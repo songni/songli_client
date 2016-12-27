@@ -18,7 +18,7 @@ angular.module('clientApp')
     $scope.$on('timer-stopped', function(event, data) {
         console.log('Timer Stopped - data = ', data);
     });
-
+    
     Wechat.ready(function() {
         //录制
         $scope.record = function() {
@@ -30,6 +30,9 @@ angular.module('clientApp')
                     $scope.status.record = false;
                     $scope.$broadcast('timer-start');
                     $scope.$apply();
+                },
+                fail: function(res){
+                    location.reload()
                 }
             });
         };
