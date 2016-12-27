@@ -57,9 +57,6 @@ angular.module('clientApp')
                     $scope.status.record = false;
                     $scope.$broadcast('timer-start');
                     $scope.$apply();
-                },
-                fail: function(res) {
-                    location.reload();
                 }
             });
         };
