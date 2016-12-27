@@ -75,14 +75,14 @@ angular.module('clientApp')
 			address: '=',
 			saveAddr: '<'
 		},
-		controller: function OrderReceivePoi(appConfig, $scope, $state, $uibModal, RestWxPoi, Alert, RestGiftOrder){
+		controller: function OrderReceivePoi(appConfig, $scope, $state, $uibModal, RestWxPoi, Alert, RestGiftOrder, Wechat){
 			this.$onInit = () => {
 				this.appConfig = appConfig;
 				this.poiLoaded = false;
 				this.errors = [];
 				let gift = this.order.gift;
 				if(gift.status.lbs){
-					wx.ready(() => {
+					Wechat.ready(() => {
 						wx.getLocation({
 							success: res => {
 								RestWxPoi.get({

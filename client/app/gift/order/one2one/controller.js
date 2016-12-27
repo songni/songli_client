@@ -2,6 +2,7 @@ angular.module('clientApp')
 
 // 送单人
 .controller('GiftRecordSingleCtrl', function($scope, $rootScope, $state, $cookies, $timeout, $uibModal, $window, Alert, Wechat) {
+    
     //$rootScope.title = "录制大礼包";
     $scope.innerHeight = $window.innerHeight;
     $rootScope.bg2 = true;
@@ -18,9 +19,7 @@ angular.module('clientApp')
         console.log('Timer Stopped - data = ', data);
     });
 
-    Wechat.config();
-
-    wx.ready(function() {
+    Wechat.ready(function() {
         //录制
         $scope.record = function() {
             $scope.$broadcast('timer-set-countdown', 60);
@@ -31,6 +30,9 @@ angular.module('clientApp')
                     $scope.status.record = false;
                     $scope.$broadcast('timer-start');
                     $scope.$apply();
+                },
+                fail: function(res) {
+                    location.reload();
                 }
             });
         };

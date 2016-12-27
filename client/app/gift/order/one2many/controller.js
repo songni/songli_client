@@ -27,9 +27,7 @@ angular.module('clientApp')
         console.log('Timer Stopped - data = ', data);
     });
 
-    Wechat.config();
-
-    wx.ready(function() {
+    Wechat.ready(function() {
 
         // 份数 减一
         $scope.reduCapacity = function() {
@@ -59,6 +57,9 @@ angular.module('clientApp')
                     $scope.status.record = false;
                     $scope.$broadcast('timer-start');
                     $scope.$apply();
+                },
+                fail: function(res) {
+                    location.reload();
                 }
             });
         };

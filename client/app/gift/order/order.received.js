@@ -6,7 +6,7 @@ angular.module('clientApp')
 		bindings: {
 			order: '<'
 		},
-		controller: function OrderReceive($rootScope, $scope, $window, appConfig, $state, $uibModal, RestWxPoi, RestGiftOrder){
+		controller: function OrderReceive($rootScope, $scope, $window, appConfig, $state, $uibModal, RestWxPoi, RestGiftOrder, Wechat){
 			this.$onInit = () => {
 				this.isSender = this.order.sender.openid === $rootScope.user.openid;
 				this.scene = this.order.gift.scene || 'logistics';
@@ -21,7 +21,7 @@ angular.module('clientApp')
 			
 			this.openLocation = poiOrigin => {
 				let poi = poiOrigin.base_info
-				wx.ready(function(){
+				Wechat.ready(function(){
 					wx.openLocation({
 						latitude: poi.latitude,
 						longitude: poi.longitude,

@@ -6,7 +6,7 @@ angular.module('clientApp')
         $rootScope.bg2 = false;
         $rootScope.hideBar = true;
     })
-    .controller('GiftListCtrl', function($scope, $rootScope, $state, Gift) {
+    .controller('GiftListCtrl', function($scope, $rootScope, $state, Gift, Wechat) {
     	
         $rootScope.bg2 = false;
         /**
@@ -24,7 +24,7 @@ angular.module('clientApp')
                 id: id
             });
         };
-        wx.ready(function(){
+        Wechat.ready(function(){
             var iconLiImgUrl = 'http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png';
             var leanOptions = {
                 title: $rootScope.merchant.info.name + '的礼物货架',
@@ -43,7 +43,7 @@ angular.module('clientApp')
             wx.onMenuShareWeibo(options);
         })
     })
-    .controller('GiftDetailCtrl', function($scope, $rootScope, $state, $sce, gift, Alert) {
+    .controller('GiftDetailCtrl', function($scope, $rootScope, $state, $sce, gift, Alert, Wechat) {
         //$rootScope.title = "大礼包";
         $scope.appid = hostname[0];        
         /**
@@ -72,7 +72,7 @@ angular.module('clientApp')
         $scope.trustAsHtml = function(html){
             return $sce.trustAsHtml(html);
         }
-        wx.ready(function(){
+        Wechat.ready(function(){
             var iconLiImgUrl = gift.info.cover ? 'http://' + SONGNI_CFG_API.phtUri + gift.info.cover : 'http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png';
             var leanOptions = {
                 title: gift.info.name,
@@ -159,7 +159,7 @@ angular.module('clientApp')
 })
 
 // Gift Listen
-.controller('GiftListenCtrl', function($scope, $rootScope, $state, $stateParams, $timeout, $window, RestGiftOrder, order, Alert) {
+.controller('GiftListenCtrl', function($scope, $rootScope, $state, $stateParams, $timeout, $window, RestGiftOrder, order, Alert, Wechat) {
     //$rootScope.title = '收听好友的大礼包';
     $scope.innerHeight = $window.innerHeight;
     $scope.innerWidth = $window.innerWidth;
@@ -233,7 +233,7 @@ angular.module('clientApp')
             }
         });
 
-        wx.ready(function() {
+        Wechat.ready(function() {
             wx.onVoicePlayEnd({
                 success: function(res) {
                     $scope.$broadcast('timer-set-countdown', 60);
