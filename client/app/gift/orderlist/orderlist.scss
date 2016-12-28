@@ -4,6 +4,9 @@
 ul{list-style: none;}
 a,a:hover{text-decoration: none;}
 
+.listgift{
+  margin: -95px -15px 0 -15px;
+}
 /*我送出的礼物---列表---*/
     /*头部*/
 .trade-group{background: #FFFFFF;border-bottom: 8px solid #F2F2F2;margin-top: -15px;}
@@ -21,8 +24,14 @@ a,a:hover{text-decoration: none;}
 .order-content .orderlist .listnum{display: block;float: left;width: 70%;color: #898989;}
 .order-content .orderlist .num{color: #B5B5B6;}
 .order-code{padding-bottom: 21px;padding-left: 5px;}
-.order-code .code{color: #8FC31F;width: 93%;display: block;float: left;font-size: 14px;}
+.order-code .code{color: #F89775;width: 93%;display: block;float: left;font-size: 14px;}
 /*我送出的礼物---详情---*/
+.order-info-warp{
+  position: absolute;
+  top: -30px;
+  left: 0;
+  right: 0;
+}
     /*头部*/
 .present-sent-detail{margin-top:10px;}
 .detail-title{height: 80px;margin-top: 20px;}
@@ -47,8 +56,8 @@ a,a:hover{text-decoration: none;}
 .card-group3 .receiver {height: 50px;line-height: 50px;color: #231815;border-bottom: 1px solid #EFEFEF;}
 .card-group3 .status{float: right;padding-right: 15px;}
 .card-group3 .status-listen{color: #F39800;}
-.card-group3 .status-deliver{color: #8FC31F;}
-.trade-status-green{color:#9FCB48;}
+.card-group3 .status-deliver{color: #F89775;}
+.trade-status-green{color:#F89775;}
 .trade-status-yellow{color:#F39800;}
 .spanimg{width: 7px;padding-left: 10px;}
 .trade-time{float: left;}

@@ -25,7 +25,7 @@ angular.module('clientApp')
             });
         };
         Wechat.ready(function(){
-            var iconLiImgUrl = 'http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png';
+            var iconLiImgUrl = 'https://img.91pintuan.com/songli/icon-herf/default-img.png';
             var leanOptions = {
                 title: $rootScope.merchant.info.name + '的礼物货架',
                 link: window.location.href,
@@ -73,7 +73,7 @@ angular.module('clientApp')
             return $sce.trustAsHtml(html);
         }
         Wechat.ready(function(){
-            var iconLiImgUrl = gift.info.cover ? 'http://' + SONGNI_CFG_API.phtUri + gift.info.cover : 'http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png';
+            var iconLiImgUrl = gift.info.cover ? 'http://' + SONGNI_CFG_API.phtUri + gift.info.cover : 'https://img.91pintuan.com/songli/icon-herf/default-img.png';
             var leanOptions = {
                 title: gift.info.name,
                 imgUrl: iconLiImgUrl 
@@ -92,7 +92,7 @@ angular.module('clientApp')
 
 
 .controller('ShareModalCtrl', function($scope, $uibModalInstance) {
-    $scope.shareSrc = 'https://img.91pintuan.com/songli/gift_share.png';
+    $scope.shareSrc = 'https://img.91pintuan.com/songli/gift_shared.png';
     $scope.isCloseModal = false;
     $scope.$watch('isCloseModal', function(val) {
         if (val) $uibModalInstance.close();
@@ -124,7 +124,7 @@ angular.module('clientApp')
             $scope.marqueeIntervalId = marquee("marquee_content", "#marquee_content", 40, 40);
         }
     });
-    $scope.shareSrc = 'https://img.91pintuan.com/songli/gift_share.png';
+    $scope.shareSrc = 'https://img.91pintuan.com/songli/gift_shared.png';
     $scope.shareStyle = {
         width: '50%'
     };

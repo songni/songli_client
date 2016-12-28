@@ -61,13 +61,13 @@
         <a class="button btn-bg btn-fill" ng-click="$ctrl.share()">送给朋友</a>
       </div>
       <div ng-if="!$ctrl.isAvailable">
-        <a href="gift.list" class="button btn-bg btn-fill">继续送礼</a>
+        <a href="gift.list" class="button btn-bg btn-fill btn-red">继续送礼</a>
       </div>
     </div>
     <div ng-if="$ctrl.isReceiver" class="head-content">
       <p class="receive-present-text">{{$ctrl.order.sender.info.nickname}}为你准备了一份礼物：{{$ctrl.order.gift.info.name}}。并对你说了一段话，赶快领取吧！</p>
       <div ng-if="$ctrl.isAvailable">
-        <a href="#" class="button btn-bg btn-fill" ng-click="$ctrl.fill()">领取礼物</a>
+        <a href="#" class="button btn-bg btn-fill btn-red" ng-click="$ctrl.fill()">领取礼物</a>
       </div>
       <div ng-if="!$ctrl.isAvailable">
         <a ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="button button-success btn-fill button-yellow">我也要送</a>

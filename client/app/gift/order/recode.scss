@@ -23,10 +23,10 @@
     -moz-background-size: 3px 3px;
     background-size: 3px 3px;
     background-color: #FFFFFF;
-    background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(.5, #ECA1A9), color-stop(.6, transparent), to(transparent));
-    background-image: -moz-linear-gradient(90deg, #ECA1A9 60%, transparent 60%, transparent);
-    background-image: -o-linear-gradient(90deg, #ECA1A9 60%, transparent 60%, transparent);
-    background-image: linear-gradient(90deg, #ECA1A9 60%, transparent 60%, transparent);
+    background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(.5, #f05b47), color-stop(.6, transparent), to(transparent));
+    background-image: -moz-linear-gradient(90deg, #f05b47 60%, transparent 60%, transparent);
+    background-image: -o-linear-gradient(90deg, #f05b47 60%, transparent 60%, transparent);
+    background-image: linear-gradient(90deg, #f05b47 60%, transparent 60%, transparent);
 }
 .progress,
 .progress-active {
@@ -101,7 +101,7 @@ input{
     font-size: 20px;
     font-weight: bolder !important; 
     border: 0;
-    background: #8FC31F;
+    background: #f05b47;
     color: #FFFFFF;
 }
 .input-group {
@@ -137,14 +137,14 @@ input{
 .btn-success:active, .btn-success.active, 
 .open>.dropdown-toggle.btn-success{
     color: #FFFFFF !important;
-    background: #89AF1E !important;
-    border-color: #89AF1E !important;
+    background: #f04f43 !important;
+    border-color: #f04f43 !important;
 }
 
 
 //[单人] - [多人] -- 录音页面
 .voice-box {
-    padding: 14px 5% 45px 5%;
+    padding: 14px 5% 35px 5%;
     background: #F7F7F7;
 }
 .voice-process img {

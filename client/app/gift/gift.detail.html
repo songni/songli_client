@@ -10,9 +10,10 @@
                 <p class="lead" ng-bind="gift.info.lead"></p>
                 <div class="separate-box present-summary-bottom">
                   <div class="trade-status-green benedictory-title">
-                    <div class="zfy" ng-if="gift.num.pay > 0">
-                      {{gift.info.benedictory.title ? 
-                          gift.info.benedictory.title.replace('{NUM}', (gift.num.receivers || 0)) : '已有' + (gift.num.receivers || 0) + '人收到了礼物' }}
+                    <div class="zfy color-pink" ng-if="gift.num.pay > 0">
+                      <span><img ng-src="https://img.91pintuan.com/songli/icon-herf/gift-box.png" alt="" /></span>
+                      <span>{{gift.info.benedictory.title ? 
+                          gift.info.benedictory.title.replace('{NUM}', (gift.num.receivers || 0)) : '已有' + (gift.num.receivers || 0) + '人收到了礼物' }}</span>
                     </div>
                     <div ng-if="gift.num.pay <= 0"></div>
                   </div>
@@ -20,14 +21,6 @@
                   <div class="separate-left">
                     <span>{{gift.info.price | currency}}</span>
                   </div>
-                  <!--<div class="separate-right trade-status-green">
-                      <div ng-if="gift.info.benedictory.title">
-                          {{ gift.info.benedictory.title.replace('{NUM}', gift.num.subpay || 0) }}
-                      </div>
-                      <div ng-if="!gift.info.benedictory.title">
-                                                已送出 <span ng-bind="gift.num.subpay">0</span>份
-                      </div>
-                  </div>-->
                   <div class="clear"></div>
                 </div>
             </div>
@@ -46,13 +39,13 @@
     <!-- Start giving gifts to friends -->
     <div class="bottom-btn double-col btn-left" ng-if=" !gift.num.stock || ((gift.num.stock - gift.num.subpay) > 0) ">
       <!-- type = 1 代表一送一 -->
-      <a ng-if="!gift.num.stock || ((gift.num.stock - gift.num.subpay) > 0)" class="button btn-one" ui-sref="gift.detail.one2one-record({id: gift.id})" ui-sref-opts="{reload: true, notify: true, cache: false}">送一人</a>
+      <a ng-if="!gift.num.stock || ((gift.num.stock - gift.num.subpay) > 0)" class="button btn-one btn-red btn-height40 btn-margin-left" ui-sref="gift.detail.one2one-record({id: gift.id})" ui-sref-opts="{reload: true, notify: true, cache: false}">送一人</a>
       <!-- type = 2 代表一送多 -->
-      <a ng-if="!gift.num.stock || ((gift.num.stock - gift.num.subpay) > 0)" class="button btn-more" ui-sref="gift.detail.one2many-record({id: gift.id})" ui-sref-opts="{reload: true, notify: true, cache: false}">送多人</a>
+      <a ng-if="!gift.num.stock || ((gift.num.stock - gift.num.subpay) > 0)" class="button btn-more btn-pink btn-height40 btn-right-pink" ui-sref="gift.detail.one2many-record({id: gift.id})" ui-sref-opts="{reload: true, notify: true, cache: false}">送多人</a>
     </div>
     <!-- The gift has been sold out  -->
-    <div class="bottom-btn double-col btn-left" ng-if=" !gift.status.online || ( gift.num.stock != 0 && ((gift.num.stock - gift.num.subpay) <= 0) ) " style="background: #8FC31F;" >
-      <a ng-if="!gift.status.online" class="button btn-ml" ng-disabled="true">抱歉，该商品已售罄</a>
-      <a ng-if="gift.num.stock != 0 && ((gift.num.stock - gift.num.subpay) <= 0)" class="button btn-ml" ng-disabled="true">抱歉，该商品已售罄</a>
+    <div class="bottom-btn double-col btn-left btn-red" ng-if=" !gift.status.online || ( gift.num.stock != 0 && ((gift.num.stock - gift.num.subpay) <= 0) ) " style="background: #8FC31F;" >
+      <a ng-if="!gift.status.online" class="button btn-ml btn-red" ng-disabled="true">抱歉，该商品已售罄</a>
+      <a ng-if="gift.num.stock != 0 && ((gift.num.stock - gift.num.subpay) <= 0)" class="button btn-ml btn-red" ng-disabled="true">抱歉，该商品已售罄</a>
     </div>
 </div>

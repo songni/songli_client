@@ -5,10 +5,10 @@ body{
 }
 //body的背景色
 .bodyStyleGrey{background-color: #F2F2F2;}  //礼物列表
-.bodyStyleGreen{background-color: #8FC31F;}  //送礼人，收礼人，
+.bodyStyleGreen{background-color: #f05b47;}  //送礼人，收礼人，
 //绿色背景下的container
 .bodyStyleGreen .container{
-  margin: 20px 16px 0 16px;
+  margin: 12px 12px 0 12px;
   padding: 0;
 }
 
@@ -17,7 +17,7 @@ body{
     border-radius: 4px;
     position:relative;
     background-color: #FFFFFF;
-    margin: 25px 23px 0 23px;
+    margin: 20px 20px 0 20px;
     padding: 70px 5px 0px 5px;    
 }
 input,textarea,button{
@@ -38,7 +38,7 @@ textarea{resize:none;}
 .bgBlack{background: #FFFFFF;}
 .receive-present-text{margin-top: 30px;font-size: 14px;color:#646464;}
 /*右上角图标*/
-.icon-img{position: absolute;right:-10px;top: -10px;width:34px;} 
+.icon-img{position: absolute;right:-8px;top: -8px;width:34px;} 
 /*头像*/
 //.head-center{text-align:center;height: 55px;background: #F7F7F7;}
 //.center-name{font-size: 14px;text-align:center;}
@@ -48,7 +48,7 @@ textarea{resize:none;}
 .head-title-green{text-align:center;height: 90px;}
 .left-count{color: #231815;font-size: 24px;}
 .left-all{font-size: 23px;margin-bottom: 0;}
-.head-send-status{color: #8FC31F;font-size: 15px;margin-top: -20px;}
+.head-send-status{color: #F89775;font-size: 15px;margin-top: -20px;}
 .send-gift-text,.receive-present-text{color:#919191;font-size: 16px;line-height: 20px;padding-left: 5px;margin-top: 0;margin-bottom: 0;text-align: justify;}
 
 .address{margin-top: 12px !important;}
@@ -139,7 +139,8 @@ textarea{resize:none;}
 .btn-bg{
     width: 95% !important;
     height: 45px !important;
-    background: #8FC31F;
+//  background: #8FC31F;
+    background: #f05b47;
     color: #FFFFFF;
     border-radius: 4px;
     display: block !important;
@@ -156,7 +157,7 @@ textarea{resize:none;}
 }
 .footer-btn .button{
     width:286px !important;
-    background-color:#8FC31F;
+    background-color:#f05b47;
     color: #FFF;
     margin: 0 auto;
     display: block;
@@ -170,7 +171,7 @@ textarea{resize:none;}
     border-radius: 4px;
     margin-top: 12px !important;
 }
-.btn-wc {background: #8FC31F;}
+.btn-wc {background: #f05b47;}
 .btn-share {background: #F39800;}
     /*已领取礼物按钮*/
 .button-done{

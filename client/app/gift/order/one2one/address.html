@@ -14,9 +14,6 @@
 <!--[送礼人-公众号]再次打开时-->
 <div ng-if="order.receivers.length == 1 && order.receivers[0].telephone" class="message-block">
   <form class="form-horizontal">
-      <!--<input ng-disabled="true" class="input-msg input-msg1 form-text" type="text" name="consignee" placeholder="收礼人姓名" ng-model="order.receivers[0].consignee">
-      <input ng-disabled="true" class="input-msg input-msg1 form-text" type="tel" name="telephone" placeholder="手机号码" ng-model="order.receivers[0].telephone">
-      <textarea ng-disabled="true" rows="2" name="address" style="height:6em" class="input-msg input-msg1 form-textarea" ng-model="order.receivers[0].address"></textarea>-->
   	<div class="state-info">
   		<span>礼物已被领取</span>
   		<span>等待商家发货</span>
@@ -37,7 +34,7 @@
   	</div>
 	
     <div class="footer-btn">
-        <a ui-sref="gift.list" class="btn-receive button-success btn-logistic">继续送礼</a>
+        <a ui-sref="gift.list" class="btn-receive button-success btn-logistic btn-pink">继续送礼</a>
     </div>
   </form>
 </div>

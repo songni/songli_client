@@ -1,99 +1,89 @@
 <div class="listgift" infinite-scroll='gifts.nextPage()' infinite-scroll-disabled='gifts.busy' infinite-scroll-distance='1'>
-    <div ng-repeat="order in gifts.items" ng-click="link(order.id)" style="margin-top:15px">
-        <!-- 多人订单 -->
-        <div class="trade-group" ng-show="order.capacity > 1">
-            <!--<div class="card">
-                <span class="trade-status-green">{{order.receivers.length}}人已领取</span>
-                <span class="trade-date" ng-bind="order.time.add | date:'yyyy-MM-dd'"></span>
-            </div>-->
-            <div class="card trade-content">
-            	<div class="order-header">
-            		<div class="header-left">
-            			<img class="trade-img" src="https://img.91pintuan.com/songli/icon-herf/present_sent_demo.png" 
-            				 ng-src="{{'http://' + apiCfg.phtUri + order.gift.info.cover}}">
-            		</div>
-            		<div class="header-right">
-            			<span ng-bind="order.gift.info.name"></span>
-            		</div>
-            	</div>
-                <div class="order-content">
-                    <ul class="orderlist">
-                    	<li class="list-li">
-                    		<span class="listname">单价：</span>
-                    		<span class="listnum">{{order.gift.info.price | currency}}</span>
-                    		<span class="num">x{{order.capacity}}</span>
-                    	</li>
-                    	<li class="clear"></li>
-                    	<li class="list-li">
-                    		<span class="listname">支付金额：</span>
-                    		<span class="listnum">{{order.gift.info.price * order.capacity | currency}}</span>
-                    	</li>
-                    	<li class="clear"></li>
-                    	<li class="list-li">
-                    		<span class="listname">下单时间：</span>
-                    		<span class="listnum">{{order.time.add | date:'yyyy-MM-dd HH:MM:ss'}}</span>
-                    	</li>
-                    	<li class="clear"></li>
-                    </ul>
-                </div>
-                <div class="order-code">
-                	<span class="code">订单号 {{order.serial}}</span>
-                	<span class="icon-r"><img class="spanimg" src="assets/images/right.png" alt="" /></span>
-                </div>
-            </div>
+  <div ng-repeat="order in gifts.items" ng-click="link(order.id)" style="margin-top:15px">
+    <!-- 多人订单 -->
+    <div class="trade-group" ng-show="order.capacity > 1">
+      <div class="card trade-content">
+      	<div class="order-header">
+      		<div class="header-left">
+      			<img class="trade-img" src="https://img.91pintuan.com/songli/icon-herf/present_sent_demo.png" 
+      				 ng-src="{{'http://' + apiCfg.phtUri + order.gift.info.cover}}">
+      		</div>
+      		<div class="header-right">
+      			<span ng-bind="order.gift.info.name"></span>
+      		</div>
+      	</div>
+        <div class="order-content">
+          <ul class="orderlist">
+          	<li class="list-li">
+          		<span class="listname">单价：</span>
+          		<span class="listnum">{{order.gift.info.price | currency}}</span>
+          		<span class="num">x{{order.capacity}}</span>
+          	</li>
+          	<li class="clear"></li>
+          	<li class="list-li">
+          		<span class="listname">支付金额：</span>
+          		<span class="listnum">{{order.gift.info.price * order.capacity | currency}}</span>
+          	</li>
+          	<li class="clear"></li>
+          	<li class="list-li">
+          		<span class="listname">下单时间：</span>
+          		<span class="listnum">{{order.time.add | date:'yyyy-MM-dd HH:MM:ss'}}</span>
+          	</li>
+          	<li class="clear"></li>
+          </ul>
         </div>
-        <!-- 单人订单 -->
-        <div class="trade-group" ng-show="order.capacity ==1 ">
-            <!--<div class="card">
-                <span>送给 </span>
-                <span class="trade-name">{{order.receivers[0].name}}</span>
-                <span class="trade-date" ng-bind="order.time.add | date:'yyyy-MM-dd'"></span>
-            </div>-->
-            <div class="card trade-content">
-            	<div class="order-header">
-            		<div class="header-left">
-            			<img class="trade-img" src="https://img.91pintuan.com/songli/icon-herf/present_sent_demo.png" 
-            				 ng-src="{{'http://' + apiCfg.phtUri + order.gift.info.cover}}">
-            		</div>
-            		<div class="header-right">
-            			<span ng-bind="order.gift.info.name"></span>
-            		</div>
-            	</div>
-            	<div class="order-content">
-                    <ul class="orderlist">
-                    	<li class="list-li">
-                    		<span class="listname">单价：</span>
-                    		<span class="listnum">{{order.gift.info.price | currency}}</span>
-                    		<span class="num">x{{order.capacity}}</span>
-                    	</li>
-                    	<li class="clear"></li>
-                    	<li class="list-li">
-                    		<span class="listname">支付金额：</span>
-                    		<span class="listnum">{{order.gift.info.price * order.capacity | currency}}</span>
-                    	</li>
-                    	<li class="clear"></li>
-                    	<li class="list-li">
-                    		<span class="listname">下单时间：</span>
-                    		<span class="listnum">{{order.time.add | date:'yyyy-MM-dd HH:MM:ss'}}</span>
-                    	</li>
-                    	<li class="clear"></li>
-                    </ul>
-               </div>
-               <div class="order-code">
-                	<span class="code">订单号 {{order.serial}}</span>
-                	<span class="icon-r"><img class="spanimg" src="assets/images/right.png" alt="" /></span>
-               </div>
-               <!--礼物领取状态-->
-               <!--<div class="order-state">
-                	<span class="" ng-if="!order.status.read" ng-bind="order.status.shipping?'已发货':'未发货'"></span>
-                	<span class="" ng-if="order.status.read">已收货</span>
-                	<span class="num" ng-if="order.express">
-                		快递单号:<span style="color:#FFC125;" ng-bind="order.receivers[0].express.no"></span>
-                	</span>
-                </div>-->
-            </div>
+        <div class="order-code">
+        	<span class="code">订单号 {{order.serial}}</span>
+        	<span class="icon-r"><img class="spanimg" src="https://img.91pintuan.com/songli/client/poi-right.png" alt="" /></span>
         </div>
-        
+      </div>
     </div>
+    <!-- 单人订单 -->
+    <div class="trade-group" ng-show="order.capacity ==1 ">
+      <div class="card trade-content">
+      	<div class="order-header">
+      		<div class="header-left">
+      			<img class="trade-img" src="https://img.91pintuan.com/songli/icon-herf/present_sent_demo.png" 
+      				 ng-src="{{'http://' + apiCfg.phtUri + order.gift.info.cover}}">
+      		</div>
+      		<div class="header-right">
+      			<span ng-bind="order.gift.info.name"></span>
+      		</div>
+      	</div>
+      	<div class="order-content">
+            <ul class="orderlist">
+            	<li class="list-li">
+            		<span class="listname">单价：</span>
+            		<span class="listnum">{{order.gift.info.price | currency}}</span>
+            		<span class="num">x{{order.capacity}}</span>
+            	</li>
+            	<li class="clear"></li>
+            	<li class="list-li">
+            		<span class="listname">支付金额：</span>
+            		<span class="listnum">{{order.gift.info.price * order.capacity | currency}}</span>
+            	</li>
+            	<li class="clear"></li>
+            	<li class="list-li">
+            		<span class="listname">下单时间：</span>
+            		<span class="listnum">{{order.time.add | date:'yyyy-MM-dd HH:MM:ss'}}</span>
+            	</li>
+            	<li class="clear"></li>
+            </ul>
+         </div>
+         <div class="order-code">
+          	<span class="code">订单号 {{order.serial}}</span>
+          	<span class="icon-r"><img class="spanimg" src="https://img.91pintuan.com/songli/client/poi-right.png" alt="" /></span>
+         </div>
+         <!--礼物领取状态-->
+         <!--<div class="order-state">
+          	<span class="" ng-if="!order.status.read" ng-bind="order.status.shipping?'已发货':'未发货'"></span>
+          	<span class="" ng-if="order.status.read">已收货</span>
+          	<span class="num" ng-if="order.express">
+          		快递单号:<span style="color:#FFC125;" ng-bind="order.receivers[0].express.no"></span>
+          	</span>
+          </div>-->
+      </div>
+    </div>
+  </div>
 </div>
 </div>

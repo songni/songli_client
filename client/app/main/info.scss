@@ -1,10 +1,10 @@
-$primary_color: #8fc31f;
+$primary_color: #E25A48;
 $text_color: #CACACA;
 $info_header_height: 385px;
 
 .info_container{
 	margin: -95px -28px 0px -28px;
-	font-family: '微软雅黑'
+	font-family: '微软雅黑';
 }
 .info_header{
 	background: $primary_color;
@@ -27,16 +27,3 @@ $info_header_height: 385px;
 		}
 	}
 }
-// .info_secondary_title{
-// 	font-size: 16px;
-// }
-// .info_primary_title{
-// 	font-size: 22px;
-// }
-// .info_text{
-// 	color: $text_color;
-// 	font-size: 16px;
-// }
-// .primary_color{
-// 	color: $primary_color;
-// }

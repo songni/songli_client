@@ -2,11 +2,7 @@
 
 angular.module('clientApp')
 
-.controller('GiftMyCtrl', function($scope, $rootScope, $state, GiftOrder) {
-    //页面body背景色
-    $rootScope.isBody1 = true;
-    $rootScope.isBody2 = false;
-    
+.controller('GiftMyCtrl', function($scope, $rootScope, $state, GiftOrder) {    
     //$rootScope.title = "我的大礼包列表";
     $scope.apiCfg = window.SONGNI_CFG_API;
             
@@ -25,10 +21,6 @@ angular.module('clientApp')
 // Gift Listen
 // $state.is('order.detail.info')
 .controller('GiftOrderDetailCtrl', function($scope, $rootScope, $state, $stateParams, $timeout, $window, RestGiftOrder, order, Alert) {
-	//页面body背景色
-    $rootScope.isBody1 = true;
-    $rootScope.isBody2 = false;
-    
     //$rootScope.title = '收听好友的大礼包';
     $scope.innerHeight = $window.innerHeight;
     $scope.innerWidth = $window.innerWidth;
@@ -126,10 +118,7 @@ angular.module('clientApp')
 })
 
 .controller('GiftShippedCtrl', function ($scope,$rootScope, order) {
-	//页面body背景色
-    $rootScope.isBody1 = true;
-    $rootScope.isBody2 = false;
-    
+   
    var receivers = [];
     angular.forEach(order.receivers, function (receiver) {
         var status = receiver.status;
@@ -137,15 +126,11 @@ angular.module('clientApp')
             receivers.push(receiver);
         }
     });
-    alert(JSON.stringify(receivers[1]));
+//  alert(JSON.stringify(receivers[1]));
     $scope.receivers = receivers;
 })
 
-.controller('GiftListenedCtrl', function ($scope,$rootScope, order) {
-	//页面body背景色
-    $rootScope.isBody1 = true;
-    $rootScope.isBody2 = false;
-	
+.controller('GiftListenedCtrl', function ($scope,$rootScope, order) {	
     var receivers = [];
     angular.forEach(order.receivers, function (receiver) {
         var status = receiver.status;
@@ -158,10 +143,6 @@ angular.module('clientApp')
 })
 
 .controller('GiftReceivedCtrl', function ($scope,$rootScope, order) {
-	//页面body背景色
-    $rootScope.isBody1 = true;
-    $rootScope.isBody2 = false;
-	
     var receivers = [];
     angular.forEach(order.receivers, function (receiver) {
         // var status = receiver.status;

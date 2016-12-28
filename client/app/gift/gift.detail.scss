@@ -1,18 +1,18 @@
 /*产品 礼物详情*/
-.present-group{background: #FFFFFF;margin-top: -5px;padding: 29px 10px 23px 23px;border-top: 5px solid #F2F2F2;}
+.present-group{background: #FFFFFF;margin-top: -5px;padding: 19px 18px 23px 22px;}
 .present-detail{
     margin: -95px -15px -5px -15px;
     background: #FFFFFF;
 }
-.present-detail-img{background-color: #FFFFFF;padding: 6px;margin-top: 16px;}
+.present-detail-img{background-color: #FFFFFF;padding: 4px;margin-top: 16px;}
 .present-detail-img img{width:100%;}
 .present-detail-summary .name{font-size:20px;margin:0;color: #231815;}
-.present-detail-summary .lead{font-size:14px;margin-top:11px;color: #898989;}
+.present-detail-summary .lead{font-size:14px;margin-top:8px;color: #B5B5B6;margin-bottom: 8px;line-height: 16px;}
 .present-price{font-size:18px;margin-top: 10px;}
 .separate-left{float:left;}
 .separate-right{float:right;}
 .present-summary-bottom{margin-top:10px; }
-.present-summary-bottom .separate-left{font-size:20px;font-weight:bolder;}
+.present-summary-bottom .separate-left{font-size:22px;font-weight:bolder;margin-left: -5px;}
 .present-summary-bottom .separate-right{font-size:14px;}
 .trade-status-h{color: #898989;}
 .benedictory-title{margin-bottom: 10px;}
@@ -23,13 +23,22 @@
 .gift-detail .hr{top: -1px;right:0;}
 .gift-detail  img{width:100%;}
 .gift-detail .title-img{width: 33%;}
-.gift-detail p{text-align:left;font-size:14px;line-height:20px;padding: 0 15px;margin-bottom: -10px;}
+.gift-detail p{text-align:left;font-size:14px;line-height:16px;padding: 0 2px;margin-bottom: -10px;}
 .gift-detail p > img {width: 100%;margin-bottom: -10px;}
 .height-60{height: 60px;background: #F2F2F2;margin-top: -15px;padding-bottom: 20px;}
     /*[送礼页面]按钮*/
-.btn-left {left: 0;right: 0;margin: 0 !important;padding-left: 4%;}
-.bottom-btn{position: fixed;bottom:0;background-color: #FFF;padding:0 4%;width:100%;height: 65px;margin-left:-4%;}
-.double-col .button{width:45%;margin-top: 10px;border-radius: 4px;}
+.btn-left {left: 0;right: 0;margin: 0 !important;}
+.bottom-btn{
+  position: fixed;
+  bottom:0;
+  background-color: #FFF;
+//padding:0 4%;
+  width:100%;
+  height: 65px;
+  margin-left:-4%;
+  border-top: 0.5px solid #DCDDDD;
+}
+.double-col .button{width:40%;margin-top: 12px;border-radius: 3px;}
 .bottom-btn .btn-one{background: #8FC31F;color: #FFFFFF;}
 .bottom-btn .btn-more{background: #F8B62D;color: #FFFFFF;}
 .bottom-btn .btn-ml{width: 93%;background: #8FC31F;color: #FFFFFF;}
@@ -64,7 +73,18 @@
     padding-left: 5px;
     padding-right: 5px;
 }
-.btn-pay{background: #8FC31F;color: #FFFFFF;border-radius: 4px;}
-//礼物列表
-.present-lists{margin: -100px -28px 0 -28px;background: #FFFFFF;}
-.zfy{font-size: 14px}
+.btn-pay{background: #f05b47;color: #FFFFFF;border-radius: 4px;}
+.zfy{
+  font-size: 14px;
+  span:first-child{
+    img{
+      width: 12px;
+      vertical-align: -2px;
+    }
+  }
+}
+.btn-height40{height: 40px !important;line-height: 40px !important;}
+.btn-margin-left{margin-left: 9% !important;}
+.btn-right-pink{float: right;margin-right: 9% !important; }
+.btn-margin-left:hover{background: #f04f43 !important;}
+.btn-right-pink:hover{background: #f8856c !important;}

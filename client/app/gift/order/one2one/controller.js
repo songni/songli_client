@@ -279,7 +279,7 @@ angular.module('clientApp')
     var desc = order.gift.info.name;
     //var img = 'http://p1.ifindu.cn/crop/w_120/h_120'+order.gift.info.cover;
     var img = order.gift.info.cover ? 'http://' + SONGNI_CFG_API.phtUri + order.gift.info.cover : 'http://7xkeqi.com1.z0.glb.clouddn.com/songni%2F%E5%9B%BE%E7%89%87-%E4%BA%AB%E9%93%BE%E6%8E%A5.png';
-    var timeline = title + ',' + desc;
+    var timeline = title + desc;
     Wechat.ready({
         url: url,
         title: title,

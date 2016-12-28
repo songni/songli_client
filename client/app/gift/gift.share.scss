@@ -1,54 +1,111 @@
-.section{background-size: cover;}
-/* Defining each section background and styles
-* --------------------------------------- */
-.section0{
-    background-image: url(../images/guide/bg1.jpg);
-    background-size:100% 100%;
-}
-.section1{
-    background-image: url(../images/guide/bg2.jpg);
-    background-size:100% 100%;
-}
-.section2{
-    background-image: url(../images/guide/bg3.jpg);
-    background-size:100% 100%;
-}
-.section3{
-    background-image: url(../images/guide/bg4.jpg);
-    background-size:100% 100%;
-}
-/**最后一页*/
-.section-last{background-color: #8FC31F;padding: 25px 10px 0 10px;margin: 0 -20px;overflow-x: hidden;}
-.show-head{text-align: center;margin-bottom: -80px;}
-.gift-img{width: 169px;height: 167px;border: 2px solid #FFFFFF;border-radius: 10px;}
-.gift-name{width: 245px;color: #B8B8B9;display: block;font-size: 14px;margin: 0 auto;margin-top: 15px;}
-.show-box{background-color:#FFFFFF;border-radius: 4px;padding:5px;text-align:center;margin-top: -30px;}
-.white-box{
-  background-color: #FFF;
-  color:#373535;
-  font-size:14px;
-  height: 40px;
-  line-height: 40px;
-  padding-left: 60px;
-  .box-img{
-    width: 22px;
-    height: 22px;
-    display: block;
-    margin-top: 9px;
-    float: left;
-    margin-right: 5px;
-    img{
-      width: 100%;
-      height: 100%;
-      vertical-align: top;
+.gift-share{
+  margin-top: 0;
+  background: #F05B47;
+  .imgBackground{
+    img{width: 100%;}
+  }
+  .show-head{
+    background: #FFFFFF;
+    text-align: center;
+    margin-left: -5px;
+    margin-right: -5px;
+    border-radius: 4px 4px 0 0;
+    .gift-img{
+      width: 169px;
+      height: 167px;
+      border: 2px solid #FFFFFF;
+      border-radius: 10px;
+      margin-top: -80px;
+    }
+    .gift-name{
+      width: 225px;
+      color: #B8B8B9;
+      display: block;
+      font-size: 14px;
+      margin: 0 auto;
+      margin-top: 15px;
+    } 
+  }
+  .show-box{
+    background-color:#FFFFFF;
+    margin-left: -5px;
+    margin-right: -5px;
+    padding:5px;
+    text-align:center;
+    .white-box{
+//    margin-top: 15px;
+      background-color: #FFF;
+      color:#373535;
+      font-size:14px;
+      height: 40px;
+      .center{
+        height: 17px;
+        margin: 0 auto;
+        line-height: 20px;
+        padding-left: 40px;
+        padding-top: 12px;
+        .box-img{
+          width: 13px;
+          display: block;
+          float: left;
+          margin-right: 5px;
+          img{
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+          }
+        }
+        .box-title{
+          float: left;
+          color: #F89775;
+        }
+      }
+    }
+    // 跑马灯
+    .marquee{
+      height:160px;
+      overflow: hidden;
+      margin: 0 20px;
+      margin-top: 5px;
+      background: #F7F8F8;
+      .scroll-box{
+        list-style-type: none;
+        padding-left:4px;
+        text-align:left;
+        margin-left:10px;
+        position: relative;
+        top: 0;
+        li{
+          line-height:40px;
+          padding-left: 10px;
+        }
+        img{
+          width:25px;
+          border-radius: 100%;
+          vertical-align:middle;
+        }
+        span{
+          font-size:14px;
+          margin-left:10px;
+          color:#7C7C7C;
+        }
+      }
     }
   }
-  .box-title{float: left;}
-  .box-r{
-    display: block;
-    float: left;
-    color: #231815;
-    font-size: 16px !important;
+  .btn-send{
+    padding-top: 30px;
+    padding-bottom: 50px;
+    border-radius: 0 0 4px 4px;
+    background: #FFFFFF;
+    margin-left: -5px;
+    margin-right: -5px;
+    text-align: center;
+    .btn{
+      width: 45%;
+      height: 45px;
+      background: #F05B47;
+      border-radius: 45px;
+    }
   }
 }
 @media screen and (min-width: 319px) and (max-width: 374px){
@@ -56,34 +113,3 @@
     .box-r{font-size: 14px !important;}
   }
 }
-.scroll-box{list-style-type: none;padding-left:4px;text-align:left;margin-left:10px;}
-.scroll-box li{line-height:40px;padding-left: 10px;}
-.scroll-box img{width:25px;border-radius: 100%;vertical-align:middle;}
-.scroll-box span{
-  font-size:14px;
-  margin-left:10px;
-  color:#7C7C7C;
-
-}
-.marquee{height:200px;overflow: hidden;margin: 20px 35px;margin-top: 5px;background: #F7F8F8;}
-#marquee_content{position: relative;top: 0;}
-.guide-bottom p{text-align:center;font-size:14px;color:#ABABAB;}
-.double-col .btns{width:80%;}
-.double-col .button-action{margin:30px auto 10px auto;display: block;}
-.double-col .button-highlight{margin:10px auto;display: block;}
-.btn-giftlist{
-    width: 286px !important;
-    height: 45px !important;
-    background: #8FC31F;
-    color: #FFFFFF;
-    border-radius: 4px;
-    display: block !important;
-    margin: 30px auto !important;
-}
-.btn-gift {
-    background: #fff;
-    padding: 20px 0;
-    padding-top: 80px;
-    border-radius: 4px 4px 0 0;
-}
-

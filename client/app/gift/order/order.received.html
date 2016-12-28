@@ -26,8 +26,8 @@
         <div class="footer-btn">
           <!--送礼人打开的id = 微信用户的id-->
           <!--<icon-href theme="white"></icon-href>-->
-          <a ng-if="$ctrl.isSender" ui-sref="gift.list" class="btn-receive button-success btn-logistic">继续送礼</a>
-          <a ng-if="!$ctrl.isSender" ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="btn-receive button-success btn-logistic">我也要送</a>
+          <a ng-if="$ctrl.isSender" ui-sref="gift.list" class="btn-receive button-success btn-logistic btn-red">继续送礼</a>
+          <a ng-if="!$ctrl.isSender" ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="btn-receive button-success btn-logistic btn-red">我也要送</a>
         </div>
       </div>
 		</div>
@@ -56,7 +56,7 @@
         </div>
         <div class="head-content">
           <p class="receive-present-text">你已成功领取{{$ctrl.order.sender.info.nickname}}的礼物，等待商家发货吧。不要忘了除了礼物{{$ctrl.order.sender.info.nickname}}还对你说了一段话，收到礼物时扫描语音码，听听ta都说了些什么吧。 </p>
-				  <a ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="button button-success btn-logistic">我也要送</a>
+				  <a ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="button button-success btn-logistic btn-red">我也要送</a>
         </div>
 			</div>
 		</div>
@@ -87,7 +87,7 @@
 					<div class="footer-btn">
 						<!--送礼人打开的id = 微信用户的id-->
 						<!--<icon-href theme="white"></icon-href>-->
-						<a ui-sref="gift.list" class="button">继续送礼</a>
+						<a ui-sref="gift.list" class="button btn-red">继续送礼</a>
 					</div>
 				</div>
 			</div>
@@ -105,7 +105,7 @@
 			<!--使用状态-->
 			<div class="use-state" ng-if="$ctrl.suborder">
 				<span>礼物券已被领取</span>
-				<span ng-bind="$ctrl.suborder.status.shipping ? '已使用' : '未使用' "></span>
+				<span class="color-pink" ng-bind="$ctrl.suborder.status.shipping ? '已使用' : '未使用' "></span>
 			</div>
 			<!--二维码-->
 			<div class="gift-code" ng-if="$ctrl.suborder">

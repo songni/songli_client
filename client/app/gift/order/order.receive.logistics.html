@@ -29,8 +29,8 @@
 			<p ng-show="$ctrl.giftAddrForm.address.$error.maxlength && $ctrl.submitted" class="help-block">* 配送地址字数太多.</p>
 		</div>
 		
-		<button  type="submit" class="button btn-comm btn-wc btn-green">完成</button>
-		<button ng-if="$ctrl.isShare" class="button btn-comm btn-share btn-yellow"  ng-click="$ctrl.share()">不知道地址，发给好友填写</button>
+		<button  type="submit" class="button btn-comm btn-wc btn-green button-yellow">完成</button>
+		<button ng-if="$ctrl.isShare" class="button btn-comm btn-share btn-red"  ng-click="$ctrl.share()">不知道地址，发给好友填写</button>
 		<br>
 	</div>
 </form>

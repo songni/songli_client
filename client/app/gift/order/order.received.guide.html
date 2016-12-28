@@ -21,7 +21,7 @@
       <!--收礼人-->
       <div ng-if="$ctrl.isReceiver">
         <p class="left-count">你已领取礼物 </p>
-        <p class="head-send-status" ui-sref="order.detail.received-result({id: $ctrl.order.id})" >查看礼物详情</p>
+        <p class="head-send-status color-pink" ui-sref="order.detail.received-result({id: $ctrl.order.id})" >查看礼物详情</p>
       </div>
       <!--其他人-->
       <div ng-if="!$ctrl.isSender && !$ctrl.isReceiver && $ctrl.receivedAll">
