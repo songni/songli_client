@@ -70,7 +70,7 @@
         <a href="#" class="button btn-bg btn-fill btn-red" ng-click="$ctrl.fill()">领取礼物</a>
       </div>
       <div ng-if="!$ctrl.isAvailable">
-        <a ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="button button-success btn-fill button-yellow">我也要送</a>
+        <a ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="button button-success btn-fill button-yellow">我也要送礼</a>
       </div>
       <span class="receive-more-poi" ng-if="$ctrl.type === 'one2many' && $ctrl.order.gift.scene === 'poi'  ">领取后到店使用</span>
     </div>

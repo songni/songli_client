@@ -48,12 +48,12 @@
         <p class="receive-vcode"><span><img src="https://img.91pintuan.com/songli/client/vcode-icon.png"></span><span>到店使用时请向商家出示二维码</span></p>
         <div class="btn-group">
           <a ui-sref="order.detail.received-result({id: $ctrl.order.id})" class="button btn-bg btn-green">立即使用</a>
-          <a ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="button btn-bg btn-yellow">我也要送</a>
+          <a ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="button btn-bg btn-yellow">我也要送礼</a>
         </div>
       </div>
       <div ng-if="!$ctrl.isSender && !$ctrl.isReceiver && $ctrl.receivedAll">
         <div class="btn-group">
-          <a ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="button btn-bg button-yellow btn-logistic">我也要送</a>
+          <a ui-sref="gift.detail({id: $ctrl.order.gift.id})" class="button btn-bg button-yellow btn-logistic">我也要送礼</a>
         </div>
       </div>
     </div>

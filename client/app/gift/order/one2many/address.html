@@ -35,7 +35,7 @@
         ng-if=" !order.receivers || !order.receivers.length || (order.receivers.length && order.receivers.length !== order.capacity) "
         ng-click="share()" 
         ng-class="{'btn-no' :order.receivers.length === order.capacity}"
-        class="button btn-bg btn-fill">
+        class="button btn-bg btn-fill btn-red">
           {{ order.receivers && order.receivers.length ? '继续送礼' : '开始送礼' }}
       </a>
       <!--礼物被抢完时-->
