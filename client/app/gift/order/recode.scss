@@ -42,7 +42,7 @@ input{
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 // [--送一人--]
-.sound-one{margin: -69px -4px;background: #F7F7F7;}
+.sound-one{margin: -69px -4px;background: #F7F7F7;margin-bottom: 20px;padding-bottom: 20px;}
 .to-who {
     padding: 64px 5% 20px 5%;
     background-color: #FFFFFF;
@@ -72,7 +72,7 @@ input{
     font-size: 13px !important;
 }
 // [-- 送多人 --]
-.sound-more{margin: -69px -5px;background: #F7F7F7;}
+.sound-more{margin: -69px -5px;background: #F7F7F7;margin-bottom: 20px;}
 .to-who-count {
     background-color: #F7F8F8;
     text-align: center;

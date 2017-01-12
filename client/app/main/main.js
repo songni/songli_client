@@ -15,6 +15,7 @@ angular.module('clientApp')
             })
             .state('info', {
                 url: '/info',
+                controller: 'InfoCtrl',
                 templateUrl: 'app/main/info.html'
             });
     });

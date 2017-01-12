@@ -1,68 +1,86 @@
-<div class="sound-record sound-more" ng-style="{height:innerHeight-54+'px'}">
-    <div class="to-who to-more">
-        <img class="img" src="https://img.91pintuan.com/songli/gift_copies-more.png" />
+<div class="sound-record sound-more">
+  <div ng-if="order.status.bigpack" class="bigpack_recoding">
+    <div class="start_recoding">
+      <!--<img ng-if="order.sender && order.sender.info.headimgurl" ng-src="{{order.sender.info.headimgurl}}" />
+      <img ng-if="!order.sender && !order.sender.info.headimgurl"  ng-src="{{ merchant.pubno.head_img }}" />-->
+      <img ng-if="user && user.photo" ng-src="{{ user.photo }}" alt="" />
+      <span>请开始录音</span>
+    </div>
+  </div>
+  <div ng-if="!order.status.bigpack" class="to-who to-more">
+    <img class="img" src="https://img.91pintuan.com/songli/gift_copies-more.png" />
+    <br>
+    <div class="to-who-count">
+      <div class="input-group">
+      	 <!--左减-->
+        <span class="input-group-btn input-left">
+        <button type="button" ng-click="reduCapacity()" class="btn btn-success btn-number btn-left" >
+          <span>&minus;</span>
+        </button>
+        </span>
+        <!--输入框-->
+        <span class="input-middle">
+        	<input type="number" ng-model="giftOrderCapacity" pattern="\d*" class="form-control input-number" placeholder="2" min="2">
+        </span>
+        <!--右加-->
+        <span class="input-group-btn input-right">
+        <button type="button" ng-click="incrCapacity()" class="btn btn-success btn-number" data-type="plus" >
+          <span>+</span>
+        </button>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="voice-box">
+    <div class="voice-process">
+      <img src="https://img.91pintuan.com/songli/word-zhufu_newyear.png" />
+      <timer interval="1000" countdown="60" autostart="false">
+        <div class="progress">
+          <div class="progress-active" id="pro" aria-valuenow="{{countdown}}" aria-valuemin="0" aria-valuemax="60" style="width: {{progressBar?progressBar:0}}%;">
+          </div>
+        </div>
+        <span class="label" id="second" style="text-align:right; display: block">{{countdown === 60?'&nbsp;':(60-countdown)+'S'}}</span>
+      </timer>
+    </div>
+    <!-- 开始录音 -->
+    <div id="record-before" ng-if="status.stop">
+      <img src="https://img.91pintuan.com/songli/record.png" ng-click="record()" />
+      <br>
+      <span class="hint">点击开始录音</span>
+    </div>
+    <!-- 结束录音 -->
+    <div id="record-before" ng-if="status.start">
+      <img src="https://img.91pintuan.com/songli/re_stop.png" ng-click="stop()" />
+      <br>
+      <span class="hint">结束录音</span>
+    </div>
+    <!-- 调试录音 -->
+    <div id="record-after" ng-if="status.record">
+      <div class="left-button" ng-click="playVoice()">
+        <img src="https://img.91pintuan.com/songli/play_red.png" />
         <br>
-        <div class="to-who-count">
-            <div class="input-group">
-            	<!--左减-->
-                <span class="input-group-btn input-left">
-	              <button type="button" ng-click="reduCapacity()" class="btn btn-success btn-number btn-left" >
-	                <span>&minus;</span>
-	              </button>
-                </span>
-                <!--输入框-->
-                <span class="input-middle">
-                	<input type="number" ng-model="giftOrderCapacity" pattern="\d*" class="form-control input-number" placeholder="2" min="2">
-                </span>
-                <!--右加-->
-                <span class="input-group-btn input-right">
-	              <button type="button" ng-click="incrCapacity()" class="btn btn-success btn-number" data-type="plus" >
-	                <span>+</span>
-	              </button>
-                </span>
-            </div>
-        </div>
+        <label class="hint">播放</label>
+      </div>
+      <div class="left-button" ng-click="rerecord()">
+        <img src="https://img.91pintuan.com/songli/re_record.png" />
+        <br>
+        <label class="hint">重录</label>
+      </div>
+      <div class="right-button" ng-click="save()">
+        <img src="https://img.91pintuan.com/songli/next_step.png" />
+        <br>
+        <label class="hint">下一步</label>
+      </div>
     </div>
-    <div class="voice-box">
-        <div class="voice-process">
-            <img src="https://img.91pintuan.com/songli/word-zhufu_newyear.png" />
-            <timer interval="1000" countdown="60" autostart="false">
-                <div class="progress">
-                    <div class="progress-active" id="pro" aria-valuenow="{{countdown}}" aria-valuemin="0" aria-valuemax="60" style="width: {{progressBar?progressBar:0}}%;">
-                    </div>
-                </div>
-                <span class="label" id="second" style="text-align:right; display: block">{{countdown === 60?'&nbsp;':(60-countdown)+'S'}}</span>
-            </timer>
-        </div>
-        <!-- 开始录音 -->
-        <div id="record-before" ng-if="status.stop">
-            <img src="https://img.91pintuan.com/songli/record.png" ng-click="record()" />
-            <br>
-            <span class="hint">点击开始录音</span>
-        </div>
-        <!-- 结束录音 -->
-        <div id="record-before" ng-if="status.start">
-            <img src="https://img.91pintuan.com/songli/re_stop.png" ng-click="stop()" />
-            <br>
-            <span class="hint">结束录音</span>
-        </div>
-        <!-- 调试录音 -->
-        <div id="record-after" ng-if="status.record">
-            <div class="left-button" ng-click="playVoice()">
-                <img src="https://img.91pintuan.com/songli/play_red.png" />
-                <br>
-                <label class="hint">播放</label>
-            </div>
-            <div class="left-button" ng-click="rerecord()">
-                <img src="https://img.91pintuan.com/songli/re_record.png" />
-                <br>
-                <label class="hint">重录</label>
-            </div>
-            <div class="right-button" ng-click="save()">
-                <img src="https://img.91pintuan.com/songli/next_step.png" />
-                <br>
-                <label class="hint">下一步</label>
-            </div>
-        </div>
+  </div>
+  <div class="recoding_desc more-people">
+    <div class="poi" ng-if="(status.stop || status.start) && (order.gift.scene === 'poi' || gift.status.poi) ">
+      <span>录制一段语音，收礼人到店领取该礼物时</span>
+      <span>即可听到你的话</span>
     </div>
+    <div class="logistics" ng-if="(status.stop || status.start) && (order.gift.scene === 'logistics' || gift.status.logistics) ">
+      <span>录制一段语音，收礼人收到礼物后</span>
+      <span>扫描语音码，即可听到你的话</span>
+    </div>
+  </div>
 </div>

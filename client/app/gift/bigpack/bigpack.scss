@@ -1,0 +1,190 @@
+// commons page style
+.pad-top{padding-top: 0 !important;}
+.pack_title{
+  width: 100%;
+  height: 60px;
+  background: #f7f7f7;
+  border-radius: 4px 4px 0 0;
+  span{
+    display: block;
+    float: left;
+  }
+  span:first-child{
+    width: 45px;
+    height: 60px;
+    vertical-align: top;
+    img{
+      width: 30px;
+      height: 30px;
+      margin-left: 15px;
+      margin-top: 15px;
+    }
+  }
+  span:last-child{
+    color: #898989;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-left: 7px;
+  }
+}
+// bigpack detail page
+.bigpack{
+  padding-bottom: 20px;
+  .detail{
+    width: 100%;
+    height: 200px;
+    .order_id{
+      text-align: center;
+      color: #b7bdcb;
+      font-size: 14px;
+      padding-top: 20px;
+      padding-bottom: 5px;
+    }
+    .order_img{
+      position: relative;
+      border: 5px solid #f7f7f7;
+      margin: 0 auto;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .title_price{
+        position: absolute;
+        bottom: 0;  
+        height: 70px;
+        background: rgba(0, 0, 0, 0.5);
+        span{display: block;color: #ffffff;}
+        span:first-child{
+        font-size: 14px;
+        margin: 15px 2px 5px 15px;
+        white-space: pre;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        }
+        span:last-child{
+          font-size: 20px;
+          margin-left: 12px;
+        }
+      }
+    }
+    .order_num{
+      text-align: center;
+      font-size: 24px;
+      padding: 40px 0 20px 0;
+    }
+    .order_btn{
+      text-align: center;
+      .btn_start{
+        width: 45%;
+        height: 45px;
+        background: #f05b47;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        color: #ffffff;
+      }
+      .btn_end{
+        background: #b7bdcb;
+      }
+    }
+    .des_info{
+      span{
+        display: block;
+        text-align: center;
+        color: #b7bdcb;
+        font-size: 14px;
+      }
+      span:first-child{
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+// bigpack subscribe page
+.bigpack_sunscribe{
+  padding-bottom: 65px;
+  .mer_code{
+    .explain{
+      text-align: center;
+      span{
+        display: block;
+        color: #f05b47;
+      }
+      span:first-child{
+        margin-top: 75px;
+      }
+      span:last-child{
+        margin-bottom: 30px;
+      }
+    }
+    .merchant_name{
+      text-align: center;
+      color: #b7bdcb;
+      font-size: 18px;
+    }
+    .merchant_code{
+      position: relative;
+      margin: 0 auto;
+      margin-top: 10px;
+      img{width: 100%;}
+    }
+    .radius{
+      img{width: 10px;position: absolute;}
+      img:nth-child(1){top: 0;left: 0;}
+      img:nth-child(2){top: 0;right: 0;}
+      img:nth-child(3){bottom: 0;right: 0;}
+      img:nth-child(4){bottom: 0;left: 0;}
+    }
+  }
+}
+.icon-bigpack .icon-href-container{padding-top: 0 !important;}
+// 大礼包录音页面
+.bigpack_recoding{
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content:center;
+  width: 100%;
+  height: 150px;
+  background: #ffffff;
+  .start_recoding{
+    width: 165px;
+    height: 40px;
+    img{
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    span{
+      display: inline-block;
+      vertical-align: top;
+      color: #f8856c;
+      font-size: 20px;
+      margin-left: 10px;
+      line-height: 40px;
+    }
+  }
+}
+.recoding_desc{
+  width: 100%;
+  height: 30px;
+  font-size: 12px;
+  color: #c9caca;
+  text-align: center;
+  span{display: block}
+  .poi{}
+  .logistics{}
+}
+.more-people{
+  margin-top: 40px;
+  padding-bottom: 20px;
+}
+@media screen and (min-width: 375px) {
+  .bigpack{
+    min-height: 560px !important;
+  }
+}

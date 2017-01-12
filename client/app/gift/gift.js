@@ -180,6 +180,7 @@ angular.module('clientApp')
             url: '/fillin?from',
             templateUrl: 'app/gift/order/gift.receive.status.html',
             controllerProvider: function(order) {
+                console.warn(order.capacity);
                 if (order.capacity == 1) { 
                     return 'OrderAddressOne2OneCtrl';
                 }

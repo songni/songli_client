@@ -4,6 +4,7 @@ angular.module('clientApp')
 .controller('GiftRecordMultiCtrl', function($scope, $rootScope, $state, $cookies, $timeout, $uibModal, $window, Alert, Wechat) {
     //$rootScope.title = "录制大礼包";
     $scope.innerHeight = $window.innerHeight;
+    $scope.innerWidth = $window.innerWidth;
     $rootScope.moreRecode = {
     	"background" : "#F2F2F2"
     }
@@ -112,7 +113,6 @@ angular.module('clientApp')
             };
         };
         $scope.save = function() {
-
             if ($scope.giftOrderCapacity && $scope.giftOrderCapacity < 2) {
                 Alert.add('warning', '礼物份数至少是2份', 2000);
                 return;

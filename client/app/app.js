@@ -147,7 +147,9 @@ angular.module('clientApp', [
         	'order.detail.fillin-one2one',
         	'order.detail.received-result',
         	'order.detail.subscribe',
-        	'order.detail.received-guide'
+        	'order.detail.received-guide',
+        	'bigpack.detail.subscribe',
+        	'bigpack.detail.index'
         ]; 
         $rootScope.referer = $state.href(from.name, fromParams);
         document.body.scrollTop = document.documentElement.scrollTop = 0;

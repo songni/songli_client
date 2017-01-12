@@ -1,0 +1,53 @@
+<form name="giftAddrForm" novalidate>
+    <div class="sound-record sound-one" ng-style="{height:innerHeight-54+'px'}">
+        <div class="to-who">
+            <img src="https://img.91pintuan.com/songli/word_send_to.png" />
+            <br>
+            <input type="text" name="address.name" placeholder="{{giftAddrForm['address.name'].$invalid && submitted?'昵称未填写':'Ta的名字'}}" ng-model="address.name" ng-maxlength="20" required class="input-msg input-one" ng-class="{'error':giftAddrForm['address.name'].$invalid && submitted}" />
+            <p ng-show="giftAddrForm.name.$error.maxlength && submitted" class="help-block">昵称字数太多.</p>
+        </div>
+        <div class="voice-box">
+            <div class="voice-process">
+                <img src="https://img.91pintuan.com/songli/word_say_to.png" />
+                <timer interval="1000" countdown="60" autostart="false">
+                    <div class="progress">
+                        <div class="progress-active" id="pro" aria-valuenow="{{countdown}}" aria-valuemin="0" aria-valuemax="60" style="width: {{progressBar?progressBar:0}}%;">
+                        </div>
+                    </div>
+                    <span class="label" id="second" style="text-align:right; display: block">{{countdown === 60?'&nbsp;':(60-countdown)+'S'}}</span>
+                </timer>
+            </div>
+            <!-- 开始录音 -->
+            <div id="record-before">
+                <img src="https://img.91pintuan.com/songli/record.png" ng-click="record()" />
+                <br>
+                <span class="hint">点击开始录音</span>
+            </div>
+            <!-- 结束录音 -->
+            <div id="record-before" ng-if="status.start">
+                <img src="https://img.91pintuan.com/songli/re_stop.png" ng-click="stop()" />
+                <br>
+                <span class="hint">结束录音</span>
+            </div>
+            <!-- 调试录音 -->
+            <div id="record-after" ng-if="status.record">
+                <div class="left-button" ng-click="playVoice()">
+                    <img src="https://img.91pintuan.com/songli/play_red.png" />
+                    <br>
+                    <label class="hint">播放</label>
+                </div>
+                <div class="left-button" ng-click="rerecord()">
+                    <img src="https://img.91pintuan.com/songli/re_record.png" />
+                    <br>
+                    <label class="hint">重录</label>
+                </div>
+                <div class="right-button" ng-click="save()">
+                    <img src="https://img.91pintuan.com/songli/next_step.png" />
+                    <br>
+                    <label class="hint">下一步</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

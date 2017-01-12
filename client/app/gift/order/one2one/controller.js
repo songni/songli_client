@@ -2,9 +2,9 @@ angular.module('clientApp')
 
 // 送单人
 .controller('GiftRecordSingleCtrl', function($scope, $rootScope, $state, $cookies, $timeout, $uibModal, $window, Alert, Wechat) {
-    
     //$rootScope.title = "录制大礼包";
     $scope.innerHeight = $window.innerHeight;
+    $scope.address = {}
     $rootScope.bg2 = true;
     $scope.status = {
         start: false,
@@ -200,7 +200,6 @@ angular.module('clientApp')
     // }
     // impl for v1 END
     //
-
     if (order.capacity == 1 && order.receivers.length == 1) {
         // 检查一下手机号，作为对收礼人有效性的校验
         if (order.receivers[0].telephone) {

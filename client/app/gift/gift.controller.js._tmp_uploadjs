@@ -43,14 +43,7 @@ angular.module('clientApp')
             wx.onMenuShareWeibo(options);
         })
     })
-    .controller('GiftDetailCtrl', function($scope, $rootScope, $state, $uibModal, $sce, gift, Alert, Wechat) {
-      $scope.bigpack = function(){
-        console.log("1111")
-        $uibModal.open({
-          templateUrl: 'app/gift/bigpack/gift.bigpack.detail.html',
-          size: 'lg',
-        });  
-      }
+    .controller('GiftDetailCtrl', function($scope, $rootScope, $state, $sce, gift, Alert, Wechat) {
         //$rootScope.title = "大礼包";
         $scope.appid = hostname[0];        
         /**

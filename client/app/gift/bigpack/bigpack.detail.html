@@ -1,0 +1,42 @@
+<div ui-view="">
+  <div class="bigpack" style="min-height: {{screen.height}}px;">
+    <!--title-->
+    <div class="pack_title" style="width: {{screen.width - 24}}px;">
+      <span><img ng-src="{{ merchant.pubno.head_img }}"/></span>
+      <span style="width: {{screen.width - 76}}px;">商家{{ merchant.pubno.nick_name }}发给你一个大礼包 </span>
+    </div>
+    <!--订单详情-->
+    <div class="detail">
+      <!--order ID-->
+      <div class="order_id">
+        <span>订单号</span>
+        <span>{{ order.id }}</span>
+      </div>
+      <!--order img-->
+      <div class="order_img" style="width: {{screen.width/2 + 70}}px; height: {{screen.width/2 + 70}}px;">
+        <img ng-src="{{'http://' + apiCfg.phtUri + order.gift.info.cover}}" ng-if="order.gift.info.cover" />
+        <img ng-src="https://img.91pintuan.com/songli/icon-herf/present_sent_demo.png" ng-if="!order.gift.info.cover">
+        <!--order title && price-->
+        <div class="title_price" style="width: {{screen.width/2 + 70}}px;">
+          <span class="order_title">{{ order.gift.info.name }}</span>
+          <span class="order_price">{{ order.gift.info.price | currency }}</span>
+        </div>
+      </div>
+      <!--order numbers-->
+      <div class="order_num">{{ order.capacity }}份礼物</div>
+      <!--Start giving gifts-->
+      <div class="order_btn">
+        <button class="btn btn_start btn_end" ng-if="isUnavailable">该大礼包已送出</button>
+        <button class="btn btn_start" ng-if="!isUnavailable" ui-sref="bigpack.detail.record">开始送礼</button>
+      </div>
+      <!--Description information-->
+      <div class="des_info">
+        <span>点击开始送礼并完善语音信息</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!--底标-->
+<div class="icon-hrer icon-bigpack">
+  <icon-href theme="white"></icon-href>
+</div>

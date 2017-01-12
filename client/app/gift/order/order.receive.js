@@ -147,7 +147,6 @@ angular.module('clientApp')
 					}
 				})
 				modalInstance.result.then(poi => {
-					console.warn(this);
 					this.address.poi = poi;
 				})
 			}
